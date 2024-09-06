@@ -1,0 +1,6 @@
+- hosts: vpn_mgt 
+  become: true
+  roles:
+    - role: vpn_mgt
+  vars:
+    foo: bar

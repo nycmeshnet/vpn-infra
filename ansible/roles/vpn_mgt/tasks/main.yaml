@@ -1,0 +1,8 @@
+- name: Install deps
+  ansible.builtin.apt:
+    lock_timeout: 240
+    update_cache: true
+    pkg:
+      - ca-certificates
+      - bird
+      - netfilter-persistent
