@@ -4,11 +4,11 @@ permissions: read-all
 on:
   push:
     branches:
-      - main
+      - master
       - james/iac
   workflow_dispatch:
     branches:
-      - main
+      - master
 
 jobs:
   deploy_dev3:
@@ -17,7 +17,7 @@ jobs:
     with:
       environment: dev3
     secrets: inherit
-    #if: github.ref == 'refs/heads/main'
+    #if: github.ref == 'refs/heads/master'
 
   deploy_prod1:
     name: Deploy prod1
@@ -25,4 +25,4 @@ jobs:
     with:
       environment: prod1
     secrets: inherit
-    if: github.ref == 'refs/heads/main'
+    if: github.ref == 'refs/heads/master'
