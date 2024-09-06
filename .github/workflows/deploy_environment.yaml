@@ -58,7 +58,12 @@ jobs:
     
       - name: Terraform validate
         id: validate
-        run: terraform validate
+        run: |
+          echo "${{ secrets.SSH_PRIVATE_KEY }}" > vpn
+          echo "${{ secrets.SSH_PUBLIC_KEY }}" > vpn.pub
+          chmod 600 vpn
+          chmod 600 vpn.pub
+          terraform validate
         working-directory: ./terraform/
 
       - name: Setup WireGuard
@@ -83,10 +88,6 @@ jobs:
       
       - name: Terraform Apply
         run: |
-          echo "${{ secrets.SSH_PRIVATE_KEY }}" > vpn
-          echo "${{ secrets.SSH_PUBLIC_KEY }}" > vpn.pub
-          chmod 600 vpn
-          chmod 600 vpn.pub
           terraform apply -auto-approve -input=false -var-file=${{ inputs.environment }}.tfvars
         working-directory: ./terraform/
       
