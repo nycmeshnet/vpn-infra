@@ -75,6 +75,11 @@ variable "bird_neighbors" {
   description = "neighbors in the bird config"
 }
 
+variable "wg_public_ip" {
+  type        = string
+  description = "public IP for incoming wireguard connections"
+}
+
 variable "wg_private_key" {
   type        = string
   description = "wireguard server private key"
