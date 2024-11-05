@@ -15,6 +15,13 @@
     line: 'PasswordAuthentication no'
     state: present
 
+- name: SSH only mgt
+  ansible.builtin.lineinfile:
+    dest: /etc/ssh/sshd_config
+    regexp: '^#?\s*ListenAddress\s'
+    line: 'ListenAddress {{ BIRD_ROUTER_ID }}'
+    state: present
+
 - name: Restart and enable sshd service
   ansible.builtin.service:
     name: sshd
