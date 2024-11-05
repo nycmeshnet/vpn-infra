@@ -1,0 +1,61 @@
+router id {{ BIRD_ROUTER_ID }};
+
+protocol device {
+        scan time 10;
+}
+
+protocol direct {
+        interface "eth0";
+        interface "wg*";
+        interface "dummy*";
+}
+
+protocol kernel {
+        scan time 10;
+        persist;
+        learn;
+        metric 64;
+        import none;
+        export filter {
+                if source = RTS_STATIC then reject;
+                accept;
+        };
+}
+
+protocol ospf {
+        import all;
+        export filter {
+                ospf_metric1 = 1;
+                accept;
+        };
+
+        area 0 {
+                networks {
+                        {{ BIRD_NETWORKS }};
+                };
+                interface "eth0" {
+                        cost 1;
+                        type ptmp;
+                        neighbors {
+                                {{ BIRD_NEIGHBORS }};
+                        };
+                };
+                interface "dummy0" {
+                        cost 1;
+                        type broadcast;
+                };
+                {% for wg_config in wireguard_configs %}
+                {% if wg_config.NEIGHBORS is defined %}
+                
+                interface "wg{{ wg_config.NAME }}" {
+                        cost 15;
+                        tx length 1344;
+                        type ptmp;
+                        neighbors {
+                                {{ wg_config.NEIGHBORS }} ;
+                        };
+                };
+                {% endif %}
+                {% endfor %}
+        };
+};

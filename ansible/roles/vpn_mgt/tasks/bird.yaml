@@ -1,0 +1,28 @@
+- name: Copy bird.conf
+  ansible.builtin.template:
+    src: ./templates/bird.conf.j2
+    dest: "/etc/bird/bird.conf"
+    owner: root
+    group: root
+    mode: "0600"
+
+- name: net.ipv4.ip_forward
+  ansible.posix.sysctl:
+    name: net.ipv4.ip_forward
+    value: '1'
+    sysctl_set: true
+    state: present
+    reload: true
+
+- name: Always restart bird
+  ansible.builtin.lineinfile:
+    path: /lib/systemd/system/bird.service
+    search_string: Restart=
+    line: "Restart=always"
+
+- name: Restart and enable bird service
+  ansible.builtin.systemd_service:
+    name: bird
+    state: stopped #restarted JBOTODO testing
+    enabled: true
+    daemon_reload: true

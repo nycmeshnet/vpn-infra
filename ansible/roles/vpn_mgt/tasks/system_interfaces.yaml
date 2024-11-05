@@ -1,0 +1,23 @@
+- name: Stat of system interface definition - before
+  ansible.builtin.stat:
+    path : "/etc/network/interfaces"
+  register: sys_interface_before
+
+- name: Copy system interface definition
+  ansible.builtin.template:
+    src: ./templates/interfaces.j2
+    dest: "/etc/network/interfaces"
+    owner: root
+    group: root
+    mode: "0600"
+
+- name: Stat of system interface definition - after
+  ansible.builtin.stat:
+    path : "/etc/network/interfaces"
+  register: sys_interface_after
+
+# JBOTODO testing
+# - name: Bounce dummy0 interface if it anything changed
+#   ansible.builtin.command:
+#     cmd: "bash -c 'ifdown --force dummy0;ifup dummy0'"
+#   when: sys_interface_before.checksum != sys_interface_after.checksum

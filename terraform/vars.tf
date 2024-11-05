@@ -53,7 +53,36 @@ variable "vm_mgt_ip" {
   description = "IP for the managment interface"
 }
 
+variable "internal_host_identifier" {
+  type        = string
+  description = "Host identifier for the internal network interface eth0"
+  default     = "16"
+}
+
 variable "vm_mgt_default_gateway" {
   type        = string
   description = "IP of the default gateway of the managment interface"
+}
+
+variable "bird_networks" {
+  type        = string
+  description = "networks in the bird config"
+  default     = "10.69.0.0/16"
+}
+
+variable "bird_neighbors" {
+  type        = string
+  description = "neighbors in the bird config"
+}
+
+variable "wg_private_key" {
+  type        = string
+  description = "wireguard server private key"
+  sensitive   = true
+}
+
+variable "wg_public_key" {
+  type        = string
+  description = "wireguard server public key"
+  sensitive   = true
 }

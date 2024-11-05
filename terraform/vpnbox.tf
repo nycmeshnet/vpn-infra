@@ -19,9 +19,9 @@ resource "proxmox_lxc" "vpn_server" {
   network {
     name   = "eth0"
     bridge = var.vm_nic
-    ip     = "${var.vm_mgt_ip}/32"
+    ip     = "${var.vm_mgt_ip}/${var.internal_host_identifier}"
     gw     = var.vm_mgt_default_gateway
   }
 
-  tags = "vpn;managed_by_iac"
+  tags = "vpn,managed_by_iac"
 }
