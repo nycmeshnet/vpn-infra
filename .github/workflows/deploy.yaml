@@ -25,4 +25,5 @@ jobs:
     with:
       environment: prod1
     secrets: inherit
+    needs: deploy_dev3
     if: github.ref == 'refs/heads/master'
