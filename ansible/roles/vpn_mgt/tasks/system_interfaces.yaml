@@ -19,4 +19,4 @@
 - name: Bounce dummy0 interface if it anything changed
   ansible.builtin.command:
     cmd: "bash -c 'ifdown --force dummy0;ifup dummy0'"
-  when: sys_interface_before.checksum != sys_interface_after.checksum
+  when: sys_interface_before.stat.checksum != sys_interface_after.stat.checksum

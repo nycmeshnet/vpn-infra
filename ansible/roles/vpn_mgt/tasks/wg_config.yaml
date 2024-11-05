@@ -40,4 +40,4 @@
 - name: Bounce interface if it anything changed
   ansible.builtin.command:
     cmd: "bash -c 'ifdown --force wg{{ item.NAME }};ifup wg{{ item.NAME }}'"
-  when: (interface_before.checksum != interface_after.checksum) or (config_before.checksum != config_after.checksum)
+  when: (interface_before.stat.checksum != interface_after.stat.checksum) or (config_before.stat.checksum != config_after.stat.checksum)
