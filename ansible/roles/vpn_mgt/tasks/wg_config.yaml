@@ -37,8 +37,7 @@
   register: interface_after
 
 ## Bounce
-#JBOTODO testing
-# - name: Bounce interface if it anything changed
-#   ansible.builtin.command:
-#     cmd: "bash -c 'ifdown --force wg{{ item.NAME }};ifup wg{{ item.NAME }}'"
-#   when: (interface_before.checksum != interface_after.checksum) or (config_before.checksum != config_after.checksum)
+- name: Bounce interface if it anything changed
+  ansible.builtin.command:
+    cmd: "bash -c 'ifdown --force wg{{ item.NAME }};ifup wg{{ item.NAME }}'"
+  when: (interface_before.checksum != interface_after.checksum) or (config_before.checksum != config_after.checksum)

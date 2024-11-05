@@ -16,8 +16,7 @@
     path : "/etc/network/interfaces"
   register: sys_interface_after
 
-# JBOTODO testing
-# - name: Bounce dummy0 interface if it anything changed
-#   ansible.builtin.command:
-#     cmd: "bash -c 'ifdown --force dummy0;ifup dummy0'"
-#   when: sys_interface_before.checksum != sys_interface_after.checksum
+- name: Bounce dummy0 interface if it anything changed
+  ansible.builtin.command:
+    cmd: "bash -c 'ifdown --force dummy0;ifup dummy0'"
+  when: sys_interface_before.checksum != sys_interface_after.checksum

@@ -23,6 +23,6 @@
 - name: Restart and enable bird service
   ansible.builtin.systemd_service:
     name: bird
-    state: stopped #restarted JBOTODO testing
+    state: restarted
     enabled: true
     daemon_reload: true
