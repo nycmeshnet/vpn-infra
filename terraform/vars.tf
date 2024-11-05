@@ -80,6 +80,11 @@ variable "wg_public_ip" {
   description = "public IP for incoming wireguard connections"
 }
 
+variable "wg_private_range" {
+  type        = string
+  description = "private IP range used for wireguard interfaces"
+}
+
 variable "wg_private_key" {
   type        = string
   description = "wireguard server private key"

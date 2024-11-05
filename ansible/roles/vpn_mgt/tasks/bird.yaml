@@ -4,7 +4,7 @@
     dest: "/etc/bird/bird.conf"
     owner: root
     group: root
-    mode: "0600"
+    mode: "0644"
 
 - name: net.ipv4.ip_forward
   ansible.posix.sysctl:

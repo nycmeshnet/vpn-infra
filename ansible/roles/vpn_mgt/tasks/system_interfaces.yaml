@@ -18,5 +18,5 @@
 
 - name: Bounce dummy0 interface if it anything changed
   ansible.builtin.command:
-    cmd: "bash -c 'ifdown --force dummy0;ifup dummy0'"
+    cmd: "bash -c 'service networking reload;ifdown --force dummy0;ifup dummy0'"
   when: (sys_interface_before.stat.checksum is not defined) or (sys_interface_before.stat.checksum != sys_interface_after.stat.checksum)
