@@ -5,7 +5,8 @@
     pkg:
       - ca-certificates
       - bird
-      - netfilter-persistent
+      - iptables-persistent
+      - wireguard
 
 - name: Disable password auth
   ansible.builtin.lineinfile:
