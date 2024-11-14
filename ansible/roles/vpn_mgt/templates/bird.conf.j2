@@ -31,14 +31,13 @@ protocol ospf {
 
         area 0 {
                 networks {
-                        {{ BIRD_NETWORKS }};
+                        {% for bird_net in BIRD_NETWORKS.split(';') %}
+                        {{ bird_net }};
+                        {% endfor %}
                 };
                 interface "eth0" {
-                        cost 1;
-                        type ptmp;
-                        neighbors {
-                                {{ BIRD_NEIGHBORS }};
-                        };
+                        cost 10;
+                        type broadcast;
                 };
                 interface "dummy0" {
                         cost 1;
@@ -48,8 +47,8 @@ protocol ospf {
                 {% if wg_config.NEIGHBORS is defined %}
                 
                 interface "wg{{ wg_config.NAME }}" {
-                        cost 15;
-                        tx length 1344;
+                        cost {{ wg_config.COST | default(100) }};
+                        tx length {{ wg_config.TX_LENGTH | default(1344) }};
                         type ptmp;
                         neighbors {
                                 {{ wg_config.NEIGHBORS }} ;

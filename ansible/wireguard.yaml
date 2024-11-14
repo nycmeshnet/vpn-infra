@@ -16,6 +16,8 @@ wireguard_configs:
     INTERFACE_ADDRESS: "10.70.250.2/30"
     INTERFACE_NETMASK: "255.255.255.252"
     NEIGHBORS: "10.70.250.2"
+    TX_LENGTH: 1343
+    COST: 99
 
   - NAME: jameso
     PORT_NUMBER: 51821

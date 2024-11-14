@@ -56,7 +56,7 @@ variable "vm_mgt_ip" {
 variable "internal_host_identifier" {
   type        = string
   description = "Host identifier for the internal network interface eth0"
-  default     = "32"
+  default     = "24"
 }
 
 variable "vm_mgt_default_gateway" {

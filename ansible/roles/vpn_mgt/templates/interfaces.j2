@@ -4,19 +4,13 @@ iface lo inet loopback
 auto eth0
 iface eth0 inet static
         address {{ BIRD_ROUTER_ID }}/{{ INTERNAL_HOST_IDENTIFIER }}
+        gateway {{ DEFAULT_GATEWAY }}
 
 auto dummy0
 iface dummy0 inet manual
         pre-up ip link add $IFACE type dummy
         pre-up ip link set up dev $IFACE
         up ip addr add {{ WG_PUBLIC_IP }}/32 dev $IFACE
-        down ip link del $IFACE
-
-auto dummy1
-iface dummy1 inet manual
-        pre-up ip link add $IFACE type dummy
-        pre-up ip link set up dev $IFACE
-        up ip addr add {{ WG_PRIVATE_RANGE }} dev $IFACE
         down ip link del $IFACE
 
 source /etc/network/interfaces.d/*
