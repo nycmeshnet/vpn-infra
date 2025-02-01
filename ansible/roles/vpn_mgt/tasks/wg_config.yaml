@@ -1,7 +1,7 @@
 ## Wireguard config
-- name: Stat of wireguard config wg{{ item.NAME }} - before
+- name: Stat of wireguard config - before - wg{{ item.NAME }}
   ansible.builtin.stat:
-    path : "/etc/wireguard/wg{{ item.NAME }}.conf"
+    path: "/etc/wireguard/wg{{ item.NAME }}.conf"
   register: config_before
 
 - name: Copy wireguard config wg{{ item.NAME }}
@@ -12,15 +12,15 @@
     group: root
     mode: "0600"
 
-- name: Stat of wireguard config wg{{ item.NAME }} - after
+- name: Stat of wireguard config - after - wg{{ item.NAME }}
   ansible.builtin.stat:
-    path : "/etc/wireguard/wg{{ item.NAME }}.conf"
+    path: "/etc/wireguard/wg{{ item.NAME }}.conf"
   register: config_after
 
 ## Interface definition
-- name: Stat of interface definition wg{{ item.NAME }} - before
+- name: Stat of interface definition - before - wg{{ item.NAME }}
   ansible.builtin.stat:
-    path : "/etc/network/interfaces.d/wg{{ item.NAME }}"
+    path: "/etc/network/interfaces.d/wg{{ item.NAME }}"
   register: interface_before
 
 - name: Copy interface definition wg{{ item.NAME }}
@@ -31,9 +31,9 @@
     group: root
     mode: "0600"
 
-- name: Stat of interface definition wg{{ item.NAME }} - after
+- name: Stat of interface definition - after - wg{{ item.NAME }}
   ansible.builtin.stat:
-    path : "/etc/network/interfaces.d/wg{{ item.NAME }}"
+    path: "/etc/network/interfaces.d/wg{{ item.NAME }}"
   register: interface_after
 
 ## Bounce

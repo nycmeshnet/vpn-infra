@@ -4,7 +4,7 @@
     update_cache: true
     pkg:
       - ca-certificates
-      - bird
+      - bird2
       - iptables-persistent
       - wireguard
 

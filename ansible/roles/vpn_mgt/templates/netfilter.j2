@@ -9,6 +9,9 @@
 # Fix
 -A INPUT -s 10.0.0.0/8 -d {{ BIRD_ROUTER_ID }}/{{ INTERNAL_HOST_IDENTIFIER }} -j ACCEPT
 
+-A INPUT -d {{ BIRD_ROUTER_ID }}/24 -j ACCEPT
+-A INPUT  -d {{ WG_PRIVATE_RANGE }} -j ACCEPT
+
 -A INPUT -i lo -j ACCEPT
 -A INPUT ! -i lo -d 127.0.0.0/8 -j REJECT
 -A INPUT -m state --state ESTABLISHED,RELATED -j ACCEPT
@@ -22,9 +25,15 @@
 
 -A INPUT -p ICMP --icmp-type echo-request -j ACCEPT
 
--A INPUT -j DROP
+-A INPUT -p udp -m udp --dport 33434:33474 -j REJECT --reject-with icmp-port-unreachable
+-A INPUT -p icmp -m icmp --icmp-type 8 -j ACCEPT
+
+#-A INPUT -j DROP
 
 -A FORWARD -p tcp --tcp-flags SYN,RST SYN -j TCPMSS  --clamp-mss-to-pmtu
+-A FORWARD -d {{ WG_PRIVATE_RANGE }} -j ACCEPT
+
+-A FORWARD -s 10.0.0.0/8 -j ACCEPT
 -A FORWARD -i eth0 -s 10.0.0.0/8,172.16.0.0/12,192.168.0.0/16 -j DROP
 -A FORWARD -j ACCEPT
 
