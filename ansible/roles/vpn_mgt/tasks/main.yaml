@@ -38,16 +38,16 @@
     enabled: true
 
 - name: Setup netfilter
-  include_tasks: netfilter.yaml
+  ansible.builtin.include_tasks: netfilter.yaml
 
 - name: System interfaces
-  include_tasks: system_interfaces.yaml
+  ansible.builtin.include_tasks: system_interfaces.yaml
 
 - name: Setup Interfaces + Wireguard
-  include_tasks: wg_config.yaml
+  ansible.builtin.include_tasks: wg_config.yaml
   loop: "{{ wireguard_configs }}"
 
 # Down and drop unused
 
 - name: Setup Bird
-  include_tasks: bird.yaml
+  ansible.builtin.include_tasks: bird.yaml

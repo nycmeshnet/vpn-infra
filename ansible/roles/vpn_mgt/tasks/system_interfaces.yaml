@@ -1,6 +1,6 @@
 - name: Stat of system interface definition - before
   ansible.builtin.stat:
-    path : "/etc/network/interfaces"
+    path: "/etc/network/interfaces"
   register: sys_interface_before
 
 - name: Copy system interface definition
@@ -13,7 +13,7 @@
 
 - name: Stat of system interface definition - after
   ansible.builtin.stat:
-    path : "/etc/network/interfaces"
+    path: "/etc/network/interfaces"
   register: sys_interface_after
 
 # - name: Bounce dummy0 interface if it anything changed
