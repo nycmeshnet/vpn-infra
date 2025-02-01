@@ -10,21 +10,16 @@ protocol device {
 }
 
 protocol direct {
-    #disabled;              # Disable by default
     ipv4;                   # Connect to default IPv4 table
-    #ipv6;                   # ... and to default IPv6 table
 }
 
 protocol kernel {
     persist;
     scan time 10;
     ipv4 {                  # Connect protocol to IPv4 table by channel
-#        table master4;    # Default IPv4 table is master4
         import all;   # Import to table, default is import all
         export all;   # Export to protocol. default is export none
     };
-####    learn;                  # Learn alien routes from the kernel
-#       kernel table 10;        # Kernel table to synchronize with (default: main)
 }
 
 protocol static {
@@ -33,15 +28,15 @@ protocol static {
 
 protocol ospf v2 {
     ipv4 {
-        ####import none;
         import all;
     };
     area 0 {
         default cost 10;
         networks {
-            {% for bird_net in BIRD_NETWORKS.split(';') %}
+{% for bird_net in BIRD_NETWORKS.split(';') %}
             {{ bird_net }};
-            {% endfor %}
+{% endfor %}
+
         };
         interface "eth*" {
             type broadcast; # Detected by default
@@ -50,8 +45,8 @@ protocol ospf v2 {
         interface "dummy*" {
             cost 10;
         };
-        {% for wg_config in wireguard_configs %}
-        {% if wg_config.NEIGHBORS is defined %}
+{% for wg_config in wireguard_configs %}
+{% if wg_config.NEIGHBORS is defined %}
         interface "wg{{ wg_config.NAME }}" {
             cost {{ wg_config.COST | default(100) }};
             tx length {{ wg_config.TX_LENGTH | default(1420) }};
@@ -60,7 +55,7 @@ protocol ospf v2 {
                 {{ wg_config.NEIGHBORS }};
             };
         };
-        {% endif %}
-        {% endfor %}
+{% endif %}
+{% endfor %}
     };
 }
