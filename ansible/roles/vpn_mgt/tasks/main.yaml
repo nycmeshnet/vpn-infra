@@ -8,12 +8,21 @@
       - iptables-persistent
       - wireguard
 
-- name: Disable password auth
-  ansible.builtin.lineinfile:
-    dest: /etc/ssh/sshd_config
-    regexp: '^#?\s*PasswordAuthentication\s'
-    line: 'PasswordAuthentication no'
-    state: present
+- name: Import the mesh_dns role from the nycmesh.common collection
+  ansible.builtin.import_role:
+    name: nycmesh.common.mesh_dns
+  vars:
+    extra_resolvers: "9.9.9.9"
+
+- name: Import the motd role from the nycmesh.common collection
+  ansible.builtin.import_role:
+    name: nycmesh.common.motd
+  vars:
+    github_repo: https://github.com/nycmeshnet/vpn-infra
+
+- name: Import the ssh_config role from the nycmesh.common collection
+  ansible.builtin.import_role:
+    name: nycmesh.common.ssh_config
 
 - name: SSH only mgt
   ansible.builtin.lineinfile:

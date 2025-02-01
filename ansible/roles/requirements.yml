@@ -1,0 +1,7 @@
+collections:
+  - name: cloud.terraform
+    version: 3.0.0
+  - name: nycmesh.common
+    source: git+https://github.com/nycmeshnet/nycmesh-ansible.git
+    type: git
+    version: main
