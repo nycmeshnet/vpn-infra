@@ -6,5 +6,5 @@ ListenPort = 51821
 # {{ item.NAME }}
 [Peer]
 PublicKey = {{ item.PEER_PUBLIC_KEY }}
-AllowedIPs = {{ item.PEER_ALLOWED_IPS }}
-PersistentKeepalive = {{ item.PEER_PERSISTENT_KEEPALIVE }}
+AllowedIPs = {{ item.PEER_ALLOWED_IPS | default("0.0.0.0/0") }}
+PersistentKeepalive = {{ item.PEER_PERSISTENT_KEEPALIVE | default(25) }}
