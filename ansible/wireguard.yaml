@@ -19,7 +19,7 @@ wireguard_configs:
 
   - NAME: danielheredia
     PORT: 51823
-    PEER_PUBLIC_KEY: nj5rB0CIL6JUXLvl+oqQXcav2qnr509FzpF30lF8mEY=
+    PEER_PUBLIC_KEY: czvx7yuWaT7qISYLd+gwcbW8AQUDMI6/gYOj7gz4Jl4=
     INTERFACE_ADDRESS: "10.70.250.0/31"
     INTERFACE_NETMASK: "255.255.255.254"
 
