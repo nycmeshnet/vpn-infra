@@ -20,7 +20,7 @@
 -A INPUT -p icmp -m icmp --icmp-type 8 -j ACCEPT
 
 {% for wg_config in wireguard_configs %}
--A INPUT -p udp -m state --state NEW --dport {{ wg_config.PORT_NUMBER }} -j ACCEPT
+-A INPUT -p udp -m state --state NEW --dport {{ wg_config.PORT }} -j ACCEPT
 {% endfor %}
 
 -A INPUT -p ICMP --icmp-type echo-request -j ACCEPT
