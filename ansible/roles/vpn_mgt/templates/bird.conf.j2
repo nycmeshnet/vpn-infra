@@ -29,6 +29,7 @@ protocol static {
 protocol ospf v2 {
     ipv4 {
         import all;
+        export all;
     };
     area 0 {
         default cost 10;
@@ -54,6 +55,9 @@ protocol ospf v2 {
             neighbors {
                 {{ wg_config.NEIGHBORS }};
             };
+        };
+{% else %}
+        interface "wgjameso" {
         };
 {% endif %}
 {% endfor %}
