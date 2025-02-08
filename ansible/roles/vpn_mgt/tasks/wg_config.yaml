@@ -21,7 +21,7 @@
 - name: Stat of interface definition - before - wg{{ item.NAME }}
   ansible.builtin.stat:
     path: "/etc/network/interfaces.d/wg{{ item.NAME }}"
-  register: interface_before
+  register: if_before
 
 - name: Copy interface definition wg{{ item.NAME }}
   ansible.builtin.template:
@@ -34,10 +34,10 @@
 - name: Stat of interface definition - after - wg{{ item.NAME }}
   ansible.builtin.stat:
     path: "/etc/network/interfaces.d/wg{{ item.NAME }}"
-  register: interface_after
+  register: if_after
 
 ## Bounce
 - name: Bounce interface if it anything changed
   ansible.builtin.command:
     cmd: "bash -c 'ifdown --force wg{{ item.NAME }};ifup wg{{ item.NAME }}'"
-  when: (interface_before.stat.checksum is not defined or config_before.stat.checksum is not defined) or (interface_before.stat.checksum != interface_after.stat.checksum) or (config_before.stat.checksum != config_after.stat.checksum)
+  when: (if_before.stat.checksum is not defined or config_before.stat.checksum is not defined) or (if_before.stat.checksum != if_after.stat.checksum) or (config_before.stat.checksum != config_after.stat.checksum)

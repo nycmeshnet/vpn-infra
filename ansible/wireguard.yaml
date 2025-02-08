@@ -43,7 +43,7 @@ wireguard_configs:
     PEER_PUBLIC_KEY: ZDxi2CwlraP/U/lwLGezQoJBDNtozxpomhpe0z2F8Rc=
     INTERFACE_ADDRESS: "10.70.250.8/31"
     INTERFACE_NETMASK: "255.255.255.254"
-    
+
     # For deploying https://github.com/nycmeshnet/meshdb
   - NAME: ghmeshdb
     PORT: 51827
