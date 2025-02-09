@@ -2,7 +2,7 @@
 auto wg{{ item.NAME }}
 iface wg{{ item.NAME }} inet static
         address {{ item.INTERFACE_ADDRESS }}
-        netmask {{ item.INTERFACE_NETMASK }}
+        netmask {{ item.INTERFACE_ADDRESS | ansible.utils.ipaddr('netmask') }}
         pre-up ip link add $IFACE type wireguard
         pre-up wg setconf $IFACE /etc/wireguard/$IFACE.conf
         post-down ip link del $IFACE

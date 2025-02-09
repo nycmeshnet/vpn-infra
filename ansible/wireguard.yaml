@@ -4,7 +4,6 @@ wireguard_configs:
     PORT: 51821
     PEER_PUBLIC_KEY: sD3bVQglZfq2j82or48q+i0R0KdszUPZRkcz4rVqAk8=
     INTERFACE_ADDRESS: "10.70.250.121/30"
-    INTERFACE_NETMASK: "255.255.255.252"
     NEIGHBORS: "10.70.250.122"
     TX_LENGTH: 1420
     COST: 99
@@ -14,109 +13,93 @@ wireguard_configs:
     PORT: 51823
     PEER_PUBLIC_KEY: czvx7yuWaT7qISYLd+gwcbW8AQUDMI6/gYOj7gz4Jl4=
     INTERFACE_ADDRESS: "10.70.250.0/31"
-    INTERFACE_NETMASK: "255.255.255.254"
 
     # For James
   - NAME: jameso
     PORT: 51822
     PEER_PUBLIC_KEY: nj5rB0CIL6JUXLvl+oqQXcav2qnr509FzpF30lF8mEY=
     INTERFACE_ADDRESS: "10.70.250.2/31"
-    INTERFACE_NETMASK: "255.255.255.254"
 
     # For deploying https://github.com/nycmeshnet/nyckml
   - NAME: ghnyckml
     PORT: 51824
     PEER_PUBLIC_KEY: eOs2ZTnjuhNCchSJcwYwVecrN0pTxASAhSof/81Y7wo=
     INTERFACE_ADDRESS: "10.70.250.4/31"
-    INTERFACE_NETMASK: "255.255.255.254"
 
     # For deploying https://github.com/nycmeshnet/nycmesh-dns
   - NAME: ghdns
     PORT: 51825
     PEER_PUBLIC_KEY: eF3Cp1GmhdpbUfeZoEBkkUaxnhmVeWMwlfYJ0+/13zE=
     INTERFACE_ADDRESS: "10.70.250.6/31"
-    INTERFACE_NETMASK: "255.255.255.254"
 
     # For deploying https://github.com/nycmeshnet/k8s-infra
   - NAME: ghk8sinfra
     PORT: 51826
     PEER_PUBLIC_KEY: ZDxi2CwlraP/U/lwLGezQoJBDNtozxpomhpe0z2F8Rc=
     INTERFACE_ADDRESS: "10.70.250.8/31"
-    INTERFACE_NETMASK: "255.255.255.254"
 
     # For deploying https://github.com/nycmeshnet/meshdb
   - NAME: ghmeshdb
     PORT: 51827
     PEER_PUBLIC_KEY: u7CW7SfIWBpxuCEs3MNjESBN/7AlMVkMkUAFFAQcKH8=
     INTERFACE_ADDRESS: "10.70.250.10/31"
-    INTERFACE_NETMASK: "255.255.255.254"
 
     # For deploying https://github.com/nycmeshnet/meshforms
   - NAME: ghmeshforms
     PORT: 51828
     PEER_PUBLIC_KEY: AptusHJ6npTqJSBNkDF/NnXoSDiC4wwXLPHC0o2Zmic=
     INTERFACE_ADDRESS: "10.70.250.12/31"
-    INTERFACE_NETMASK: "255.255.255.254"
 
     # For deploying https://github.com/nycmeshnet/meshdb-line-of-sight
   - NAME: ghlos
     PORT: 51829
     PEER_PUBLIC_KEY: YHCLZV4l+3JSmcfki6QuMP3OjXNnAknSVj9I6EmKjE8=
     INTERFACE_ADDRESS: "10.70.250.14/31"
-    INTERFACE_NETMASK: "255.255.255.254"
 
     # For deploying https://github.com/nycmeshnet/network-map
   - NAME: ghnetworkmap
     PORT: 51830
     PEER_PUBLIC_KEY: 2CMYxIIJBA79SEHxrK3MMw7FROJzaFa60agTbkchCSI=
     INTERFACE_ADDRESS: "10.70.250.16/31"
-    INTERFACE_NETMASK: "255.255.255.254"
 
     # For deploying https://github.com/nycmeshnet/ntp-infra
   - NAME: ghntp
     PORT: 51831
     PEER_PUBLIC_KEY: Hq5Oc1QnRPeIQ1Wm5kbXoEecjWfv/xwY415T4erw8RQ=
     INTERFACE_ADDRESS: "10.70.250.18/31"
-    INTERFACE_NETMASK: "255.255.255.254"
 
     # For deploying https://github.com/nycmeshnet/mesh-services-monitoring
   - NAME: ghmsm
     PORT: 51832
     PEER_PUBLIC_KEY: mKgsPQo7IiFNmqDwt3qD2R3QaLDkOTzyRUxHhuS9gRk=
     INTERFACE_ADDRESS: "10.70.250.20/31"
-    INTERFACE_NETMASK: "255.255.255.254"
 
     # For deploying https://github.com/nycmeshnet/nycmesh-monitoring-infra
   - NAME: ghmoninfra
     PORT: 51833
     PEER_PUBLIC_KEY: UfBvVEBK1eka6Xade0Qk+tV6k9xaHLInrr1KVCWj5kI=
     INTERFACE_ADDRESS: "10.70.250.22/31"
-    INTERFACE_NETMASK: "255.255.255.254"
 
     # For deploying https://github.com/nycmeshnet/syslog-infra
   - NAME: ghsyslog
     PORT: 51834
     PEER_PUBLIC_KEY: M1Igs2m45IzawVKlqU9Ds3oh0GH7VdLJzZ55JsrL8XQ=
     INTERFACE_ADDRESS: "10.70.250.24/31"
-    INTERFACE_NETMASK: "255.255.255.254"
 
     # For deploying https://github.com/nycmeshnet/wiki-infra
   - NAME: ghwiki
     PORT: 51835
     PEER_PUBLIC_KEY: pOnlg0ffpWnVvgITdi/xB/waEGrAC0qCQhHPvz/W4hM=
     INTERFACE_ADDRESS: "10.70.250.26/31"
-    INTERFACE_NETMASK: "255.255.255.254"
 
     # For deploying https://github.com/nycmeshnet/map-infra
   - NAME: ghmap
     PORT: 51836
     PEER_PUBLIC_KEY: 6AJ2gbClwA+nT/H+WU2xKgmKvaVqu2/IgMcoDBe2jTs=
     INTERFACE_ADDRESS: "10.70.250.28/31"
-    INTERFACE_NETMASK: "255.255.255.254"
 
     # For deploying https://github.com/nycmeshnet/vpn-infra
   - NAME: ghvpn
     PORT: 51837
     PEER_PUBLIC_KEY: 0vrESEv5ACnVVY20Jzk2na4Twfk+Gk+OMU9rqO6c6AM=
     INTERFACE_ADDRESS: "10.70.250.30/31"
-    INTERFACE_NETMASK: "255.255.255.254"

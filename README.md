@@ -13,7 +13,6 @@
 | `PORT`  | Port number for the wireguard interface | Should be a unique number |
 | `PEER_PUBLIC_KEY` | Your public key | Should be a wireguard **public** key  |
 | `INTERFACE_ADDRESS` | Address for the wireguard interface | Should be a unique `/31` in the assigned range (`10.70.250.0/24`). |
-| `INTERFACE_NETMASK` | Netmask for the interface  | `255.255.255.254` |
 
 3. Open a pull request in this repository with your changes.
 
@@ -32,7 +31,6 @@
 | `PORT`  | Port number for the wireguard interface | Should be a unique number |
 | `PEER_PUBLIC_KEY` | Your public key | Should be a wireguard **public** key  |
 | `INTERFACE_ADDRESS` | Address for the wireguard interface | Should be a unique `/30` in the assigned range (`10.70.250.0/24`). |
-| `INTERFACE_NETMASK` | Netmask for the interface  | `255.255.255.252` |
 | `NEIGHBORS` | Neighbor IP address  | An IP address |
 | `TX_LENGTH` | MTU. The default is `1420`.  | Should be a unique number |
 | `COST` | The OSPF cost of the link from the VPN server to your remote hub. The default is `100`.  | Should be a unique number |
