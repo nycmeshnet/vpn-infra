@@ -48,3 +48,10 @@ jobs:
           setup_python: "true"
           working_directory: "./ansible/"
           requirements_file: ""
+
+      - name: Terraform format
+        run: pip install -r requirements.txt
+
+      - name: Run tests
+        run: ansible-playbook tests.yaml
+        working-directory: ./ansible/

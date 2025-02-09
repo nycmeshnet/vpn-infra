@@ -1,0 +1,93 @@
+- name: Wireguard config tests
+  hosts: 127.0.0.1
+  vars_files:
+    - wireguard.yaml
+  tasks:
+    - name: Gather count of wireguard configs
+      ansible.builtin.debug:
+        msg: "{{ wireguard_configs | list | length }}"
+      register: wg_config_len
+
+    - name: NAME property
+      block:
+        - name: Confirm names are unique
+          ansible.builtin.fail:
+            msg: The NAMEs in ansible/wireguard.yaml are not unique - {{ wireguard_configs | map(attribute='NAME') }}
+          when: (wireguard_configs | map(attribute='NAME') | list | unique | length | string) != wg_config_len.msg
+
+        - name: Confirm names are valid
+          ansible.builtin.fail:
+            msg: NAMEs in ansible/wireguard.yaml are not valid - {{ wireguard_configs | map(attribute='NAME') | select('match', '^[a-zA-Z0-9]+$') | list }}
+          when: (wireguard_configs | map(attribute='NAME') | select('match', '^[a-zA-Z0-9]+$') | list | length | string) != wg_config_len.msg
+
+    - name: PORT property
+      block:
+        - name: Confirm port numbers are unique
+          ansible.builtin.fail:
+            msg: The PORT numbers in ansible/wireguard.yaml are not unique - {{ wireguard_configs | map(attribute='PORT') }}
+          when: (wireguard_configs | map(attribute='PORT') | list | unique | length | string) != wg_config_len.msg
+
+        - name: Confirm port numbers are valid
+          ansible.builtin.fail:
+            msg: "Some port numbers are invalid"
+          when: (wireguard_configs | map(attribute='PORT') | map('int') | select('>', 1024) | length | string) != wg_config_len.msg
+
+    - name: PEER_PUBLIC_KEY property
+      block:
+        - name: Confirm PEER_PUBLIC_KEY are unique
+          ansible.builtin.fail:
+            msg: The PEER_PUBLIC_KEY values in ansible/wireguard.yaml are not unique - {{ wireguard_configs | map(attribute='PEER_PUBLIC_KEY') }}
+          when: (wireguard_configs | map(attribute='PEER_PUBLIC_KEY') | list | unique | length | string) != wg_config_len.msg
+
+        - name: Confirm PEER_PUBLIC_KEY are valid
+          ansible.builtin.fail:
+            msg: The PEER_PUBLIC_KEY values in ansible/wireguard.yaml are not valid
+          when: (wireguard_configs | map(attribute='PEER_PUBLIC_KEY') | select('match', '^[a-zA-Z0-9=+/]+$') | list | length | string) != wg_config_len.msg
+
+    - name: INTERFACE_ADDRESS property
+      block:
+        - name: INTERFACE_ADDRESS should be host/prefix
+          ansible.builtin.fail:
+            msg: "INTERFACE_ADDRESS should be an host/prefix"
+          when: (wireguard_configs | map(attribute='INTERFACE_ADDRESS', default='127.0.0.1') | ansible.utils.ipaddr('host/prefix') | list | length | string) != wg_config_len.msg
+
+        - name: INTERFACE_ADDRESS should be within the allocated space
+          ansible.builtin.fail:
+            msg: "INTERFACE_ADDRESS should be in the allocated space"
+          when: (wireguard_configs | map(attribute='INTERFACE_ADDRESS', default='10.70.250.1') | ansible.utils.reduce_on_network('10.70.250.0/24') | list | length | string) != wg_config_len.msg
+
+    - name: NEIGHBORS property
+      block:
+        - name: NEIGHBORS should be an IP
+          ansible.builtin.fail:
+            msg: "When set for remote hubs NEIGHBORS should be an IP address"
+          when: (wireguard_configs | map(attribute='NEIGHBORS', default='127.0.0.1') | ansible.utils.ipv4 | list | length | string) != wg_config_len.msg
+
+        - name: NEIGHBORS should be within the allocated space
+          ansible.builtin.fail:
+            msg: "When set for remote hubs NEIGHBORS should be in the allocated space"
+          when: (wireguard_configs | map(attribute='NEIGHBORS', default='10.70.250.1') | ansible.utils.reduce_on_network('10.70.250.0/24') | list | length | string) != wg_config_len.msg
+
+    - name: TX_LENGTH property
+      block:
+        - name: Valid mtu should be <= 1500
+          ansible.builtin.fail:
+            msg: "TX_LENGTH > 1500"
+          when: (wireguard_configs | map(attribute='TX_LENGTH', default=0) | map('int') | select('>', 1500) | length) > 0
+
+        - name: Valid mtu should be >100
+          ansible.builtin.fail:
+            msg: "TX_LENGTH <= 100"
+          when: (wireguard_configs | map(attribute='TX_LENGTH', default=1500) | map('int') | select('<', 100) | length) > 0
+
+    - name: COST property
+      block:
+        - name: Valid COST should be <= 65535
+          ansible.builtin.fail:
+            msg: "COST >= 65535"
+          when: (wireguard_configs | map(attribute='COST', default=0) | map('int') | select('>', 65534) | length) > 0
+
+        - name: Valid COST should be > 0
+          ansible.builtin.fail:
+            msg: "COST < 1"
+          when: (wireguard_configs | map(attribute='COST', default=10) | map('int') | select('<', 1) | length) > 0
