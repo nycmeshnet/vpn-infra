@@ -184,19 +184,19 @@ wireguard_configs:
 
     # For Angelo NN691/693/695 (SN1 migration)
   - NAME: angelo
-    PORT: 51841
+    PORT: 51851
     PEER_PUBLIC_KEY: 8yZRetpQLZWqOpJhWsrL+jU1zuC4qAmCM0i3OkfjDgQ=
     INTERFACE_ADDRESS: "10.70.250.58/31"
 
     # Josh 8531 (NN177) - FiOS Router (SN1 migration)
   - NAME: josh8531fios
-    PORT: 51842
+    PORT: 51852
     PEER_PUBLIC_KEY: ib566wUAZjrdzD4y1fXTvmkb/54J+5jrMIoEIz3QLDc=
     INTERFACE_ADDRESS: "10.70.250.60/31"
 
     # For Josh 8531 (NN177) - Mobile (SN1 migration)
   - NAME: josh8531mobile
-    PORT: 51843
+    PORT: 51853
     PEER_PUBLIC_KEY: iOzqcXxAy23ccpDUZkdEobvgYgQRdQ74VWC8WiptUyM=
     INTERFACE_ADDRESS: "10.70.250.62/31"
 
@@ -208,12 +208,12 @@ wireguard_configs:
 
     # For Alessandro new (SN! migration)
   - NAME: alessandro
-    PORT: 51844
+    PORT: 51854
     PEER_PUBLIC_KEY: iH0f4aAMGPgSyD9Q1M5Cr3//NQaut5tVdtFqz2XT9Ao=
     INTERFACE_ADDRESS: "10.70.250.66/31"
 
     # For Alessandro new (SN1 migration)
   - NAME: alessandrino
-    PORT: 51845
+    PORT: 51855
     PEER_PUBLIC_KEY: aRrCytJl1zpD78jBzz0Pf134XgiozNxxOI9MzVncnRc=
     INTERFACE_ADDRESS: "10.70.250.68/31"
