@@ -206,7 +206,7 @@ wireguard_configs:
     PEER_PUBLIC_KEY: 7YLq4CrycYYRP4YdZ5cjiPozaWyNCXa6kKlFgSH2SwU=
     INTERFACE_ADDRESS: "10.70.250.64/31"
 
-    # For Alessandro new (SN! migration)
+    # For Alessandro new (SN1 migration)
   - NAME: alessandro
     PORT: 51854
     PEER_PUBLIC_KEY: iH0f4aAMGPgSyD9Q1M5Cr3//NQaut5tVdtFqz2XT9Ao=
