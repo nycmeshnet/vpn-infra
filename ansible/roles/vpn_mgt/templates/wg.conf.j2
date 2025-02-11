@@ -1,0 +1,10 @@
+[Interface]
+PrivateKey = {{ PRIVATE_KEY }}
+# PublicKey = {{ PUBLIC_KEY }}
+ListenPort = {{ item.PORT }}
+
+# {{ item.NAME }}
+[Peer]
+PublicKey = {{ item.PEER_PUBLIC_KEY }}
+AllowedIPs = {{ item.PEER_ALLOWED_IPS | default("0.0.0.0/0") }}
+PersistentKeepalive = {{ item.PEER_PERSISTENT_KEEPALIVE | default(25) }}

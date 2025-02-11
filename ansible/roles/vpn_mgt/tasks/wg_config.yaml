@@ -1,0 +1,43 @@
+## Wireguard config
+- name: Stat of wireguard config - before - wg{{ item.NAME }}
+  ansible.builtin.stat:
+    path: "/etc/wireguard/wg{{ item.NAME }}.conf"
+  register: config_before
+
+- name: Copy wireguard config wg{{ item.NAME }}
+  ansible.builtin.template:
+    src: ./templates/wg.conf.j2
+    dest: "/etc/wireguard/wg{{ item.NAME }}.conf"
+    owner: root
+    group: root
+    mode: "0600"
+
+- name: Stat of wireguard config - after - wg{{ item.NAME }}
+  ansible.builtin.stat:
+    path: "/etc/wireguard/wg{{ item.NAME }}.conf"
+  register: config_after
+
+## Interface definition
+- name: Stat of interface definition - before - wg{{ item.NAME }}
+  ansible.builtin.stat:
+    path: "/etc/network/interfaces.d/wg{{ item.NAME }}"
+  register: if_before
+
+- name: Copy interface definition wg{{ item.NAME }}
+  ansible.builtin.template:
+    src: ./templates/wg_interface.j2
+    dest: "/etc/network/interfaces.d/wg{{ item.NAME }}"
+    owner: root
+    group: root
+    mode: "0600"
+
+- name: Stat of interface definition - after - wg{{ item.NAME }}
+  ansible.builtin.stat:
+    path: "/etc/network/interfaces.d/wg{{ item.NAME }}"
+  register: if_after
+
+## Bounce
+- name: Bounce interface if it anything changed
+  ansible.builtin.command:
+    cmd: "bash -c 'ifdown --force wg{{ item.NAME }};ifup wg{{ item.NAME }}'"
+  when: (if_before.stat.checksum is not defined or config_before.stat.checksum is not defined) or (if_before.stat.checksum != if_after.stat.checksum) or (config_before.stat.checksum != config_after.stat.checksum)

@@ -1,0 +1,5 @@
+roles/vpn_mgt/tasks/netfilter.yaml no-changed-when
+roles/vpn_mgt/tasks/system_interfaces.yaml no-changed-when
+roles/vpn_mgt/tasks/wg_config.yaml no-changed-when
+roles/vpn_mgt/tasks/wg_config.yaml yaml[line-length]
+tests.yaml yaml[line-length]

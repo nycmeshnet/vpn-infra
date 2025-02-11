@@ -1,0 +1,11 @@
+- name: Copy firewall config
+  ansible.builtin.template:
+    src: ./templates/netfilter.j2
+    dest: /etc/iptables/rules.v4
+    owner: root
+    group: root
+    mode: "0600"
+
+- name: Restore firewall rules
+  ansible.builtin.command:
+    cmd: "bash -c '/sbin/iptables-restore < /etc/iptables/rules.v4'"

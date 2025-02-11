@@ -1,0 +1,7 @@
+- name: Wireguard VPN server
+  hosts: vpn_mgt
+  become: true
+  roles:
+    - role: vpn_mgt
+  vars_files:
+    - wireguard.yaml

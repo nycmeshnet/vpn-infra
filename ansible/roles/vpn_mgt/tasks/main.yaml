@@ -1,0 +1,53 @@
+- name: Install deps
+  ansible.builtin.apt:
+    lock_timeout: 240
+    update_cache: true
+    pkg:
+      - ca-certificates
+      - bird2
+      - iptables-persistent
+      - wireguard
+
+- name: Import the mesh_dns role from the nycmesh.common collection
+  ansible.builtin.import_role:
+    name: nycmesh.common.mesh_dns
+  vars:
+    extra_resolvers: "9.9.9.9"
+
+- name: Import the motd role from the nycmesh.common collection
+  ansible.builtin.import_role:
+    name: nycmesh.common.motd
+  vars:
+    github_repo: https://github.com/nycmeshnet/vpn-infra
+
+- name: Import the ssh_config role from the nycmesh.common collection
+  ansible.builtin.import_role:
+    name: nycmesh.common.ssh_config
+
+- name: SSH only mgt
+  ansible.builtin.lineinfile:
+    dest: /etc/ssh/sshd_config
+    regexp: '^#?\s*ListenAddress\s'
+    line: 'ListenAddress {{ BIRD_ROUTER_ID }}'
+    state: present
+
+- name: Restart and enable sshd service
+  ansible.builtin.service:
+    name: sshd
+    state: reloaded
+    enabled: true
+
+- name: Setup netfilter
+  ansible.builtin.include_tasks: netfilter.yaml
+
+- name: System interfaces
+  ansible.builtin.include_tasks: system_interfaces.yaml
+
+- name: Setup Interfaces + Wireguard
+  ansible.builtin.include_tasks: wg_config.yaml
+  loop: "{{ wireguard_configs }}"
+
+# Down and drop unused
+
+- name: Setup Bird
+  ansible.builtin.include_tasks: bird.yaml

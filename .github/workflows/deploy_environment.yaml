@@ -1,0 +1,93 @@
+name: Deploy VPN Server
+permissions: read-all
+
+on:
+  workflow_call:
+    inputs:
+      environment:
+        required: true
+        type: string
+      varfile:
+        required: true
+        type: string
+
+env:
+  # Secrets
+  TF_VAR_proxmox_host: ${{ secrets.TF_VAR_PROXMOX_HOST }}
+  TF_VAR_proxmox_token_id: ${{ secrets.TF_VAR_PROXMOX_TOKEN_ID }}
+  TF_VAR_proxmox_token_secret: ${{ secrets.TF_VAR_PROXMOX_TOKEN_SECRET }}
+  TF_VAR_local_password: ${{ secrets.TF_VAR_LOCAL_PASSWORD }}
+  TF_VAR_wg_private_key: ${{ secrets.TF_VAR_WG_PRIVATE_KEY }}
+  TF_VAR_wg_public_key: ${{ secrets.TF_VAR_WG_PUBLIC_KEY }}
+  # Credentials for deployment to AWS
+  AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+  AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+  # S3 bucket for the Terraform state
+  BUCKET_TF_STATE: ${{ secrets.BUCKET_TF_STATE}}
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    environment: ${{ inputs.environment }}
+    steps:
+      - name: Checkout
+        uses: actions/checkout@a5ac7e51b41094c92402da3b24376905380afc29 # @v4
+
+      - uses: actions/setup-python@82c7e631bb3cdc910f68e0081d67478d79c6982d # @v5
+        with:
+          python-version: '3.11'
+
+      - name: Setup ansible
+        run: pip install -r requirements.txt && export PATH="$HOME/.local/bin:$PATH" && ansible-galaxy collection install -r ansible/roles/requirements.yml
+
+      - name: Setup Terraform with specified version on the runner
+        uses: hashicorp/setup-terraform@651471c36a6092792c552e8b1bef71e592b462d8 # @v3
+        with:
+          terraform_version: 1.8.3
+
+      - name: Setup backend
+        run: |
+          echo "bucket = \"${{ secrets.BUCKET_TF_STATE }}\"" > backend.tfvars
+          echo "key    = \"terraform/state/nycmesh-vpn-${{ inputs.environment }}.tfstate\"" >> backend.tfvars
+        working-directory: ./terraform/
+
+      - name: Terraform init
+        id: init
+        run: terraform init -backend-config=backend.tfvars
+        working-directory: ./terraform/
+
+      - name: Terraform format
+        id: fmt
+        run: terraform fmt -check
+        working-directory: ./terraform/
+
+      - name: Terraform validate
+        id: validate
+        run: |
+          echo "${{ secrets.SSH_PRIVATE_KEY }}" > vpn
+          echo "${{ secrets.SSH_PUBLIC_KEY }}" > vpn.pub
+          chmod 600 vpn
+          chmod 600 vpn.pub
+          terraform validate
+        working-directory: ./terraform/
+
+      - name: Setup WireGuard
+        run: |
+          sudo apt-get update && sudo apt-get install -y wireguard
+          echo "${{ secrets.WIREGUARD_PRIVATE_KEY }}" > privatekey
+          sudo ip link add dev wg0 type wireguard
+          sudo ip address add dev wg0 ${{ secrets.WIREGUARD_OVERLAY_NETWORK_IP }} peer ${{ secrets.WIREGUARD_PEER }}
+          sudo wg set wg0 listen-port 48123 private-key privatekey peer ${{ secrets.WIREGUARD_PEER_PUBLIC_KEY }} allowed-ips 0.0.0.0/0 endpoint ${{ secrets.WIREGUARD_ENDPOINT }}
+          sudo ip link set up dev wg0
+          rm privatekey
+
+      - name: Terraform Apply
+        run: |
+          terraform apply -auto-approve -input=false -var-file=${{ inputs.environment }}.tfvars
+        working-directory: ./terraform/
+
+      - name: Run playbook
+        run: |
+          if [ "wireguard.yaml" != "${{ inputs.varfile }}" ]; then mv "${{ inputs.varfile }}" wireguard.yaml; fi;
+          export PATH="$HOME/.local/bin:$PATH" && ansible-playbook -i inventory.yaml vpn.yaml
+        working-directory: ./ansible/
