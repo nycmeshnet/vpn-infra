@@ -7,6 +7,9 @@ on:
       environment:
         required: true
         type: string
+      varfile:
+        required: true
+        type: string
 
 env:
   # Secrets
@@ -84,5 +87,5 @@ jobs:
         working-directory: ./terraform/
 
       - name: Run playbook
-        run: export PATH="$HOME/.local/bin:$PATH" && ansible-playbook -i inventory.yaml vpn.yaml
+        run: export PATH="$HOME/.local/bin:$PATH" && ansible-playbook -i inventory.yaml -e ${{ inputs.varfile }} vpn.yaml
         working-directory: ./ansible/
