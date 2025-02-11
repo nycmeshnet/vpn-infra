@@ -103,3 +103,117 @@ wireguard_configs:
     PORT: 51837
     PEER_PUBLIC_KEY: 0vrESEv5ACnVVY20Jzk2na4Twfk+Gk+OMU9rqO6c6AM=
     INTERFACE_ADDRESS: "10.70.250.30/31"
+
+    # For brooks home router (SN1 migration)
+  - NAME: brookshomerouter
+    PORT: 51838
+    PEER_PUBLIC_KEY: Kbgk7cVNaD5mkebSqDTVWl4eLWCk8teXjKGnzoIjR1s=
+    INTERFACE_ADDRESS: "10.70.250.32/31"
+
+    # For Gabe Conradi #5712 (SN1 migration)
+  - NAME: gabeconradi
+    PORT: 51839
+    PEER_PUBLIC_KEY: b20eXLSYLYggN+0gTuySM5ulXpZKIhwJffwLabzyQjQ=
+    INTERFACE_ADDRESS: "10.70.250.34/31"
+
+    # For Scott145 (SN1 migration)
+  - NAME: scott145
+    PORT: 51840
+    PEER_PUBLIC_KEY: XzmCz5lHr53FMzBjGCGVKf51UdpiZuIjQXph9QN57Cw=
+    INTERFACE_ADDRESS: "10.70.250.36/31"
+
+    # For Akash Kumar (SN1 migration)
+  - NAME: akashkumar
+    PORT: 51841
+    PEER_PUBLIC_KEY: 6vTPbcZcJP3UsHG73uTdhKhNOb0ztGFdL81WDFOYeW0=
+    INTERFACE_ADDRESS: "10.70.250.38/31"
+
+    # For Quincy Blake (SN1 migration)
+  - NAME: quincyblake
+    PORT: 51842
+    PEER_PUBLIC_KEY: S/shgmksUJffBvnDsWcOcunJkPca4mcaVxkYOsKYtnY=
+    INTERFACE_ADDRESS: "10.70.250.40/31"
+
+    # For Matthew Boyd (SN1 migration)
+  - NAME: matthewboyd
+    PORT: 51843
+    PEER_PUBLIC_KEY: 4AHMI3ARAtlM+pDLcqkmJl7CKewdjdzeK/gHNcjwk2c=
+    INTERFACE_ADDRESS: "10.70.250.42/31"
+
+    # For Matt B Pine Plains (777 no ospf) (SN1 migration)
+  - NAME: mattbpineplains
+    PORT: 51844
+    PEER_PUBLIC_KEY: dHr8IpqvJUziNCp6Uh2u75qqBtiHVPPjZFpwWahNuQM=
+    INTERFACE_ADDRESS: "10.70.250.44/31"
+
+    # For Ezra (SN1 migration)
+  - NAME: ezri
+    PORT: 51845
+    PEER_PUBLIC_KEY: kUjG+vika8cCIbwYYUm+L2CwyWYU4vaS3GAa/c9LZXc=
+    INTERFACE_ADDRESS: "10.70.250.46/31"
+
+    # For Willard Nilges (SN1 migration)
+  - NAME: willardnilges
+    PORT: 51846
+    PEER_PUBLIC_KEY: k2NiiLDRCXW3zFmECCFivCKLdQJ8d+bBsrVRnTjO5j0=
+    INTERFACE_ADDRESS: "10.70.250.48/31"
+
+    # Angelo NN691/693/695 second connection (SN1 migration)
+  - NAME: angelosecond
+    PORT: 51847
+    PEER_PUBLIC_KEY: aswrRcAKSf1BW3TLTR+A6tvuObHShW5m29EyF/UZ5Tw=
+    INTERFACE_ADDRESS: "10.70.250.50/31"
+
+    # micro (SN1 migration)
+  - NAME: micro
+    PORT: 51848
+    PEER_PUBLIC_KEY: MESHNMbP35GLY6EYNXFM7wZ+LXIDrHacwX9qvOX+WCg=
+    INTERFACE_ADDRESS: "10.70.250.52/31"
+
+    # For JohnB pfSense (SN1 migration)
+  - NAME: johnbpfsense
+    PORT: 51849
+    PEER_PUBLIC_KEY: oJohnbidqbuvpmYWBqNuTUp++XbKxWWP/V/b0+lVrjY=
+    INTERFACE_ADDRESS: "10.70.250.54/31"
+
+    # For JohnB phone/laptop (SN1 migration)
+  - NAME: johnbphonelaptop
+    PORT: 51850
+    PEER_PUBLIC_KEY: voAjohnbLEiyFZK2Z95LZf8cZB/z4aLAtzau5DBDCww=
+    INTERFACE_ADDRESS: "10.70.250.56/31"
+
+    # For Angelo NN691/693/695 (SN1 migration)
+  - NAME: angelo
+    PORT: 51851
+    PEER_PUBLIC_KEY: 8yZRetpQLZWqOpJhWsrL+jU1zuC4qAmCM0i3OkfjDgQ=
+    INTERFACE_ADDRESS: "10.70.250.58/31"
+
+    # Josh 8531 (NN177) - FiOS Router (SN1 migration)
+  - NAME: josh8531fios
+    PORT: 51852
+    PEER_PUBLIC_KEY: ib566wUAZjrdzD4y1fXTvmkb/54J+5jrMIoEIz3QLDc=
+    INTERFACE_ADDRESS: "10.70.250.60/31"
+
+    # For Josh 8531 (NN177) - Mobile (SN1 migration)
+  - NAME: josh8531mobile
+    PORT: 51853
+    PEER_PUBLIC_KEY: iOzqcXxAy23ccpDUZkdEobvgYgQRdQ74VWC8WiptUyM=
+    INTERFACE_ADDRESS: "10.70.250.62/31"
+
+    # For eaon / MZ (SN1 migration)
+  - NAME: eaonmz
+    PORT: 4500
+    PEER_PUBLIC_KEY: 7YLq4CrycYYRP4YdZ5cjiPozaWyNCXa6kKlFgSH2SwU=
+    INTERFACE_ADDRESS: "10.70.250.64/31"
+
+    # For Alessandro new (SN1 migration)
+  - NAME: alessandro
+    PORT: 51854
+    PEER_PUBLIC_KEY: iH0f4aAMGPgSyD9Q1M5Cr3//NQaut5tVdtFqz2XT9Ao=
+    INTERFACE_ADDRESS: "10.70.250.66/31"
+
+    # For Alessandro new (SN1 migration)
+  - NAME: alessandrino
+    PORT: 51855
+    PEER_PUBLIC_KEY: aRrCytJl1zpD78jBzz0Pf134XgiozNxxOI9MzVncnRc=
+    INTERFACE_ADDRESS: "10.70.250.68/31"
