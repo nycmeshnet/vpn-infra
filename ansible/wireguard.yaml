@@ -195,7 +195,7 @@ wireguard_configs:
     INTERFACE_ADDRESS: "10.70.250.60/31"
 
     # For Josh 8531 (NN177) - Mobile (SN1 migration)
-  - NAME: josh8531mobile
+  - NAME: josh8531mobil
     PORT: 51853
     PEER_PUBLIC_KEY: iOzqcXxAy23ccpDUZkdEobvgYgQRdQ74VWC8WiptUyM=
     INTERFACE_ADDRESS: "10.70.250.62/31"
