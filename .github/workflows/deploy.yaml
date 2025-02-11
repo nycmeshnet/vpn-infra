@@ -16,7 +16,7 @@ jobs:
     uses: ./.github/workflows/deploy_environment.yaml
     with:
       environment: dev3
-      varfile: wireguard.yaml
+      varfile: dev.yaml
     secrets: inherit
     #if: github.ref == 'refs/heads/master'
 
