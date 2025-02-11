@@ -105,7 +105,7 @@ wireguard_configs:
     INTERFACE_ADDRESS: "10.70.250.30/31"
 
     # For brooks home router (SN1 migration)
-  - NAME: brookshomerouter
+  - NAME: brooks
     PORT: 51838
     PEER_PUBLIC_KEY: Kbgk7cVNaD5mkebSqDTVWl4eLWCk8teXjKGnzoIjR1s=
     INTERFACE_ADDRESS: "10.70.250.32/31"
@@ -141,7 +141,7 @@ wireguard_configs:
     INTERFACE_ADDRESS: "10.70.250.42/31"
 
     # For Matt B Pine Plains (777 no ospf) (SN1 migration)
-  - NAME: mattbpineplains
+  - NAME: mattbpin
     PORT: 51844
     PEER_PUBLIC_KEY: dHr8IpqvJUziNCp6Uh2u75qqBtiHVPPjZFpwWahNuQM=
     INTERFACE_ADDRESS: "10.70.250.44/31"
@@ -177,7 +177,7 @@ wireguard_configs:
     INTERFACE_ADDRESS: "10.70.250.54/31"
 
     # For JohnB phone/laptop (SN1 migration)
-  - NAME: johnbphonelaptop
+  - NAME: johnbphonelap
     PORT: 51850
     PEER_PUBLIC_KEY: voAjohnbLEiyFZK2Z95LZf8cZB/z4aLAtzau5DBDCww=
     INTERFACE_ADDRESS: "10.70.250.56/31"

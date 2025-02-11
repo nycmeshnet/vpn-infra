@@ -17,8 +17,8 @@
 
         - name: Confirm names are valid
           ansible.builtin.fail:
-            msg: NAMEs in ansible/wireguard.yaml are not valid - {{ wireguard_configs | map(attribute='NAME') | select('match', '^[a-zA-Z0-9]+$') | list }}
-          when: (wireguard_configs | map(attribute='NAME') | select('match', '^[a-zA-Z0-9]+$') | list | length | string) != wg_config_len.msg
+            msg: NAMEs in ansible/wireguard.yaml are not valid - {{ wireguard_configs | map(attribute='NAME') | select('match', '^[a-zA-Z0-9]{2,14}$') | list }}
+          when: (wireguard_configs | map(attribute='NAME') | select('match', '^[a-zA-Z0-9]{2,14}$') | list | length | string) != wg_config_len.msg
 
     - name: PORT property
       block:
