@@ -217,3 +217,15 @@ wireguard_configs:
     PORT: 51855
     PEER_PUBLIC_KEY: aRrCytJl1zpD78jBzz0Pf134XgiozNxxOI9MzVncnRc=
     INTERFACE_ADDRESS: "10.70.250.68/31"
+
+    # For Olivier (SN1 migration)
+  - NAME: olivier
+    PORT: 51856
+    PEER_PUBLIC_KEY: WlJqtSIHFeoei+QsDdqCCeJFNEC8H6quGMjw1so+MQ4=
+    INTERFACE_ADDRESS: "10.70.250.70/31"
+
+    # For Aubergine (SN1 migration)
+  - NAME: aubergine
+    PORT: 51857
+    PEER_PUBLIC_KEY: INkZww2NKvOhOdvexcLvn7hef/Wc+6onyQC5ql5UFQ8=
+    INTERFACE_ADDRESS: "10.70.250.72/31"
