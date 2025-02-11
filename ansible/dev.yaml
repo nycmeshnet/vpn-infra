@@ -18,5 +18,5 @@ wireguard_configs:
   - NAME: jameso
     PORT: 51822
     PEER_PUBLIC_KEY: nj5rB0CIL6JUXLvl+oqQXcav2qnr509FzpF30lF8mEY=
-    INTERFACE_ADDRESS: "10.70.250.2/31"
+    INTERFACE_ADDRESS: "10.70.248.2/31"
 

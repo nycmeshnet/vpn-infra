@@ -1,5 +1,6 @@
 proxmox_node             = "nycmesh-713-r640-02"
 proxmox_storage_location = "local-lvm"
+vm_nic                   = "vmbr0v32"
 hostname                 = "nycmesh-vpn-1"
 vm_mgt_ip                = "10.70.90.203"
 vm_mgt_default_gateway   = "10.70.90.1"

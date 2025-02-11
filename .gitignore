@@ -5,3 +5,5 @@ terraform.tfstate
 terraform.tfstate.backup
 vpn
 vpn.pub
+vpn_ed25519
+vpn_ed25519.pub
