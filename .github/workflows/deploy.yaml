@@ -5,7 +5,6 @@ on:
   push:
     branches:
       - master
-      - james/iac
   workflow_dispatch:
     branches:
       - master
@@ -16,14 +15,16 @@ jobs:
     uses: ./.github/workflows/deploy_environment.yaml
     with:
       environment: dev3
+      varfile: dev.yaml
     secrets: inherit
-    #if: github.ref == 'refs/heads/master'
+    if: github.ref == 'refs/heads/master'
 
   deploy_prod1:
     name: Deploy prod1
     uses: ./.github/workflows/deploy_environment.yaml
     with:
       environment: prod1
+      varfile: wireguard.yaml
     secrets: inherit
     needs: deploy_dev3
     if: github.ref == 'refs/heads/master'
