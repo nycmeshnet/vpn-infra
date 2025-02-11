@@ -28,4 +28,4 @@ jobs:
       varfile: wireguard.yaml
     secrets: inherit
     needs: deploy_dev3
-    # if: github.ref == 'refs/heads/master'
+    if: github.ref == 'refs/heads/master'

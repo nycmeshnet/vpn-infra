@@ -1,34 +1,33 @@
 *filter
-:INPUT ACCEPT [0:0]
-:FORWARD ACCEPT [0:0]
+:INPUT DROP [0:0]
+:FORWARD DROP [0:0]
 :OUTPUT ACCEPT [0:0]
 
+-A INPUT -i lo -j ACCEPT
+-A INPUT -d 127.0.0.0/8 ! -i lo -j REJECT --reject-with icmp-port-unreachable
+-A INPUT -m state --state RELATED,ESTABLISHED -j ACCEPT
+
 -A INPUT -s 10.70.90.53/32 -d {{ BIRD_ROUTER_ID }}/{{ INTERNAL_HOST_IDENTIFIER }} -j ACCEPT
--A INPUT -s 10.70.73.66/32 -d {{ BIRD_ROUTER_ID }}/{{ INTERNAL_HOST_IDENTIFIER }} -j ACCEPT
 
 # Fix
--A INPUT -s 10.0.0.0/8 -d {{ BIRD_ROUTER_ID }}/{{ INTERNAL_HOST_IDENTIFIER }} -j ACCEPT
+#-A INPUT -s 10.0.0.0/8 -d {{ BIRD_ROUTER_ID }}/{{ INTERNAL_HOST_IDENTIFIER }} -j ACCEPT
 
--A INPUT -d {{ BIRD_ROUTER_ID }}/24 -j ACCEPT
--A INPUT  -d {{ WG_PRIVATE_RANGE }} -j ACCEPT
+#-A INPUT -d {{ BIRD_ROUTER_ID }}/24 -j ACCEPT
+#-A INPUT  -d {{ WG_PRIVATE_RANGE }} -j ACCEPT
 
 -A INPUT -i lo -j ACCEPT
 -A INPUT ! -i lo -d 127.0.0.0/8 -j REJECT
 -A INPUT -m state --state ESTABLISHED,RELATED -j ACCEPT
 
 -A INPUT -p tcp -m state -i eth0 --state NEW --dport 22 -j ACCEPT
--A INPUT -p icmp -m icmp --icmp-type 8 -j ACCEPT
 
 {% for wg_config in wireguard_configs %}
 -A INPUT -p udp -m state --state NEW --dport {{ wg_config.PORT }} -j ACCEPT
 {% endfor %}
 
--A INPUT -p ICMP --icmp-type echo-request -j ACCEPT
-
 -A INPUT -p udp -m udp --dport 33434:33474 -j REJECT --reject-with icmp-port-unreachable
--A INPUT -p icmp -m icmp --icmp-type 8 -j ACCEPT
-
-#-A INPUT -j DROP
+-A INPUT -s 10.0.0.0/8 -p icmp -m icmp --icmp-type 8 -j ACCEPT
+-A INPUT -j DROP
 
 -A FORWARD -p tcp --tcp-flags SYN,RST SYN -j TCPMSS  --clamp-mss-to-pmtu
 -A FORWARD -d {{ WG_PRIVATE_RANGE }} -j ACCEPT
