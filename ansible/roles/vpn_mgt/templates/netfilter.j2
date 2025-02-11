@@ -22,8 +22,8 @@
 -A INPUT -p tcp -m state -i eth0 --state NEW --dport 22 -j ACCEPT
 
 # Allow incoming OSPF traffic (protocol 89) on the specified multicast addresses
--A INPUT -d 224.0.0.5 -p ipprotocol --protocol 89 -j ACCEPT
--A INPUT -d 224.0.0.6 -p ipprotocol --protocol 89 -j ACCEPT
+-A INPUT -s 10.0.0.0/8 -d 224.0.0.5 --protocol 89 -j ACCEPT
+-A INPUT -s 10.0.0.0/8 -d 224.0.0.6 --protocol 89 -j ACCEPT
 
 {% for wg_config in wireguard_configs %}
 -A INPUT -p udp -m state --state NEW --dport {{ wg_config.PORT }} -j ACCEPT
