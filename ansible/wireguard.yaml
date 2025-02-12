@@ -229,3 +229,10 @@ wireguard_configs:
     PORT: 51857
     PEER_PUBLIC_KEY: INkZww2NKvOhOdvexcLvn7hef/Wc+6onyQC5ql5UFQ8=
     INTERFACE_ADDRESS: "10.70.250.72/31"
+
+    # For the super awesome remote hub NN592
+  - NAME: roy
+    PORT: 51858
+    PEER_PUBLIC_KEY: 
+    INTERFACE_ADDRESS: "10.70.250.74/31"
+  
