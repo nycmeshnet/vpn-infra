@@ -235,4 +235,3 @@ wireguard_configs:
     PORT: 51858
     PEER_PUBLIC_KEY: pvHVnAw3uDbWjJcW8+9OoWG9e+Z1UPK8X0lkBWaC5Uc=
     INTERFACE_ADDRESS: "10.70.251.125/30"
-  
