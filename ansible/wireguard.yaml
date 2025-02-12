@@ -229,3 +229,16 @@ wireguard_configs:
     PORT: 51857
     PEER_PUBLIC_KEY: INkZww2NKvOhOdvexcLvn7hef/Wc+6onyQC5ql5UFQ8=
     INTERFACE_ADDRESS: "10.70.250.72/31"
+
+    # For Zachs phone (SN1 migration)
+  - NAME: zachsphone
+    PORT: 51858
+    PEER_PUBLIC_KEY: 68uANGo0M2jv5LcB6rFYmM3h6y6qI9mdHo+/B8RjvQY=
+    INTERFACE_ADDRESS: "10.70.250.74/31"
+
+    # For Zach bonnie (SN1 migration)
+  - NAME: zachbonnie
+    PORT: 51859
+    PEER_PUBLIC_KEY: OEUnHbDnSx0XBpNiI6McBvfCqwxtxHb10u1vlhcf/HY=
+    INTERFACE_ADDRESS: "10.70.250.76/31"
+    
