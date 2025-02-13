@@ -1,0 +1,15 @@
+wireguard_configs:
+    # For the super awesome remote hub NN592
+  - NAME: nn592
+    PORT: 51821
+    PEER_PUBLIC_KEY: sD3bVQglZfq2j82or48q+i0R0KdszUPZRkcz4rVqAk8=
+    INTERFACE_ADDRESS: "10.70.247.121/30"
+    NEIGHBORS: "10.70.247.122"
+    TX_LENGTH: 1420
+    COST: 99
+
+    # For James
+  - NAME: jameso
+    PORT: 51822
+    PEER_PUBLIC_KEY: nj5rB0CIL6JUXLvl+oqQXcav2qnr509FzpF30lF8mEY=
+    INTERFACE_ADDRESS: "10.70.247.0/31"

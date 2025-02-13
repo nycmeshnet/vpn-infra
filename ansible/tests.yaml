@@ -1,8 +1,10 @@
 - name: Wireguard config tests
   hosts: 127.0.0.1
-  vars_files:
-    - wireguard.yaml
   tasks:
+    - name: Load variables
+      ansible.builtin.include_vars:
+        file: "{{ env_file }}"
+
     - name: Gather count of wireguard configs
       ansible.builtin.debug:
         msg: "{{ wireguard_configs | list | length }}"
@@ -54,7 +56,7 @@
         - name: INTERFACE_ADDRESS should be within the allocated space
           ansible.builtin.fail:
             msg: "INTERFACE_ADDRESS should be in the allocated space"
-          when: (wireguard_configs | map(attribute='INTERFACE_ADDRESS', default='10.70.250.1') | ansible.utils.reduce_on_network('10.70.250.0/24') | list | length | string) != wg_config_len.msg
+          when: (wireguard_configs | map(attribute='INTERFACE_ADDRESS', default=expected_default) | ansible.utils.reduce_on_network(expected_range) | list | length | string) != wg_config_len.msg
 
     - name: NEIGHBORS property
       block:
@@ -66,7 +68,7 @@
         - name: NEIGHBORS should be within the allocated space
           ansible.builtin.fail:
             msg: "When set for remote hubs NEIGHBORS should be in the allocated space"
-          when: (wireguard_configs | map(attribute='NEIGHBORS', default='10.70.250.1') | ansible.utils.reduce_on_network('10.70.250.0/24') | list | length | string) != wg_config_len.msg
+          when: (wireguard_configs | map(attribute='NEIGHBORS', default=expected_default) | ansible.utils.reduce_on_network(expected_range) | list | length | string) != wg_config_len.msg
 
     - name: TX_LENGTH property
       block:

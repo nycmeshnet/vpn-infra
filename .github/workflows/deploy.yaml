@@ -24,7 +24,17 @@ jobs:
     uses: ./.github/workflows/deploy_environment.yaml
     with:
       environment: prod1
-      varfile: wireguard.yaml
+      varfile: wireguard_sn3.yaml
     secrets: inherit
     needs: deploy_dev3
+    if: github.ref == 'refs/heads/master'
+
+  deploy_prod2:
+    name: Deploy prod2
+    uses: ./.github/workflows/deploy_environment.yaml
+    with:
+      environment: prod2
+      varfile: wireguard_sn10.yaml
+    secrets: inherit
+    needs: deploy_prod1
     if: github.ref == 'refs/heads/master'
