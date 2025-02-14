@@ -5,7 +5,6 @@ on:
   push:
     branches:
       - master
-      - james/sn10
   workflow_dispatch:
     branches:
       - master
@@ -37,5 +36,5 @@ jobs:
       environment: prod2
       varfile: wireguard_sn10.yaml
     secrets: inherit
-    #needs: deploy_prod1
-    #if: github.ref == 'refs/heads/master'
+    needs: deploy_prod1
+    if: github.ref == 'refs/heads/master'
