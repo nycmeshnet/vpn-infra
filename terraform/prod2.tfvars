@@ -8,3 +8,4 @@ bird_networks            = "10.70.100.0/24;10.69.0.0/16;23.158.16.28/32;10.70.24
 bird_neighbors           = "10.69.0.10"
 wg_public_ip             = "23.158.16.28"
 wg_private_range         = "10.70.247.0/24"
+system_image             = "local:vztmpl/debian-12-standard_12.7-1_amd64.tar.zst"
