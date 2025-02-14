@@ -5,6 +5,7 @@ on:
   push:
     branches:
       - master
+      - james/sn10
   workflow_dispatch:
     branches:
       - master
