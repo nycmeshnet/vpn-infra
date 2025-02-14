@@ -242,20 +242,20 @@ wireguard_configs:
     PEER_PUBLIC_KEY: OEUnHbDnSx0XBpNiI6McBvfCqwxtxHb10u1vlhcf/HY=
     INTERFACE_ADDRESS: "10.70.250.76/31"
 
-    # For myf machupicchu (SN1 migration)
-  - NAME: myf
-    PORT: 51860
-    PEER_PUBLIC_KEY: sgnFN7Uj6acjc9gmDAwD7dGnMGGrP4Hb4OJY53X5RGA=
-    INTERFACE_ADDRESS: "10.70.250.78/31"
-
-    # For Andreas Pumberger #12723 (SN1 migration)
-  - NAME: andreas
-    PORT: 51861
-    PEER_PUBLIC_KEY: Q8W/lwGahGN+lNTL5kBHZMTwTW+aoZU5H6hRTJPMnHQ=
-    INTERFACE_ADDRESS: "10.70.250.80/31"
-
     # NN757
   - NAME: roy757
     PORT: 51860
     PEER_PUBLIC_KEY: pvHVnAw3uDbWjJcW8+9OoWG9e+Z1UPK8X0lkBWaC5Uc=
     INTERFACE_ADDRESS: "10.70.250.125/30"
+
+    # For myf machupicchu (SN1 migration)
+  - NAME: myf
+    PORT: 51861
+    PEER_PUBLIC_KEY: sgnFN7Uj6acjc9gmDAwD7dGnMGGrP4Hb4OJY53X5RGA=
+    INTERFACE_ADDRESS: "10.70.250.78/31"
+
+    # For Andreas Pumberger #12723 (SN1 migration)
+  - NAME: andreas
+    PORT: 51862
+    PEER_PUBLIC_KEY: Q8W/lwGahGN+lNTL5kBHZMTwTW+aoZU5H6hRTJPMnHQ=
+    INTERFACE_ADDRESS: "10.70.250.80/31"
