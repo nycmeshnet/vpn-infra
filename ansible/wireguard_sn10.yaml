@@ -13,3 +13,9 @@ wireguard_configs:
     PORT: 51822
     PEER_PUBLIC_KEY: nj5rB0CIL6JUXLvl+oqQXcav2qnr509FzpF30lF8mEY=
     INTERFACE_ADDRESS: "10.70.247.0/31"
+
+    # For Matt
+  - NAME: matt
+    PORT: 51823
+    PEER_PUBLIC_KEY: JQ9/0Ll0oCsq1F5EHXomnoKiaSnvGX9b2RH4KfRq7Us=
+    INTERFACE_ADDRESS: "10.70.247.2/31"
