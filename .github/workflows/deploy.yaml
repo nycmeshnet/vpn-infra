@@ -4,10 +4,10 @@ permissions: read-all
 on:
   push:
     branches:
-      - master
+      - main
   workflow_dispatch:
     branches:
-      - master
+      - main
 
 jobs:
   deploy_dev3:
@@ -17,7 +17,7 @@ jobs:
       environment: dev3
       varfile: dev.yaml
     secrets: inherit
-    if: github.ref == 'refs/heads/master'
+    if: github.ref == 'refs/heads/main'
 
   deploy_prod1:
     name: Deploy prod1
@@ -27,7 +27,7 @@ jobs:
       varfile: wireguard_sn3.yaml
     secrets: inherit
     needs: deploy_dev3
-    if: github.ref == 'refs/heads/master'
+    if: github.ref == 'refs/heads/main'
 
   deploy_prod2:
     name: Deploy prod2
@@ -37,4 +37,4 @@ jobs:
       varfile: wireguard_sn10.yaml
     secrets: inherit
     needs: deploy_prod1
-    if: github.ref == 'refs/heads/master'
+    if: github.ref == 'refs/heads/main'
