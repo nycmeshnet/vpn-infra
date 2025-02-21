@@ -19,3 +19,9 @@ wireguard_configs:
     PORT: 51823
     PEER_PUBLIC_KEY: JQ9/0Ll0oCsq1F5EHXomnoKiaSnvGX9b2RH4KfRq7Us=
     INTERFACE_ADDRESS: "10.70.247.2/31"
+
+    # For JohnB
+  - NAME: johnb
+    PORT: 51824
+    PEER_PUBLIC_KEY: JOHNBcSeEXKV7l6KEi9ktxoKiFh6CymdfZ3ItDZCxRk=
+    INTERFACE_ADDRESS: "10.70.247.4/31"
