@@ -265,3 +265,9 @@ wireguard_configs:
     PORT: 51863
     PEER_PUBLIC_KEY: NkRNuax9PiCs5VOhGe6qJXk/hF5SveCJ8UstFD2DDg4=
     INTERFACE_ADDRESS: "10.70.250.82/31"
+
+    # For Lydon road warrior (laptop)
+    NAME: lydon
+    PORT: 51863
+    PEER_PUBLIC_KEY: 7//2RfpyEwlGEJsplTywh0TlZm08aSlvY5ADC1/1l3A=
+    INTERFACE_ADDRESS: "10.70.250.84/31"
