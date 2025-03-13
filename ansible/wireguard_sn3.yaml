@@ -271,3 +271,9 @@ wireguard_configs:
     PORT: 51864
     PEER_PUBLIC_KEY: 7//2RfpyEwlGEJsplTywh0TlZm08aSlvY5ADC1/1l3A=
     INTERFACE_ADDRESS: "10.70.250.84/31"
+
+    #For oliver' (SN1 migration)
+  - NAME: oliver1
+    PORT: 51865
+    PEER_PUBLIC_KEY: F0W2Gnn+INb27JpQIxKTwm39MRYU8ZA00985Z7gjl0M=
+    INTERFACE_ADDRESS: "10.70.250.86/31"
