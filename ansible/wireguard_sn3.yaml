@@ -13,7 +13,7 @@ wireguard_configs:
     # For NN135 RobJ (SN3 migration)
   - NAME: nn135
     PORT: 51900
-    PEER_PUBLIC_KEY: sD3bVQglZfq2j82or48q+i0R0KdszUPZRkcz4rVqAk8=
+    PEER_PUBLIC_KEY: V/wrXElkbVD13EJEJ6MfiBPyNH8ArBftbReH2NeIfkg=
     INTERFACE_ADDRESS: "10.70.250.125/30"
     NEIGHBORS: "10.70.250.126"
     TX_LENGTH: 1366
