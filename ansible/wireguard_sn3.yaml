@@ -389,3 +389,9 @@ wireguard_configs:
     PORT: 51865
     PEER_PUBLIC_KEY: F0W2Gnn+INb27JpQIxKTwm39MRYU8ZA00985Z7gjl0M=
     INTERFACE_ADDRESS: "10.70.250.86/31"
+
+    # For deploying https://github.com/nycmeshnet/nycmesh-building
+  - NAME: ghbuilding
+    PORT: 51866
+    PEER_PUBLIC_KEY: uJRWbdAgjbUkhmuXb/6JjjIrU1GjOTXtO92uElvS2wY=
+    INTERFACE_ADDRESS: "10.70.250.88/31"
