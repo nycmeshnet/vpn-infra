@@ -126,8 +126,6 @@ wireguard_configs:
     NEIGHBORS: "10.70.250.69"
     TX_LENGTH: 1366
     COST: 100
-    PEER_ALLOWED_IPS: "10.0.0.0/8"
-    PEER_PERSISTENT_KEEPALIVE: 25
 
     ### Road Warriors
 
