@@ -118,6 +118,15 @@ wireguard_configs:
     TX_LENGTH: 1366
     COST: 99
 
+    # For nn584 Olmsted until the SN11 VPN is up
+  - NAME: nn584
+    PORT: 51912
+    PEER_PUBLIC_KEY: jO3369P+BFpmJfJKz4rvJ3+9mqM3IztiA5lZpGAaTCA=
+    INTERFACE_ADDRESS: "10.70.250.173/30"
+    NEIGHBORS: "10.70.250.174"
+    TX_LENGTH: 1366
+    COST: 100
+
     ### Road Warriors
 
     # For Daniel Heredia
