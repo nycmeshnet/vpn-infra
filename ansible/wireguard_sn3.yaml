@@ -127,6 +127,24 @@ wireguard_configs:
     TX_LENGTH: 1420
     COST: 100
 
+    # For Josh 8531 (SN3 migration)
+  - NAME: nn177
+    PORT: 51913
+    PEER_PUBLIC_KEY: nA+MQsqlZBSsa3KYhhQe1YphG4pStfRn2DzeHIoZyFI=
+    INTERFACE_ADDRESS: "10.70.250.177/30"
+    NEIGHBORS: "10.70.250.178"
+    TX_LENGTH: 1420
+    COST: 30
+    
+    # For hEX LTE Hotspot 8201 (SN3 migration)
+  - NAME: nn8201
+    PORT: 51914
+    PEER_PUBLIC_KEY: v84VGCperE/HYZY3b4DANIMSSeZaC81rNH+1rqerBi8=
+    INTERFACE_ADDRESS: "10.70.250.181/30"
+    NEIGHBORS: "10.70.250.182"
+    TX_LENGTH: 1420
+    COST: 200
+
     ### Road Warriors
 
     # For Daniel Heredia
