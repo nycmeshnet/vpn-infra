@@ -1,4 +1,7 @@
 wireguard_configs:
+
+## OSPF Connections
+
     # For the super awesome remote hub NN592
   - NAME: nn592
     PORT: 51821
@@ -7,6 +10,17 @@ wireguard_configs:
     NEIGHBORS: "10.70.247.122"
     TX_LENGTH: 1420
     COST: 99
+
+    # For Andrew Dickinson Amazon VPC
+  - NAME: andrewvpc
+    PORT: 51825
+    PEER_PUBLIC_KEY: 2uMY2He1KCRjnsXnKU4KVD6dfCXzUUxly117aXsZ3kc=
+    INTERFACE_ADDRESS: "10.70.247.125/30"
+    NEIGHBORS: "10.70.247.126"
+    TX_LENGTH: 1366
+    COST: 130
+
+### Road Warriors
 
     # For James
   - NAME: jameso

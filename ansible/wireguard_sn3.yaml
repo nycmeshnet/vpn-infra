@@ -116,7 +116,7 @@ wireguard_configs:
     INTERFACE_ADDRESS: "10.70.250.169/30"
     NEIGHBORS: "10.70.250.170"
     TX_LENGTH: 1366
-    COST: 99
+    COST: 150
 
     # For nn584 Olmsted until the SN11 VPN is up
   - NAME: nn584
