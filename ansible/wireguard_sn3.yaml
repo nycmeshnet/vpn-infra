@@ -16,8 +16,8 @@ wireguard_configs:
     PEER_PUBLIC_KEY: V/wrXElkbVD13EJEJ6MfiBPyNH8ArBftbReH2NeIfkg=
     INTERFACE_ADDRESS: "10.70.250.125/30"
     NEIGHBORS: "10.70.250.126"
-    TX_LENGTH: 1366
-    COST: 99
+    TX_LENGTH: 1420
+    COST: 41
 
     # For NN136 AndyB Amazon VPC (SN3 migration)
   - NAME: nn136
@@ -25,7 +25,7 @@ wireguard_configs:
     PEER_PUBLIC_KEY: BiII3RZxHQoYeWaeNrI0HVJBze1oO+9bcoWO59DWJlw=
     INTERFACE_ADDRESS: "10.70.250.129/30"
     NEIGHBORS: "10.70.250.130"
-    TX_LENGTH: 1366
+    TX_LENGTH: 1420
     COST: 99
 
     # For NN1417 Soft Surplus/Hex House (SN3 migration)
@@ -35,7 +35,7 @@ wireguard_configs:
     INTERFACE_ADDRESS: "10.70.250.133/30"
     NEIGHBORS: "10.70.250.134"
     TX_LENGTH: 1420
-    COST: 99
+    COST: 37
 
     # For NN148 Harlem Kiosk (SN3 migration)
   - NAME: nn148
@@ -43,8 +43,8 @@ wireguard_configs:
     PEER_PUBLIC_KEY: Qpx9x8eQ0/M3pKo5MQTA1dg0wFKOjo8kNh0iJxeiZ1U=
     INTERFACE_ADDRESS: "10.70.250.137/30"
     NEIGHBORS: "10.70.250.138"
-    TX_LENGTH: 1366
-    COST: 99
+    TX_LENGTH: 1420
+    COST: 80
 
     # For NN2299 Lily House (SN3 migration)
   - NAME: nn2299
@@ -52,8 +52,8 @@ wireguard_configs:
     PEER_PUBLIC_KEY: o6xGrijkBrzhPNdDAiESpTk0Mjn68ASpQJH+0dHtJRA=
     INTERFACE_ADDRESS: "10.70.250.141/30"
     NEIGHBORS: "10.70.250.142"
-    TX_LENGTH: 1344
-    COST: 99
+    TX_LENGTH: 1420
+    COST: 110
 
     # For NN317 Temkin (SN3 migration)
   - NAME: nn317
@@ -70,7 +70,7 @@ wireguard_configs:
     PEER_PUBLIC_KEY: BwGzJInFuBR4sQI8eUk5TH5ZZvDI952abbHoEyXLcRc=
     INTERFACE_ADDRESS: "10.70.250.149/30"
     NEIGHBORS: "10.70.250.150"
-    TX_LENGTH: 1366
+    TX_LENGTH: 1420
     COST: 99
 
     # For NN383 Piotr (SN3 migration)
@@ -79,7 +79,7 @@ wireguard_configs:
     PEER_PUBLIC_KEY: wqq0bzKjsMAfRWEBdqAu/AG9IqNyvBziElz/AbsVzh4=
     INTERFACE_ADDRESS: "10.70.250.153/30"
     NEIGHBORS: "10.70.250.154"
-    TX_LENGTH: 1366
+    TX_LENGTH: 1420
     COST: 99
 
     # For NN640 YAYB (SN3 migration)
@@ -88,8 +88,8 @@ wireguard_configs:
     PEER_PUBLIC_KEY: MK8l7PMsQ/+Jz8Ul56BJLxrubj08f3jscKzMfVfRZQ0=
     INTERFACE_ADDRESS: "10.70.250.157/30"
     NEIGHBORS: "10.70.250.158"
-    TX_LENGTH: 1366
-    COST: 99
+    TX_LENGTH: 1420
+    COST: 45
 
     # For NN666 JohnB Home (SN3 migration)
   - NAME: nn666
@@ -97,7 +97,7 @@ wireguard_configs:
     PEER_PUBLIC_KEY: JOHnBoxVAAH4JcL0QZbKYyuXP5WQzeSU3UIwXlRuzhA=
     INTERFACE_ADDRESS: "10.70.250.161/30"
     NEIGHBORS: "10.70.250.162"
-    TX_LENGTH: 1344
+    TX_LENGTH: 1420
     COST: 99
 
     # For NN777 MattB Pine Plains (SN3 migration)
@@ -106,7 +106,7 @@ wireguard_configs:
     PEER_PUBLIC_KEY: wUm8/urU56aHwE8I2voR4Pm/Y0rIJ2bD70wo+X//yX8=
     INTERFACE_ADDRESS: "10.70.250.165/30"
     NEIGHBORS: "10.70.250.166"
-    TX_LENGTH: 1366
+    TX_LENGTH: 1420
     COST: 99
 
     # For Andrew Dickinson Amazon VPC (SN3 migration)
@@ -115,7 +115,7 @@ wireguard_configs:
     PEER_PUBLIC_KEY: 2uMY2He1KCRjnsXnKU4KVD6dfCXzUUxly117aXsZ3kc=
     INTERFACE_ADDRESS: "10.70.250.169/30"
     NEIGHBORS: "10.70.250.170"
-    TX_LENGTH: 1366
+    TX_LENGTH: 1420
     COST: 150
 
     # For nn584 Olmsted until the SN11 VPN is up
@@ -124,7 +124,7 @@ wireguard_configs:
     PEER_PUBLIC_KEY: jO3369P+BFpmJfJKz4rvJ3+9mqM3IztiA5lZpGAaTCA=
     INTERFACE_ADDRESS: "10.70.250.173/30"
     NEIGHBORS: "10.70.250.174"
-    TX_LENGTH: 1366
+    TX_LENGTH: 1420
     COST: 100
 
     ### Road Warriors
