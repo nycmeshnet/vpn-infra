@@ -26,7 +26,7 @@ wireguard_configs:
     INTERFACE_ADDRESS: "10.70.250.129/30"
     NEIGHBORS: "10.70.250.130"
     TX_LENGTH: 1420
-    COST: 99
+    COST: 10
 
     # For NN1417 Soft Surplus/Hex House (SN3 migration)
   - NAME: nn1417
