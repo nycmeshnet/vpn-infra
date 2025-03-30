@@ -135,7 +135,7 @@ wireguard_configs:
     NEIGHBORS: "10.70.250.178"
     TX_LENGTH: 1420
     COST: 30
-    
+
     # For hEX LTE Hotspot 8201 (SN3 migration)
   - NAME: nn8201
     PORT: 51914
