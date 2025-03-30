@@ -18,7 +18,7 @@ wireguard_configs:
     INTERFACE_ADDRESS: "10.70.247.125/30"
     NEIGHBORS: "10.70.247.126"
     TX_LENGTH: 1366
-    COST: 170
+    COST: 130
 
 ### Road Warriors
 
