@@ -136,15 +136,6 @@ wireguard_configs:
     TX_LENGTH: 1420
     COST: 30
 
-    # For NN692 Olivier (SN3 migration)
-  - NAME: nn692
-    PORT: 51914
-    PEER_PUBLIC_KEY: wiMZmM9gVevdA9LSTb8D2Lmi4w5tzFyiCPswNY9213M=
-    INTERFACE_ADDRESS: "10.70.250.181/30"
-    NEIGHBORS: "10.70.250.182"
-    TX_LENGTH: 1420
-    COST: 15
-
     # For hEX LTE Hotspot 8201 (SN3 migration)
   - NAME: nn8201
     PORT: 51914
@@ -153,6 +144,15 @@ wireguard_configs:
     NEIGHBORS: "10.70.250.182"
     TX_LENGTH: 1420
     COST: 200
+
+    # For NN692 Olivier (SN3 migration)
+  - NAME: nn692
+    PORT: 51915
+    PEER_PUBLIC_KEY: wiMZmM9gVevdA9LSTb8D2Lmi4w5tzFyiCPswNY9213M=
+    INTERFACE_ADDRESS: "10.70.250.181/30"
+    NEIGHBORS: "10.70.250.182"
+    TX_LENGTH: 1420
+    COST: 15
 
     ### Road Warriors
 
