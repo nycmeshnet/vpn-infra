@@ -394,7 +394,7 @@ wireguard_configs:
   - NAME: roy757
     PORT: 51860
     PEER_PUBLIC_KEY: pvHVnAw3uDbWjJcW8+9OoWG9e+Z1UPK8X0lkBWaC5Uc=
-    INTERFACE_ADDRESS: "10.70.250.125/30"
+    INTERFACE_ADDRESS: "10.70.250.92/30"
 
     # For myf machupicchu (SN1 migration)
   - NAME: myf
@@ -437,3 +437,5 @@ wireguard_configs:
     PORT: 51867
     PEER_PUBLIC_KEY: qoHT9IxkRQzZBHztq/X/MupdShp2R/kpRA8JO2eLbUU=
     INTERFACE_ADDRESS: "10.70.250.90/31"
+
+    # NOTE: the next available IP is "10.70.250.94/31" :)
