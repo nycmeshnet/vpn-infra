@@ -58,6 +58,11 @@
             msg: "INTERFACE_ADDRESS should be in the allocated space"
           when: (wireguard_configs | map(attribute='INTERFACE_ADDRESS', default=expected_default) | ansible.utils.reduce_on_network(expected_range) | list | length | string) != wg_config_len.msg
 
+        - name: Confirm addresses are unique
+          ansible.builtin.fail:
+            msg: The INTERFACE_ADDRESS values in ansible/wireguard.yaml are not unique - {{ wireguard_configs | map(attribute='INTERFACE_ADDRESS') }}
+          when: (wireguard_configs | map(attribute='INTERFACE_ADDRESS') | list | unique | length | string) != wg_config_len.msg
+
     - name: NEIGHBORS property
       block:
         - name: NEIGHBORS should be an IP
