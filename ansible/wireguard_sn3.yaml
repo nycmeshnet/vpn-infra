@@ -149,10 +149,12 @@ wireguard_configs:
   - NAME: nn692
     PORT: 51915
     PEER_PUBLIC_KEY: wiMZmM9gVevdA9LSTb8D2Lmi4w5tzFyiCPswNY9213M=
-    INTERFACE_ADDRESS: "10.70.250.181/30"
-    NEIGHBORS: "10.70.250.182"
+    INTERFACE_ADDRESS: "10.70.250.185/30"
+    NEIGHBORS: "10.70.250.186"
     TX_LENGTH: 1420
     COST: 15
+
+    # NOTE: the next available IP is "10.70.250.189/30" :)
 
     ### Road Warriors
 
