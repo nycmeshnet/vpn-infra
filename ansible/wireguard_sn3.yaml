@@ -440,4 +440,20 @@ wireguard_configs:
     PEER_PUBLIC_KEY: qoHT9IxkRQzZBHztq/X/MupdShp2R/kpRA8JO2eLbUU=
     INTERFACE_ADDRESS: "10.70.250.90/31"
 
-    # NOTE: the next available IP is "10.70.250.94/31" :)
+    # For Zach phone (SN3 migration)
+  - NAME: zachphone
+    PORT: 51868
+    PEER_PUBLIC_KEY: TmUnaXt5LoeFfJWZyTafT/MBQ0RTRBW9yXicGxzi1Qs=
+    INTERFACE_ADDRESS: "10.70.250.94/31"
+
+    # For Matthew Boyd Laptop (SN3 migration)
+  - NAME: mattlaptop
+    PORT: 51869
+    PEER_PUBLIC_KEY: 3UVwDc4qofIVcne0fmkp6vp+n55mE329veIXy7Bq1Cc=
+    INTERFACE_ADDRESS: "10.70.250.96/31"
+
+    # For Lydon Laptop (SN3 migration)
+  - NAME: lydonlaptop
+    PORT: 51870
+    PEER_PUBLIC_KEY: 2Zi8ePpTkUOoBvAhQQ+cDFxBE/IMLGNF3gV56PgjtlY=
+    INTERFACE_ADDRESS: "10.70.250.98/31"
