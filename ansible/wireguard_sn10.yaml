@@ -20,6 +20,15 @@ wireguard_configs:
     TX_LENGTH: 1366
     COST: 130
 
+    # For Matt B 777
+    Name: nn777
+    PORT: 51827
+    PEER_PUBLIC_KEY: HCYsMu1Wztk8ape2WP5HYiFZnNpn07guRNvKZw/e0mk=
+    INTERFACE_ADDRESS: "10.70.247.129/30"
+    NEIGHBORS: "10.70.247.130"
+    TX_LENGTH: 1420
+    COST: 98
+
 ### Road Warriors
 
     # For James
