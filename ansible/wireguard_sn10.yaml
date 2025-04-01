@@ -40,7 +40,7 @@ wireguard_configs:
     PEER_PUBLIC_KEY: JOHNBcSeEXKV7l6KEi9ktxoKiFh6CymdfZ3ItDZCxRk=
     INTERFACE_ADDRESS: "10.70.247.4/31"
 
-# For Olivier
+    # For Olivier
   - NAME: olivier
     PORT: 51825
     PEER_PUBLIC_KEY: Kak4TThChfbK+jzzvXsdoVgFvAb082uqI2PIVdCMD1c=
