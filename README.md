@@ -10,7 +10,7 @@
 ### Add a road warrior config
 
 1. Generate a public private keypair. `wg genkey | tee yourname_privatekey | wg pubkey > yourname_publickey`
-2. Add a new entry to [ansible/wireguard_sn3.yaml](./ansible/wireguard_sn3.yaml)
+2. Add a new entry to [ansible/wireguard_sn3.yaml](./ansible/wireguard_sn3.yaml) for SN3, or [ansible/wireguard_sn10.yaml](./ansible/wireguard_sn10.yaml) for SN10
 
 | Key  | Description | Restrictions |
 | ------------- | ------------- | ------------- |
@@ -30,7 +30,7 @@
 ## Add a remote hub config
 
 1. Generate a public private keypair. `wg genkey | tee nn000_privatekey | wg pubkey > nn000_publickey`
-2. Add a new entry to [ansible/wireguard_sn3.yaml](./ansible/wireguard_sn3.yaml)
+2. Add a new entry to [ansible/wireguard_sn3.yaml](./ansible/wireguard_sn3.yaml) for SN3, or [ansible/wireguard_sn10.yaml](./ansible/wireguard_sn10.yaml) for SN10
 
 | Key  | Description | Restrictions |
 | ------------- | ------------- | ------------- |
