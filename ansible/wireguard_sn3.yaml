@@ -35,7 +35,7 @@ wireguard_configs:
     INTERFACE_ADDRESS: "10.70.250.133/30"
     NEIGHBORS: "10.70.250.134"
     TX_LENGTH: 1420
-    COST: 38
+    COST: 28
 
     # For NN148 Harlem Kiosk (SN3 migration)
   - NAME: nn148
