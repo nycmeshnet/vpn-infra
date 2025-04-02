@@ -135,6 +135,9 @@ wireguard_configs:
     NEIGHBORS: "10.70.250.178"
     TX_LENGTH: 1420
     COST: 30
+    BFD_ENABLE: yes
+    BFD_INTERVAL: 1000ms
+    BFD_MULTIPLIER: 10
 
     # For hEX LTE Hotspot 8201 (SN3 migration)
   - NAME: nn8201
