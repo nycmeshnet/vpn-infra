@@ -26,6 +26,18 @@ protocol static {
     ipv4;                   # Again, IPv4 channel with default options
 }
 
+protocol bfd {
+{% for wg_config in wireguard_configs %}
+{% if wg_config.BFD_ENABLE is defined %}
+    interface "wg{{ wg_config.NAME }}" {
+        interval {{ wg_config.BFD_INTERVAL | default(200ms) }};
+        multiplier {{ wg_config.BFD_MULTIPLIER | default(5) }};
+        authentication none;
+    };
+    {% endif %}
+    {% endfor %}
+}
+
 protocol ospf v2 {
     ipv4 {
         import all;
@@ -52,6 +64,9 @@ protocol ospf v2 {
             cost {{ wg_config.COST | default(100) }};
             tx length {{ wg_config.TX_LENGTH | default(1420) }};
             type ptmp;
+            {% if wg_config.BFD_ENABLE is defined %}
+            bfd {{ wg_config.BFD_ENABLE | default(no) }};
+            {% endif %}
             neighbors {
                 {{ wg_config.NEIGHBORS }};
             };
