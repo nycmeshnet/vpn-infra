@@ -30,7 +30,7 @@ wireguard_configs:
     COST: 50
 
     # For Soft Surplus 1417
-  - NAME: 1417SoftSurplus
+  - NAME: nn1417
     PORT: 51828
     PEER_PUBLIC_KEY: VGIoIuqIfM+lZt1rgJ9WZzu9n6qn7+YWFn2W/GvmGxo=
     INTERFACE_ADDRESS: "10.70.247.133/30"
