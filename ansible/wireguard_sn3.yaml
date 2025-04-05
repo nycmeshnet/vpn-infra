@@ -305,7 +305,7 @@ wireguard_configs:
     # For Willard Nilges (SN1 migration)
   - NAME: willardnilges
     PORT: 51846
-    PEER_PUBLIC_KEY: 2qoft2kKCkHwz6rDQywpvleu/ysj1Rr9W1TvJf9Zgxg=
+    PEER_PUBLIC_KEY: iLPG+70qOqfVLses9V9Q/q5aXFhJQiIRoVNO6QWaxDQ=
     INTERFACE_ADDRESS: "10.70.250.48/31"
 
     # Angelo NN691/693/695 second connection (SN1 migration)
