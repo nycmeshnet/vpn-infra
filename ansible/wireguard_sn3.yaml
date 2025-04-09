@@ -135,7 +135,7 @@ wireguard_configs:
     NEIGHBORS: "10.70.250.178"
     TX_LENGTH: 1420
     COST: 30
-    BFD_ENABLE: yes
+    BFD_ENABLE: true
     BFD_INTERVAL: 1000ms
     BFD_MULTIPLIER: 10
 
