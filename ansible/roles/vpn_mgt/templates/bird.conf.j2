@@ -30,7 +30,7 @@ protocol bfd {
 {% for wg_config in wireguard_configs %}
 {% if wg_config.BFD_ENABLE is defined and wg_config.BFD_ENABLE %}
     interface "wg{{ wg_config.NAME }}" {
-        interval {{ wg_config.BFD_INTERVAL | default(200ms) }};
+        interval {{ wg_config.BFD_INTERVAL | default("200ms") }};
         multiplier {{ wg_config.BFD_MULTIPLIER | default(5) }};
         authentication none;
     };
