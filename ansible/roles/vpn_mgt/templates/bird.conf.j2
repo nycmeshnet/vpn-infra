@@ -65,7 +65,7 @@ protocol ospf v2 {
             tx length {{ wg_config.TX_LENGTH | default(1420) }};
             type ptmp;
             {% if wg_config.BFD_ENABLE is defined %}
-            bfd {{ wg_config.BFD_ENABLE | default(no) }};
+            bfd {{  "yes" if (wg_config.BFD_ENABLE == true or wg_config.BFD_ENABLE == "yes") else "no" }};
             {% endif %}
             neighbors {
                 {{ wg_config.NEIGHBORS }};
