@@ -107,7 +107,7 @@ wireguard_configs:
     INTERFACE_ADDRESS: "10.70.250.165/30"
     NEIGHBORS: "10.70.250.166"
     TX_LENGTH: 1420
-    COST: 300
+    COST: 200
 
     # For Andrew Dickinson Amazon VPC (SN3 migration)
   - NAME: andrewvpc
