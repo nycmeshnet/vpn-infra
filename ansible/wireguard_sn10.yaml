@@ -27,7 +27,7 @@ wireguard_configs:
     INTERFACE_ADDRESS: "10.70.247.129/30"
     NEIGHBORS: "10.70.247.130"
     TX_LENGTH: 1420
-    COST: 50
+    COST: 198
 
     # For Soft Surplus 1417
   - NAME: nn1417
