@@ -58,6 +58,14 @@
             msg: "INTERFACE_ADDRESS should be in the allocated space"
           when: (wireguard_configs | map(attribute='INTERFACE_ADDRESS', default=expected_default) | ansible.utils.reduce_on_network(expected_range) | list | length | string) != wg_config_len.msg
 
+        - name: INTERFACE_ADDRESS ranges should not overlap
+          ansible.builtin.fail:
+            msg: "Overlap in INTERFACE_ADDRESS: {{ item.0 }},{{ item.1 }} - {{ (wireguard_configs | map(attribute='INTERFACE_ADDRESS', default=expected_default) | list)[item[0] | int],(wireguard_configs | map(attribute='INTERFACE_ADDRESS', default=expected_default) | list)[item[1] | int] }}"
+          with_nested:
+            - "{{ range(1, (wireguard_configs | map(attribute='INTERFACE_ADDRESS', default=expected_default) | length)) | list }}"
+            - "{{ range(1, (wireguard_configs | map(attribute='INTERFACE_ADDRESS', default=expected_default) | length)) | list }}"
+          when: item[0] != item[1] and ((wireguard_configs | map(attribute='INTERFACE_ADDRESS', default=expected_default) | list)[item[0] | int] | ansible.utils.network_in_usable((wireguard_configs | map(attribute='INTERFACE_ADDRESS', default=expected_default) | list)[item[1] | int]))
+
     - name: NEIGHBORS property
       block:
         - name: NEIGHBORS should be an IP
