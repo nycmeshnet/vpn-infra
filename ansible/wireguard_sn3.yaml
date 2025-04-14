@@ -136,7 +136,7 @@ wireguard_configs:
     TX_LENGTH: 1420
     COST: 30
     BFD_ENABLE: true
-    BFD_INTERVAL: 1000ms
+    BFD_INTERVAL: 500ms
     BFD_MULTIPLIER: 10
 
     # For hEX LTE Hotspot 8201 (SN3 migration)
