@@ -460,3 +460,9 @@ wireguard_configs:
     PORT: 51870
     PEER_PUBLIC_KEY: 2Zi8ePpTkUOoBvAhQQ+cDFxBE/IMLGNF3gV56PgjtlY=
     INTERFACE_ADDRESS: "10.70.250.98/31"
+
+    # For Lydon Phone
+  - NAME: lydonphone
+    PORT: 51871
+    PEER_PUBLIC_KEY: 4rjQfQfy8xWIa00PXVh+hcyBsiaaG2dO9+LH9peJnjE=
+    INTERFACE_ADDRESS: "10.70.250.100/31"
