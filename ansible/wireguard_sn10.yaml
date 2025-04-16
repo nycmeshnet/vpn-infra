@@ -63,3 +63,9 @@ wireguard_configs:
     PORT: 51826
     PEER_PUBLIC_KEY: Kak4TThChfbK+jzzvXsdoVgFvAb082uqI2PIVdCMD1c=
     INTERFACE_ADDRESS: "10.70.247.6/31"
+
+    # Lydon Laptop
+  - NAME: lydon-laptop
+    PORT: 51827
+    PEER_PUBLIC_KEY: 2Zi8ePpTkUOoBvAhQQ+cDFxBE/IMLGNF3gV56PgjtlY=
+    INTERFACE_ADDRESS: "10.70.247.8/31"
