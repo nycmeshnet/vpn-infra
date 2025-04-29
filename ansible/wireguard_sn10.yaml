@@ -38,6 +38,20 @@ wireguard_configs:
     TX_LENGTH: 1420
     COST: 26
 
+    # For nn7800 CCNY
+  - NAME: nn7800
+    PORT: 51831
+    PEER_PUBLIC_KEY: QPu1xed/4VgghL7QFcYFLgN5c+bw6XfPEFwdg8tebzw=
+    INTERFACE_ADDRESS: "10.70.247.137/30"
+    NEIGHBORS: "10.70.247.138"
+    TX_LENGTH: 1420
+    COST: 200
+    BFD_ENABLE: true
+    BFD_INTERVAL: 500ms
+    BFD_MULTIPLIER: 10
+
+    # NOTE: the next available IP is "10.70.247.141/30" :)
+
 ### Road Warriors
 
     # For James
