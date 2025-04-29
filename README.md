@@ -46,6 +46,9 @@
 | `COST` | The OSPF cost of the link from the VPN server to your remote hub. The default is `100`.  | Should be a unique number |
 | `PEER_ALLOWED_IPS` | IPs allowed to connect. Default `0.0.0.0/0`. | IP range |
 | `PEER_PERSISTENT_KEEPALIVE` | Persistent keepalive. Default `25`. | Integer |
+| `BFD_ENABLE` | Optional - enables BFD for interface. Default `false` | Bool (`true`/`false`) |
+| `BFD_INTERVAL` | Optional - sets BFD interval. Default `200ms` | String (e.g. 200ms) |
+| `BFD_MULTIPLIER` | Optional - sets BFD multiplier. Default `5` | Integer |
 
 3. Open a pull request in this repository with your changes.
 
