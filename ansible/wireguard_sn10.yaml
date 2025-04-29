@@ -49,9 +49,7 @@ wireguard_configs:
     BFD_ENABLE: true
     BFD_INTERVAL: 500ms
     BFD_MULTIPLIER: 10
-
     # NOTE: the next available IP is "10.70.247.141/30" :)
-
 ### Road Warriors
 
     # For James
