@@ -466,3 +466,9 @@ wireguard_configs:
     PORT: 51871
     PEER_PUBLIC_KEY: 4rjQfQfy8xWIa00PXVh+hcyBsiaaG2dO9+LH9peJnjE=
     INTERFACE_ADDRESS: "10.70.250.100/31"
+
+    # For https://github.com/willnilges/pano
+  - NAME: ghpano
+    PORT: 51872
+    PEER_PUBLIC_KEY: A+VUQ/DHT7KBjjgc9glGNVZ3/QPIUO6Yj1BpjMBjTjI=
+    INTERFACE_ADDRESS: "10.70.250.102/31"
