@@ -7,3 +7,4 @@ vpn
 vpn.pub
 vpn_ed25519
 vpn_ed25519.pub
+settings.json

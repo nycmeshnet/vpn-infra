@@ -1,5 +1,19 @@
 - name: Wireguard config tests
   hosts: 127.0.0.1
+  vars:
+    valid_property_names:
+      - "NAME"
+      - "PORT"
+      - "PEER_PUBLIC_KEY"
+      - "INTERFACE_ADDRESS"
+      - "PEER_ALLOWED_IPS"
+      - "PEER_PERSISTENT_KEEPALIVE"
+      - "BFD_ENABLE"
+      - "BFD_INTERVAL"
+      - "BFD_MULTIPLIER"
+      - "NEIGHBORS"
+      - "TX_LENGTH"
+      - "COST"
   tasks:
     - name: Load variables
       ansible.builtin.include_vars:
@@ -9,6 +23,12 @@
       ansible.builtin.debug:
         msg: "{{ wireguard_configs | list | length }}"
       register: wg_config_len
+
+    - name: Check property names
+      ansible.builtin.fail:
+        msg: Unexpected property in config - {{ item.keys() | difference(valid_property_names) }}
+      with_list: "{{ wireguard_configs | list }}"
+      when: item.keys() | difference(valid_property_names)
 
     - name: NAME property
       block:
