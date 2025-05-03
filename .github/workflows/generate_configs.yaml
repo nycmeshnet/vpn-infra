@@ -22,19 +22,19 @@ jobs:
         run: |
           export PATH="$HOME/.local/bin:$PATH"
           mv dev.yaml wireguard.yaml
-          echo "all:\n  hosts:\n    127.0.0.1:\n      SERVER_IP: 199.170.132.44\n      PUBLIC_KEY: 'HCYsMu1Wztk8ape2WP5HYiFZnNpn07guRNvKZw/e0mk='" > inventory.yaml
-          ansible-playbook -i inventory.yaml generate_config_templates.yaml
-
+          echo "all:\n  hosts:\n    127.0.0.1:" > inventory.yaml
+          ansible-playbook -i inventory.yaml generate_config_templates.yaml --extra-vars "SERVER_NAME='dev' SERVER_IP='199.170.132.44' PUBLIC_KEY='HCYsMu1Wztk8ape2WP5HYiFZnNpn07guRNvKZw/e0mk='"
+          
           mv wireguard_sn3.yaml wireguard.yaml
-          echo "all:\n  hosts:\n    127.0.0.1:\n      SERVER_IP: 199.170.132.43\n      PUBLIC_KEY: 'HCYsMu1Wztk8ape2WP5HYiFZnNpn07guRNvKZw/e0mk='" > inventory.yaml
-          ansible-playbook -i inventory.yaml generate_config_templates.yaml
+          echo "all:\n  hosts:\n    127.0.0.1:" > inventory.yaml
+          ansible-playbook -i inventory.yaml generate_config_templates.yaml --extra-vars "SERVER_NAME='sn3' SERVER_IP='199.170.132.43' PUBLIC_KEY='HCYsMu1Wztk8ape2WP5HYiFZnNpn07guRNvKZw/e0mk='"
 
           mv wireguard_sn10.yaml wireguard.yaml
-          echo "all:\n  hosts:\n    127.0.0.1:\n      SERVER_IP: 23.158.16.28\n      PUBLIC_KEY: 'wFQXW68D0ePLU39A1yfuIRH7oyH3ZIfb424OczjI7Ak='" > inventory.yaml
-          ansible-playbook -i inventory.yaml generate_config_templates.yaml
+          echo "all:\n  hosts:\n    127.0.0.1:" > inventory.yaml
+          ansible-playbook -i inventory.yaml generate_config_templates.yaml --extra-vars "SERVER_NAME='sn10' SERVER_IP='23.158.16.28' PUBLIC_KEY='wFQXW68D0ePLU39A1yfuIRH7oyH3ZIfb424OczjI7Ak='"
         working-directory: ./ansible/
       
       - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4.6.2
         with:
-          path: ./dist/*.conf
+          path: ./dist/**/*.conf
           retention-days: 1
