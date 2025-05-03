@@ -33,3 +33,8 @@ jobs:
           echo "all:\n  hosts:\n    127.0.0.1:\n      SERVER_IP: 23.158.16.28\n      PUBLIC_KEY: 'wFQXW68D0ePLU39A1yfuIRH7oyH3ZIfb424OczjI7Ak='" > inventory.yaml
           ansible-playbook -i inventory.yaml generate_config_templates.yaml
         working-directory: ./ansible/
+      
+      - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4.6.2
+        with:
+          path: ./dist/*.conf
+          retention-days: 1
