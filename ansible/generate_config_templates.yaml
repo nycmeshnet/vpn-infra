@@ -1,0 +1,6 @@
+- name: Generate config templates
+  hosts: 127.0.0.1
+  roles:
+    - role: client_configs
+  vars_files:
+    - wireguard.yaml
