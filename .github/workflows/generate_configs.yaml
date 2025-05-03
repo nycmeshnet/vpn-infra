@@ -23,7 +23,7 @@ jobs:
           export PATH="$HOME/.local/bin:$PATH"
           mv dev.yaml wireguard.yaml
           echo "all:\n  hosts:\n    127.0.0.1:" > inventory.yaml
-          ansible-playbook -i inventory.yaml generate_config_templates.yaml --extra-vars "SERVER_NAME='dev' SERVER_IP='199.170.132.44' PUBLIC_KEY='HCYsMu1Wztk8ape2WP5HYiFZnNpn07guRNvKZw/e0mk='"
+          ansible-playbook -i inventory.yaml generate_config_templates.yaml --extra-vars "SERVER_NAME='dev3' SERVER_IP='199.170.132.44' PUBLIC_KEY='HCYsMu1Wztk8ape2WP5HYiFZnNpn07guRNvKZw/e0mk='"
           
           mv wireguard_sn3.yaml wireguard.yaml
           echo "all:\n  hosts:\n    127.0.0.1:" > inventory.yaml
