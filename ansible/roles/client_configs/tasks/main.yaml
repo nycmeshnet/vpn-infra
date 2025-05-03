@@ -1,18 +1,12 @@
 - name: Create directory
   ansible.builtin.file:
-    path: ./dist/
-    state: directory
-    mode: "0644"
-
-- name: Create env directory
-  ansible.builtin.file:
-    path: ./dist/{{ SERVER_NAME }}
+    path: /home/runner/work/vpn-infra/vpn-infra/ansible/dist/{{ SERVER_NAME }}
     state: directory
     mode: "0644"
 
 - name: Template wireguard config wg{{ item.NAME }}
   ansible.builtin.template:
     src: wg_client.conf.j2
-    dest: "./dist/{{ SERVER_NAME }}/wg{{ item.NAME }}.conf"
+    dest: "/home/runner/work/vpn-infra/vpn-infra/ansible/dist/{{ SERVER_NAME }}/wg{{ item.NAME }}.conf"
     mode: "0644"
   loop: "{{ wireguard_configs }}"
