@@ -1,7 +1,7 @@
 - name: Wireguard config tests
   hosts: 127.0.0.1
   vars:
-    VALID_PROPERTY_NAMES:
+    valid_property_names:
       - "NAME"
       - "PORT"
       - "PEER_PUBLIC_KEY"
@@ -26,9 +26,9 @@
 
     - name: Check property names
       ansible.builtin.fail:
-        msg: Unexpected property in config - {{ item.keys() | difference(VALID_PROPERTY_NAMES) }}
+        msg: Unexpected property in config - {{ item.keys() | difference(valid_property_names) }}
       with_list: "{{ wireguard_configs | list }}"
-      when: item.keys() | difference(VALID_PROPERTY_NAMES)
+      when: item.keys() | difference(valid_property_names)
 
     - name: NAME property
       block:
