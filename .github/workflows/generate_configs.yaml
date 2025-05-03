@@ -20,7 +20,6 @@ jobs:
 
       - name: Run playbook
         run: |
-          pwd
           export PATH="$HOME/.local/bin:$PATH"
           mv dev.yaml wireguard.yaml
           ansible-playbook generate_config_templates.yaml --extra-vars "SERVER_NAME='dev3' SERVER_IP='199.170.132.44' PUBLIC_KEY='HCYsMu1Wztk8ape2WP5HYiFZnNpn07guRNvKZw/e0mk='"
