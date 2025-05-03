@@ -28,6 +28,9 @@ wireguard_configs:
     NEIGHBORS: "10.70.247.130"
     TX_LENGTH: 1366
     COST: 198
+    BFD_ENABLE: true
+    BFD_INTERVAL: 500ms
+    BFD_MULTIPLIER: 10
 
     # For Soft Surplus 1417
   - NAME: nn1417
