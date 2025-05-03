@@ -2,6 +2,7 @@ name: Deploy All Environments
 permissions: read-all
 
 on:
+  pull_request:
   push:
     branches:
       - main
@@ -17,7 +18,7 @@ jobs:
       environment: dev3
       varfile: dev.yaml
     secrets: inherit
-    if: github.ref == 'refs/heads/main'
+    # if: github.ref == 'refs/heads/main'
 
   deploy_prod1:
     name: Deploy prod1
