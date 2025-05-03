@@ -1,5 +1,11 @@
 - name: Create directory
   ansible.builtin.file:
+    path: ./dist/
+    state: directory
+    mode: "0644"
+
+- name: Create env directory
+  ansible.builtin.file:
     path: ./dist/{{ SERVER_NAME }}
     state: directory
     mode: "0644"
