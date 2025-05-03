@@ -90,3 +90,9 @@ wireguard_configs:
     PORT: 51830
     PEER_PUBLIC_KEY: y4zE2THM/SHEjLIXrs5snKNNQEIXVeWg7MsJ1BLAMUA=
     INTERFACE_ADDRESS: "10.70.247.10/31"
+
+    # Lekhya Road warrior
+  - NAME: Lekhya
+    PORT: 51832
+    PEER_PUBLIC_KEY: 6KuYC/GlvS+TyOenz1wNkRjHXSSjkoACQVYbPPkd4G4=
+    INTERFACE_ADDRESS: "10.70.247.12/31"
