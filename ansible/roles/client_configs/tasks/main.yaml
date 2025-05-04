@@ -1,0 +1,6 @@
+- name: Template wireguard config wg{{ item.NAME }}
+  ansible.builtin.template:
+    src: wg_client.conf.j2
+    dest: "/home/runner/work/vpn-infra/vpn-infra/ansible/{{ SERVER_NAME }}_wg{{ item.NAME }}.conf"
+    mode: "0644"
+  loop: "{{ wireguard_configs }}"

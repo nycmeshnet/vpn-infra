@@ -1,0 +1,37 @@
+name: Generate configs
+permissions: read-all
+
+on:
+  workflow_call:
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@a5ac7e51b41094c92402da3b24376905380afc29 # @v4
+
+      - uses: actions/setup-python@82c7e631bb3cdc910f68e0081d67478d79c6982d # @v5
+        with:
+          python-version: '3.11'
+
+      - name: Setup ansible
+        run: pip install -r requirements.txt && export PATH="$HOME/.local/bin:$PATH" && ansible-galaxy collection install -r ansible/roles/requirements.yml
+
+      - name: Run playbook
+        run: |
+          export PATH="$HOME/.local/bin:$PATH"
+          mv dev.yaml wireguard.yaml
+          ansible-playbook generate_config_templates.yaml --extra-vars "SERVER_NAME='dev3' SERVER_IP='199.170.132.44' PUBLIC_KEY='HCYsMu1Wztk8ape2WP5HYiFZnNpn07guRNvKZw/e0mk='"
+          
+          mv wireguard_sn3.yaml wireguard.yaml
+          ansible-playbook generate_config_templates.yaml --extra-vars "SERVER_NAME='sn3' SERVER_IP='199.170.132.43' PUBLIC_KEY='HCYsMu1Wztk8ape2WP5HYiFZnNpn07guRNvKZw/e0mk='"
+
+          mv wireguard_sn10.yaml wireguard.yaml
+          ansible-playbook generate_config_templates.yaml --extra-vars "SERVER_NAME='sn10' SERVER_IP='23.158.16.28' PUBLIC_KEY='wFQXW68D0ePLU39A1yfuIRH7oyH3ZIfb424OczjI7Ak='"
+        working-directory: ./ansible/
+      
+      - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4.6.2
+        with:
+          path: ./ansible/*_wg*.conf
+          retention-days: 1

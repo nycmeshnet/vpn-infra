@@ -1,0 +1,9 @@
+[Interface]
+Address = {{ item.INTERFACE_ADDRESS | ansible.utils.ipmath(1) }}/{{ item.INTERFACE_ADDRESS | ansible.utils.ipaddr('prefix') }}
+DNS = 10.10.10.10
+PrivateKey = YOUR_PRIVATE_KEY_DO_NOT_SHARE
+
+[Peer]
+AllowedIPs = 0.0.0.0/0
+Endpoint = {{ SERVER_IP }}:{{ item.PORT }}
+PublicKey = {{ PUBLIC_KEY }}

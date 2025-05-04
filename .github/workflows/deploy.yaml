@@ -10,6 +10,10 @@ on:
       - main
 
 jobs:
+  generate_configs:
+    name: Generate configs
+    uses: ./.github/workflows/generate_configs.yaml
+
   deploy_dev3:
     name: Deploy dev3
     uses: ./.github/workflows/deploy_environment.yaml
