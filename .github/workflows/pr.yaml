@@ -1,6 +1,7 @@
 name: pull-request
 
 on:
+  workflow_call:
   pull_request:
 
 permissions: read-all
