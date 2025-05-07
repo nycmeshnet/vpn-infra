@@ -10,6 +10,10 @@ on:
       - main
 
 jobs:
+  validations:
+    name: Run tests
+    uses: ./.github/workflows/pr.yaml
+
   generate_configs:
     name: Generate configs
     uses: ./.github/workflows/generate_configs.yaml
@@ -21,6 +25,7 @@ jobs:
       environment: dev3
       varfile: dev.yaml
     secrets: inherit
+    needs: validations
     if: github.ref == 'refs/heads/main'
 
   deploy_prod1:
