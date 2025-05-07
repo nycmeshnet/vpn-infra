@@ -5,5 +5,5 @@ iface wg{{ item.NAME }} inet static
         netmask {{ item.INTERFACE_ADDRESS | ansible.utils.ipaddr('netmask') }}
         pre-up ip link add $IFACE type wireguard
         pre-up wg setconf $IFACE /etc/wireguard/$IFACE.conf
-        post-up ip link set $IFACE mtu {{ item.TX_LENGTH }}
+        post-up ip link set $IFACE mtu {{ item.TX_LENGTH | default(1420) }}
         post-down ip link del $IFACE
