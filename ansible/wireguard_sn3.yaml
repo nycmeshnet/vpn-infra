@@ -483,3 +483,9 @@ wireguard_configs:
     PORT: 51872
     PEER_PUBLIC_KEY: A+VUQ/DHT7KBjjgc9glGNVZ3/QPIUO6Yj1BpjMBjTjI=
     INTERFACE_ADDRESS: "10.70.250.102/31"
+
+    # Akash Laptop
+   - NAME: akashAir
+    PORT: 51973
+    PEER_PUBLIC_KEY: WAp1gisHTjlCPt+t/7DyM6XLaKari98JNEMlhpYiMFk=
+    INTERFACE_ADDRESS: "10.70.250.104/31"
