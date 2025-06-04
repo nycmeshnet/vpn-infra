@@ -96,3 +96,9 @@ wireguard_configs:
     PORT: 51832
     PEER_PUBLIC_KEY: 6KuYC/GlvS+TyOenz1wNkRjHXSSjkoACQVYbPPkd4G4=
     INTERFACE_ADDRESS: "10.70.247.12/31"
+
+    # Monique laptop
+  - NAME: moniquelaptop
+    PORT: 51833
+    PEER_PUBLIC_KEY: LbjNQE6mwaC5v1zlLRDMBqeUC30ta/Cv4xgcW5U46ko=
+    INTERFACE_ADDRESS: "10.70.247.14/31"
