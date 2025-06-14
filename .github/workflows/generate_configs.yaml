@@ -2,6 +2,7 @@ name: Generate configs
 permissions: read-all
 
 on:
+  pull_request:
   workflow_call:
   workflow_dispatch:
     branches:
