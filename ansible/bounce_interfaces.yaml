@@ -1,0 +1,23 @@
+- name: Bounce interfaces
+  hosts: vpn_mgt
+  become: true
+  vars_files:
+    - wireguard.yaml
+  tasks:
+    - name: Bounce inactive interfaces
+      ansible.builtin.command:
+        argv:
+          - /bin/bash
+          - -c
+          - |
+            last_handshake="$(wg show wg{{ item.NAME }} latest-handshakes | awk '{print $2}'";
+            difference=$(( $(date +%s) - last_handshake ));
+            abs_difference=${difference#-};
+            if [ "$abs_difference" -le 300 ]; then;
+              echo "Recent handshake";
+            else
+              echo "Bounced interface";
+              ifdown wg{{ item.NAME }};
+              ifup wg{{ item.NAME }};
+            fi;
+      loop: "{{ wireguard_configs }}"
