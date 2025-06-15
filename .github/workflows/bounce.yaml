@@ -31,7 +31,7 @@ jobs:
       environment: prod1
       varfile: wireguard_sn3.yaml
     secrets: inherit
-    needs: deploy_dev3
+    needs: bounce_dev3
     if: github.ref == 'refs/heads/main'
 
   bounce_prod2:
@@ -41,5 +41,5 @@ jobs:
       environment: prod2
       varfile: wireguard_sn10.yaml
     secrets: inherit
-    needs: deploy_prod1
+    needs: bounce_prod1
     if: github.ref == 'refs/heads/main'
