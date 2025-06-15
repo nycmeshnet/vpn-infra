@@ -501,3 +501,9 @@ wireguard_configs:
     PORT: 51975
     PEER_PUBLIC_KEY: B4ql7glzVM/Ae69dw2mGtBzxDF70TOHyMWrRzLZqrkk=
     INTERFACE_ADDRESS: "10.70.250.108/31"
+
+    # For deploying https://github.com/nycmeshnet/nycmesh-airflow
+  - NAME: ghairflow
+    PORT: 51976
+    PEER_PUBLIC_KEY: IaQ40oq2+6WlngoGthXHWjMLUBUGGXEWslj2GudwumI=
+    INTERFACE_ADDRESS: "10.70.250.110/31"
