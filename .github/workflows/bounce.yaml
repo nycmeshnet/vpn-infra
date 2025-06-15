@@ -2,9 +2,6 @@ name: Bounce All Environments
 permissions: read-all
 
 on:
-  push:
-    branches: # CLEANUP
-      - james/bounce
   workflow_dispatch:
     branches:
       - main
@@ -22,7 +19,7 @@ jobs:
       varfile: dev.yaml
     secrets: inherit
     needs: validations
-    #if: github.ref == 'refs/heads/main'
+    if: github.ref == 'refs/heads/main'
 
   bounce_prod1:
     name: Deploy prod1
