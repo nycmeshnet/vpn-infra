@@ -81,6 +81,11 @@ jobs:
           sudo ip link set up dev wg0
           rm privatekey
 
+      - name: Terraform Apply
+        run: |
+          terraform apply -auto-approve -input=false -var-file=${{ inputs.environment }}.tfvars
+        working-directory: ./terraform/
+
       - name: Run playbook
         run: |
           mv "${{ inputs.varfile }}" wireguard.yaml
