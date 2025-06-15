@@ -13,7 +13,7 @@
             last_handshake="$(wg show wg{{ item.NAME }} latest-handshakes | awk '{print $2}')";
             difference=$(( $(date +%s) - last_handshake ));
             abs_difference=${difference#-};
-            if [ "$abs_difference" -le 300 ]; then;
+            if [ "$abs_difference" -le 300 ]; then
               echo "Recent handshake";
             else
               echo "Bounced interface";
