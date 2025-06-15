@@ -1,4 +1,4 @@
-name: Deploy VPN Server
+name: Bounce Environment
 permissions: read-all
 
 on:
@@ -81,13 +81,9 @@ jobs:
           sudo ip link set up dev wg0
           rm privatekey
 
-      - name: Terraform Apply
-        run: |
-          terraform apply -auto-approve -input=false -var-file=${{ inputs.environment }}.tfvars
-        working-directory: ./terraform/
-
       - name: Run playbook
         run: |
           mv "${{ inputs.varfile }}" wireguard.yaml
-          export PATH="$HOME/.local/bin:$PATH" && ansible-playbook -i inventory.yaml vpn.yaml
+          export PATH="$HOME/.local/bin:$PATH"
+          ansible-playbook -i inventory.yaml bounce_interfaces.yaml
         working-directory: ./ansible/

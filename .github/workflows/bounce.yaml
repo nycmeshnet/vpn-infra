@@ -1,0 +1,42 @@
+name: Bounce All Environments
+permissions: read-all
+
+on:
+  workflow_dispatch:
+    branches:
+      - main
+
+jobs:
+  validations:
+    name: Run tests
+    uses: ./.github/workflows/pr.yaml
+
+  bounce_dev3:
+    name: Deploy dev3
+    uses: ./.github/workflows/bounce_environment.yaml
+    with:
+      environment: dev3
+      varfile: dev.yaml
+    secrets: inherit
+    needs: validations
+    if: github.ref == 'refs/heads/main'
+
+  bounce_prod1:
+    name: Deploy prod1
+    uses: ./.github/workflows/bounce_environment.yaml
+    with:
+      environment: prod1
+      varfile: wireguard_sn3.yaml
+    secrets: inherit
+    needs: bounce_dev3
+    if: github.ref == 'refs/heads/main'
+
+  bounce_prod2:
+    name: Deploy prod2
+    uses: ./.github/workflows/bounce_environment.yaml
+    with:
+      environment: prod2
+      varfile: wireguard_sn10.yaml
+    secrets: inherit
+    needs: bounce_prod1
+    if: github.ref == 'refs/heads/main'
