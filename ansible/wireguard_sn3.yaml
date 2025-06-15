@@ -490,7 +490,14 @@ wireguard_configs:
     PEER_PUBLIC_KEY: WAp1gisHTjlCPt+t/7DyM6XLaKari98JNEMlhpYiMFk=
     INTERFACE_ADDRESS: "10.70.250.104/31"
 
-  - NAME: danielpallas
+    # For Daniel's https://github.com/danielhmetro/dantonio.tech/
+  - NAME: ghdanielpallas
     PORT: 51974
     PEER_PUBLIC_KEY: CucKRQZs9O+2reK5XiwVJpfeIwidI51B7NO39aD5QzQ=
     INTERFACE_ADDRESS: "10.70.250.106/31"
+
+    # For Daniel/Mesh https://github.com/danielhmetro/disseminate/
+  - NAME: ghdisseminate
+    PORT: 51975
+    PEER_PUBLIC_KEY: B4ql7glzVM/Ae69dw2mGtBzxDF70TOHyMWrRzLZqrkk=
+    INTERFACE_ADDRESS: "10.70.250.108/31"
