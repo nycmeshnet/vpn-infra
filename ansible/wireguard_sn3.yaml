@@ -115,7 +115,7 @@ wireguard_configs:
     PEER_PUBLIC_KEY: 2uMY2He1KCRjnsXnKU4KVD6dfCXzUUxly117aXsZ3kc=
     INTERFACE_ADDRESS: "10.70.250.169/30"
     NEIGHBORS: "10.70.250.170"
-    TX_LENGTH: 1420
+    TX_LENGTH: 1366
     COST: 150
 
     # For nn584 Olmsted until the SN11 VPN is up
