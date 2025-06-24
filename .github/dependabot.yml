@@ -1,0 +1,23 @@
+version: 2
+updates:
+- package-ecosystem: "pip"
+  directory: "/"
+  schedule:
+    interval: "cron"
+    cronjob: "41 7 * * *"
+  assignees:
+   - "james-otten"
+- package-ecosystem: "terraform"
+  directory: "/"
+  schedule:
+    interval: "cron"
+    cronjob: "4 7 * * *"
+  assignees:
+   - "james-otten"
+- package-ecosystem: "github-actions"
+  directory: "/"
+  schedule:
+    interval: "cron"
+    cronjob: "43 7 * * *"
+  assignees:
+   - "james-otten"
