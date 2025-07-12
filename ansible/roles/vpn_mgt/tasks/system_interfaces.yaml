@@ -1,7 +1,7 @@
 - name: Stat of system interface definition - before
   ansible.builtin.stat:
     path: "/etc/network/interfaces"
-  register: sys_interface_before
+  register: vpn_mgt_sys_interface_before
 
 - name: Copy system interface definition
   ansible.builtin.template:
@@ -14,9 +14,9 @@
 - name: Stat of system interface definition - after
   ansible.builtin.stat:
     path: "/etc/network/interfaces"
-  register: sys_interface_after
+  register: vpn_mgt_sys_interface_after
 
 - name: Bounce dummy0 interface if it anything changed
   ansible.builtin.command:
     cmd: "bash -c 'service networking reload;ifdown --force dummy0;ifup dummy0'"
-  when: (sys_interface_before.stat.checksum is not defined) or (sys_interface_before.stat.checksum != sys_interface_after.stat.checksum)
+  when: (vpn_mgt_sys_interface_before.stat.checksum is not defined) or (vpn_mgt_sys_interface_before.stat.checksum != vpn_mgt_sys_interface_after.stat.checksum)
