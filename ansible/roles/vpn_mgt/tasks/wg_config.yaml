@@ -2,7 +2,7 @@
 - name: Stat of wireguard config - before - wg{{ item.NAME }}
   ansible.builtin.stat:
     path: "/etc/wireguard/wg{{ item.NAME }}.conf"
-  register: config_before
+  register: vpn_mgt_config_before
 
 - name: Copy wireguard config wg{{ item.NAME }}
   ansible.builtin.template:
@@ -15,13 +15,13 @@
 - name: Stat of wireguard config - after - wg{{ item.NAME }}
   ansible.builtin.stat:
     path: "/etc/wireguard/wg{{ item.NAME }}.conf"
-  register: config_after
+  register: vpn_mgt_config_after
 
 ## Interface definition
 - name: Stat of interface definition - before - wg{{ item.NAME }}
   ansible.builtin.stat:
     path: "/etc/network/interfaces.d/wg{{ item.NAME }}"
-  register: if_before
+  register: vpn_mgt_if_before
 
 - name: Copy interface definition wg{{ item.NAME }}
   ansible.builtin.template:
@@ -34,10 +34,10 @@
 - name: Stat of interface definition - after - wg{{ item.NAME }}
   ansible.builtin.stat:
     path: "/etc/network/interfaces.d/wg{{ item.NAME }}"
-  register: if_after
+  register: vpn_mgt_if_after
 
 ## Bounce
 - name: Bounce interface if it anything changed
   ansible.builtin.command:
     cmd: "bash -c 'ifdown --force wg{{ item.NAME }};ifup wg{{ item.NAME }}'"
-  when: (if_before.stat.checksum is not defined or config_before.stat.checksum is not defined) or (if_before.stat.checksum != if_after.stat.checksum) or (config_before.stat.checksum != config_after.stat.checksum)
+  when: (vpn_mgt_if_before.stat.checksum is not defined or vpn_mgt_config_before.stat.checksum is not defined) or (vpn_mgt_if_before.stat.checksum != vpn_mgt_if_after.stat.checksum) or (vpn_mgt_config_before.stat.checksum != vpn_mgt_config_after.stat.checksum)
