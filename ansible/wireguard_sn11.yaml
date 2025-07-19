@@ -1,0 +1,32 @@
+wireguard_configs:
+
+## OSPF Connections
+
+    # For the super awesome remote hub NN592
+  - NAME: nn592
+    PORT: 51821
+    PEER_PUBLIC_KEY: sD3bVQglZfq2j82or48q+i0R0KdszUPZRkcz4rVqAk8=
+    INTERFACE_ADDRESS: "10.70.246.121/30"
+    NEIGHBORS: "10.70.246.122"
+    TX_LENGTH: 1420
+    COST: 99
+
+### Road Warriors
+
+    # For James
+  - NAME: jameso
+    PORT: 51822
+    PEER_PUBLIC_KEY: nj5rB0CIL6JUXLvl+oqQXcav2qnr509FzpF30lF8mEY=
+    INTERFACE_ADDRESS: "10.70.246.0/31"
+
+    # For Matt
+  - NAME: matt
+    PORT: 51823
+    PEER_PUBLIC_KEY: JQ9/0Ll0oCsq1F5EHXomnoKiaSnvGX9b2RH4KfRq7Us=
+    INTERFACE_ADDRESS: "10.70.246.2/31"
+
+    # For JohnB
+  - NAME: johnb
+    PORT: 51824
+    PEER_PUBLIC_KEY: JOHNBcSeEXKV7l6KEi9ktxoKiFh6CymdfZ3ItDZCxRk=
+    INTERFACE_ADDRESS: "10.70.246.4/31"

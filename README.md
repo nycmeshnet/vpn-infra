@@ -6,6 +6,7 @@
 | ------------- | ------------- | ------------- | ------------- |
 | `SN3` | `199.170.132.43` | `10.70.250.0/24` | `HCYsMu1Wztk8ape2WP5HYiFZnNpn07guRNvKZw/e0mk=` |
 | `SN10` | `23.158.16.28` | `10.70.247.0/24` | `wFQXW68D0ePLU39A1yfuIRH7oyH3ZIfb424OczjI7Ak=` |
+| `SN11` | `208.68.5.101` | `10.70.246.0/24` | `5wOBTSB3kH7CdZfBZAw8iomGQbS0POlmOLx2MFmzhFg=` |
 
 ### Add a road warrior config
 
