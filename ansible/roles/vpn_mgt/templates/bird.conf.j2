@@ -71,9 +71,6 @@ protocol ospf v2 {
                 {{ wg_config.NEIGHBORS }};
             };
         };
-{% else %}
-        interface "wgjameso" {
-        };
 {% endif %}
 {% endfor %}
     };
