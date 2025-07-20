@@ -507,3 +507,9 @@ wireguard_configs:
     PORT: 51976
     PEER_PUBLIC_KEY: IaQ40oq2+6WlngoGthXHWjMLUBUGGXEWslj2GudwumI=
     INTERFACE_ADDRESS: "10.70.250.110/31"
+
+    # For deploying https://github.com/nycmeshnet/vpp-infra
+  - NAME: ghvpp
+    PORT: 51977
+    PEER_PUBLIC_KEY: ClgC1KguJ41PwvF1QqwoC3cfMNqnwoBLuex1DdefxGc=
+    INTERFACE_ADDRESS: "10.70.250.112/31"
