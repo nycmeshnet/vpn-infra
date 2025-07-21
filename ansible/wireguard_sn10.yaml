@@ -102,3 +102,9 @@ wireguard_configs:
     PORT: 51832
     PEER_PUBLIC_KEY: 6KuYC/GlvS+TyOenz1wNkRjHXSSjkoACQVYbPPkd4G4=
     INTERFACE_ADDRESS: "10.70.247.12/31"
+
+    # Jason Road warrior
+  - NAME: jason
+    PORT: 51834
+    PEER_PUBLIC_KEY: Q7k2E1wb9DU9kiTAtsu0EIXqyeITtKwQQkmpyA2R208=
+    INTERFACE_ADDRESS: "10.70.247.14/31"
