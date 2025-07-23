@@ -298,16 +298,10 @@ wireguard_configs:
     PEER_PUBLIC_KEY: S/shgmksUJffBvnDsWcOcunJkPca4mcaVxkYOsKYtnY=
     INTERFACE_ADDRESS: "10.70.250.40/31"
 
-    # For Matthew Boyd (SN1 migration)
-  - NAME: matthewboyd
-    PORT: 51843
-    PEER_PUBLIC_KEY: 4AHMI3ARAtlM+pDLcqkmJl7CKewdjdzeK/gHNcjwk2c=
-    INTERFACE_ADDRESS: "10.70.250.42/31"
-
-    # For Matt B Pine Plains (777 no ospf) (SN1 migration)
-  - NAME: mattbpin
+    # For Matt B travel router
+  - NAME: mattb_travelrouter
     PORT: 51844
-    PEER_PUBLIC_KEY: dHr8IpqvJUziNCp6Uh2u75qqBtiHVPPjZFpwWahNuQM=
+    PEER_PUBLIC_KEY: zQv+ookRjHk1Gh6z468a7cZxfr+TDIyikh8yUPHEJBY=
     INTERFACE_ADDRESS: "10.70.250.44/31"
 
     # For Ezra (SN1 migration)
