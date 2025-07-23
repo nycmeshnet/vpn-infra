@@ -21,6 +21,16 @@ jobs:
     needs: validations
     if: github.ref == 'refs/heads/main'
 
+  bounce_prod11:
+    name: Deploy prod1
+    uses: ./.github/workflows/bounce_environment.yaml
+    with:
+      environment: prod11
+      varfile: wireguard_sn11.yaml
+    secrets: inherit
+    needs: bounce_dev3
+    if: github.ref == 'refs/heads/main'
+
   bounce_prod1:
     name: Deploy prod1
     uses: ./.github/workflows/bounce_environment.yaml
@@ -28,7 +38,7 @@ jobs:
       environment: prod1
       varfile: wireguard_sn3.yaml
     secrets: inherit
-    needs: bounce_dev3
+    needs: bounce_prod11
     if: github.ref == 'refs/heads/main'
 
   bounce_prod2:

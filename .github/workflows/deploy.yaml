@@ -5,6 +5,7 @@ on:
   push:
     branches:
       - main
+      - james/sn11
   workflow_dispatch:
     branches:
       - main
@@ -28,6 +29,16 @@ jobs:
     needs: validations
     if: github.ref == 'refs/heads/main'
 
+  deploy_prod11:
+    name: Deploy prod11
+    uses: ./.github/workflows/deploy_environment.yaml
+    with:
+      environment: prod11
+      varfile: wireguard_sn11.yaml
+    secrets: inherit
+    # needs: deploy_dev3
+    # if: github.ref == 'refs/heads/main'
+
   deploy_prod1:
     name: Deploy prod1
     uses: ./.github/workflows/deploy_environment.yaml
@@ -35,7 +46,7 @@ jobs:
       environment: prod1
       varfile: wireguard_sn3.yaml
     secrets: inherit
-    needs: deploy_dev3
+    needs: deploy_prod11
     if: github.ref == 'refs/heads/main'
 
   deploy_prod2:
