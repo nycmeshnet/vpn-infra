@@ -91,10 +91,10 @@ wireguard_configs:
     PEER_PUBLIC_KEY: 2Zi8ePpTkUOoBvAhQQ+cDFxBE/IMLGNF3gV56PgjtlY=
     INTERFACE_ADDRESS: "10.70.247.8/31"
 
-    # Matt Travel Unifi
-  - NAME: mattUnifi
+    # Matt Travel gl-inet
+  - NAME: mattBTravelRouter
     PORT: 51830
-    PEER_PUBLIC_KEY: MI9moamBMS1+9pW5urL0+IwfDjJC7jJ0mEqvX0aP8W4=
+    PEER_PUBLIC_KEY: voSGH4J7FQJYDrHbue+W9cEIWobwj8Mtry5E6BZ8UTE=
     INTERFACE_ADDRESS: "10.70.247.10/31"
 
     # Lekhya Road warrior
