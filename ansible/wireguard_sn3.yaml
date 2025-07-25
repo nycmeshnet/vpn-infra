@@ -513,3 +513,9 @@ wireguard_configs:
     PORT: 51977
     PEER_PUBLIC_KEY: ClgC1KguJ41PwvF1QqwoC3cfMNqnwoBLuex1DdefxGc=
     INTERFACE_ADDRESS: "10.70.250.112/31"
+
+    # For Matt B Travel Router
+  - NAME: MattBGLInet
+    PORT: 51977
+    PEER_PUBLIC_KEY: zQv+ookRjHk1Gh6z468a7cZxfr+TDIyikh8yUPHEJBY=
+    INTERFACE_ADDRESS: "10.70.250.114/31"
