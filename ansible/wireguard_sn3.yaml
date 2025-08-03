@@ -523,7 +523,7 @@ wireguard_configs:
     INTERFACE_ADDRESS: "10.70.250.114/31"
 
     # primrose desktop
-  - NAME: primrosedesktop
+  - NAME: primrosedesk
     PORT: 51979
     PEER_PUBLIC_KEY: wbV5qUBN/w1dKRhbmcPiBL0R8B5GaSK74PQ2NzoSLTc=
     INTERFACE_ADDRESS: "10.70.250.116/31"
