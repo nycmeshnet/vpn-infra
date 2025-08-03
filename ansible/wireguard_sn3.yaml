@@ -521,3 +521,11 @@ wireguard_configs:
     PORT: 51978
     PEER_PUBLIC_KEY: zQv+ookRjHk1Gh6z468a7cZxfr+TDIyikh8yUPHEJBY=
     INTERFACE_ADDRESS: "10.70.250.114/31"
+
+    # primrose desktop
+    - NAME: primrosedesktop
+    PORT: 51979
+    PEER_PUBLIC_KEY: wbV5qUBN/w1dKRhbmcPiBL0R8B5GaSK74PQ2NzoSLTc=
+    INTERFACE_ADDRESS: "10.70.250.115/31"
+    PEER_ALLOWED_IPS: 0.0.0.0/0
+    PEER_PERSISTENT_KEEPALIVE: 25
