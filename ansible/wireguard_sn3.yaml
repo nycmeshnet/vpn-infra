@@ -53,7 +53,7 @@ wireguard_configs:
     INTERFACE_ADDRESS: "10.70.250.141/30"
     NEIGHBORS: "10.70.250.142"
     TX_LENGTH: 1420
-    COST: 110
+    COST: 300
 
     # For NN317 Temkin (SN3 migration)
   - NAME: nn317
