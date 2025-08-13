@@ -21,7 +21,7 @@
     sysctl_set: true
     state: present
     reload: true
-    
+
 - name: Change Default Queuing Discipline
   ansible.posix.sysctl:
     name: net.core.default_qdisc
@@ -29,7 +29,7 @@
     sysctl_set: true
     state: present
     reload: true
-    
+
 - name: Change Default TCP Congestion Control
   ansible.posix.sysctl:
     name: net.ipv4.tcp_congestion_control
@@ -37,7 +37,7 @@
     sysctl_set: true
     state: present
     reload: true
-    
+
 - name: Change TCP Keepalive Time
   ansible.posix.sysctl:
     name: net.ipv4.tcp_keepalive_time
