@@ -14,6 +14,54 @@
     state: present
     reload: true
 
+- name: Reduce Swapiness
+  ansible.posix.sysctl:
+    name: vm.swappiness
+    value: '5'
+    sysctl_set: true
+    state: present
+    reload: true
+    
+- name: Change Default Queuing Discipline
+  ansible.posix.sysctl:
+    name: net.core.default_qdisc
+    value: 'fq'
+    sysctl_set: true
+    state: present
+    reload: true
+    
+- name: Change Default TCP Congestion Control
+  ansible.posix.sysctl:
+    name: net.ipv4.tcp_congestion_control
+    value: 'bbr'
+    sysctl_set: true
+    state: present
+    reload: true
+    
+- name: Change TCP Keepalive Time
+  ansible.posix.sysctl:
+    name: net.ipv4.tcp_keepalive_time
+    value: '300'
+    sysctl_set: true
+    state: present
+    reload: true
+
+- name: Change Default TCP Keepalive Probes
+  ansible.posix.sysctl:
+    name: net.ipv4.tcp_keepalive_probes
+    value: '5'
+    sysctl_set: true
+    state: present
+    reload: true
+
+- name: Change Default TCP Keepalive Interval
+  ansible.posix.sysctl:
+    name: net.ipv4.tcp_keepalive_intvl
+    value: '15'
+    sysctl_set: true
+    state: present
+    reload: true
+
 - name: Always restart bird
   ansible.builtin.lineinfile:
     path: /lib/systemd/system/bird.service
