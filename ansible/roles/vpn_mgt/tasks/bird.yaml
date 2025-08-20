@@ -6,6 +6,7 @@
     group: root
     mode: "0644"
 
+# default net.ipv4.ip_forward = 0
 - name: IP forward via net.ipv4.ip_forward
   ansible.posix.sysctl:
     name: net.ipv4.ip_forward
@@ -14,6 +15,7 @@
     state: present
     reload: true
 
+# default vm.swappiness = 60
 - name: Reduce Swapiness
   ansible.posix.sysctl:
     name: vm.swappiness
@@ -22,14 +24,7 @@
     state: present
     reload: true
 
-- name: Change Default Queuing Discipline
-  ansible.posix.sysctl:
-    name: net.core.default_qdisc
-    value: 'fq'
-    sysctl_set: true
-    state: present
-    reload: true
-
+# default net.ipv4.tcp_congestion_control = cubic
 - name: Change Default TCP Congestion Control
   ansible.posix.sysctl:
     name: net.ipv4.tcp_congestion_control
@@ -38,6 +33,7 @@
     state: present
     reload: true
 
+# default net.ipv4.tcp_keepalive_time = 7200
 - name: Change TCP Keepalive Time
   ansible.posix.sysctl:
     name: net.ipv4.tcp_keepalive_time
@@ -46,6 +42,7 @@
     state: present
     reload: true
 
+# default net.ipv4.tcp_keepalive_probes = 9
 - name: Change Default TCP Keepalive Probes
   ansible.posix.sysctl:
     name: net.ipv4.tcp_keepalive_probes
@@ -54,6 +51,7 @@
     state: present
     reload: true
 
+# default net.ipv4.tcp_keepalive_intvl = 75
 - name: Change Default TCP Keepalive Interval
   ansible.posix.sysctl:
     name: net.ipv4.tcp_keepalive_intvl
