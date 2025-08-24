@@ -34,5 +34,5 @@ wireguard_configs:
     COST: 31
     PEER_PERSISTENT_KEEPALIVE: 15
     BFD_ENABLE: true
-    BFD_INTERVAL: 1000ms
+    BFD_INTERVAL: 500ms
     BFD_MULTIPLIER: 10
