@@ -31,7 +31,7 @@ wireguard_configs:
     INTERFACE_ADDRESS: "10.70.248.177/30"
     NEIGHBORS: "10.70.248.178"
     TX_LENGTH: 1366
-    COST: 30
+    COST: 31
     BFD_ENABLE: true
     BFD_INTERVAL: 1000ms
     BFD_MULTIPLIER: 10
