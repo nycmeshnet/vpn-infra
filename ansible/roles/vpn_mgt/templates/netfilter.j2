@@ -16,6 +16,9 @@
 
 -A INPUT -p icmp -m icmp --icmp-type 8 -j ACCEPT
 
+# Allow SN3 public IP traffic
+-A INPUT -s 199.170.132.0/24 -j ACCEPT
+
 # Allow incoming OSPF traffic (protocol 89) on the specified multicast addresses
 -A INPUT -s 10.0.0.0/8 -d 224.0.0.5 --protocol 89 -j ACCEPT
 -A INPUT -s 10.0.0.0/8 -d 224.0.0.6 --protocol 89 -j ACCEPT
@@ -41,6 +44,8 @@
 -A FORWARD -d {{ WG_PRIVATE_RANGE }} -j ACCEPT
 
 -A FORWARD -s 10.0.0.0/8 -j ACCEPT
+# Allow forwarding for SN3 public IP traffic
+-A FORWARD -s 199.170.132.0/24 -j ACCEPT
 -A FORWARD -i eth0 -s 10.0.0.0/8,172.16.0.0/12,192.168.0.0/16 -j DROP
 -A FORWARD -j ACCEPT
 
