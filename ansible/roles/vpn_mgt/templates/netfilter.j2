@@ -46,6 +46,8 @@
 -A FORWARD -s 10.0.0.0/8 -j ACCEPT
 # Allow forwarding for SN3 public IP traffic
 -A FORWARD -s 199.170.132.0/24 -j ACCEPT
+# Allow forwarding for mesh private subnet traffic
+-A FORWARD -d 10.0.0.0/8 -j ACCEPT
 -A FORWARD -i eth0 -s 10.0.0.0/8,172.16.0.0/12,192.168.0.0/16 -j DROP
 -A FORWARD -j ACCEPT
 
