@@ -64,6 +64,12 @@ wireguard_configs:
     PORT: 51837
     PEER_PUBLIC_KEY: Szkwoo1JWRVbqVY/I+8ptjW//7WrJQXs0bdGSLymEH4=
     INTERFACE_ADDRESS: "10.70.247.145/30"
+    NEIGHBORS: "10.70.247.146"
+    TX_LENGTH: 1420
+    COST: 10
+    BFD_ENABLE: true
+    BFD_INTERVAL: 500ms
+    BFD_MULTIPLIER: 10
 
 ### Road Warriors
 
