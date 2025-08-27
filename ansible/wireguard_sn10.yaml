@@ -59,6 +59,12 @@ wireguard_configs:
     PEER_PUBLIC_KEY: LbjNQE6mwaC5v1zlLRDMBqeUC30ta/Cv4xgcW5U46ko=
     INTERFACE_ADDRESS: "10.70.247.141/30"
 
+    # Neel rooftop
+  - NAME: neelrooftop
+    PORT: 51837
+    PEER_PUBLIC_KEY: Szkwoo1JWRVbqVY/I+8ptjW//7WrJQXs0bdGSLymEH4=
+    INTERFACE_ADDRESS: "10.70.247.145/30"
+
 ### Road Warriors
 
     # For James
