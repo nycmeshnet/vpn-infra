@@ -518,7 +518,7 @@ wireguard_configs:
     # For Matt B Travel Router
   - NAME: MattBGLInet
     PORT: 51978
-    PEER_PUBLIC_KEY: zQv+ookRjHk1Gh6z468a7cZxfr+TDIyikh8yUPHEJBY=
+    PEER_PUBLIC_KEY:  zQv+ookRjHk1Gh6z468a7cZxfr+TDIyikh8yUPHEJBY=
     INTERFACE_ADDRESS: "10.70.250.114/31"
 
     # primrose desktop
@@ -538,3 +538,9 @@ wireguard_configs:
     PORT: 51981
     PEER_PUBLIC_KEY: nL4DXVexwxnqLxg0Ivwi4HuQctlGuP72l4XTGmzyqEE=
     INTERFACE_ADDRESS: "10.70.250.120/31"
+
+    # For Jimmy laptop 
+  - NAME: jimmylaptop   
+    PORT: 51982
+    PEER_PUBLIC_KEY: NVIUhbigtj//GpYbckMM/XsdpKsbpW2tJwBYU8WEEw=
+    INTERFACE_ADDRESS: "10.70.250.122/31"
