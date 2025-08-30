@@ -128,7 +128,7 @@ wireguard_configs:
     COST: 100
 
     # For NN177 Josh 8531 (SN3 migration)
-  - NAME: nn177sxt
+  - NAME: nn177
     PORT: 51913
     PEER_PUBLIC_KEY: nA+MQsqlZBSsa3KYhhQe1YphG4pStfRn2DzeHIoZyFI=
     INTERFACE_ADDRESS: "10.70.250.177/30"
