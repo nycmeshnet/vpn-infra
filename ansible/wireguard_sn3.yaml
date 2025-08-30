@@ -518,7 +518,7 @@ wireguard_configs:
     # For Matt B Travel Router
   - NAME: MattBGLInet
     PORT: 51978
-    PEER_PUBLIC_KEY:  zQv+ookRjHk1Gh6z468a7cZxfr+TDIyikh8yUPHEJBY=
+    PEER_PUBLIC_KEY: zQv+ookRjHk1Gh6z468a7cZxfr+TDIyikh8yUPHEJBY=
     INTERFACE_ADDRESS: "10.70.250.114/31"
 
     # primrose desktop
