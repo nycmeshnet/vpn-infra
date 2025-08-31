@@ -126,3 +126,9 @@ wireguard_configs:
     PORT: 51835
     PEER_PUBLIC_KEY: voSGH4J7FQJYDrHbue+W9cEIWobwj8Mtry5E6BZ8UTE=
     INTERFACE_ADDRESS: "10.70.247.16/31"
+
+    # For Jimmy laptop 
+  - NAME: jimmylaptop   
+    PORT: 51836
+    PEER_PUBLIC_KEY: NVIUhbigtj//GpYbckMM/XsdpKsbpW2tJwBYU8WEEw=
+    INTERFACE_ADDRESS: "10.70.247.18/31"
