@@ -64,7 +64,7 @@
         - name: Confirm PEER_PUBLIC_KEY are valid
           ansible.builtin.fail:
             msg: The PEER_PUBLIC_KEY values in ansible/wireguard.yaml are not valid
-          when: (wireguard_configs | map(attribute='PEER_PUBLIC_KEY') | select('match', '^[a-zA-Z0-9=+/]+$') | list | length | string) != wg_config_len.msg
+          when: (wireguard_configs | map(attribute='PEER_PUBLIC_KEY') | select('match', '^[A-Za-z0-9+/]{42}[AEIMQUYcgkosw480]=$') | list | length | string) != wg_config_len.msg
 
     - name: INTERFACE_ADDRESS property
       block:
