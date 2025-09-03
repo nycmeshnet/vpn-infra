@@ -530,11 +530,12 @@ wireguard_configs:
     # For Dan laptop
   - NAME: drjlaptop
     PORT: 51980
-    PEER_PUBLIC_KEY: g1TfEPYgnkCsw8U68fZYasGVZCB2ixYDeIMzx6VtIhU
+    PEER_PUBLIC_KEY: g1TfEPYgnkCsw8U68fZYasGVZCB2ixYDeIMzx6VtIhU=
     INTERFACE_ADDRESS: "10.70.250.118/31"
 
-    # For Dan phone
-  - NAME: drjphone
-    PORT: 51981
-    PEER_PUBLIC_KEY: nL4DXVexwxnqLxg0Ivwi4HuQctlGuP72l4XTGmzyqEE=
-    INTERFACE_ADDRESS: "10.70.250.120/31"
+    # For Dan phone -- actually this conflicts with other IPs already on the mesh.
+    # gotta find a free IP before setting this up.
+  # - NAME: drjphone
+  #   PORT: 51981
+  #   PEER_PUBLIC_KEY: nL4DXVexwxnqLxg0Ivwi4HuQctlGuP72l4XTGmzyqEE=
+  #   INTERFACE_ADDRESS: "10.70.250.120/31"
