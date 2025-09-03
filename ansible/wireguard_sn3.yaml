@@ -530,7 +530,7 @@ wireguard_configs:
     # For Dan laptop
   - NAME: drjlaptop
     PORT: 51980
-    PEER_PUBLIC_KEY: g1TfEPYgnkCsw8U68fZYasGVZCB2ixYDeIMzx6VtIhU
+    PEER_PUBLIC_KEY: g1TfEPYgnkCsw8U68fZYasGVZCB2ixYDeIMzx6VtIhU=
     INTERFACE_ADDRESS: "10.70.250.118/31"
 
     # For Dan phone
