@@ -539,3 +539,9 @@ wireguard_configs:
   #   PORT: 51981
   #   PEER_PUBLIC_KEY: nL4DXVexwxnqLxg0Ivwi4HuQctlGuP72l4XTGmzyqEE=
   #   INTERFACE_ADDRESS: "10.70.250.120/31"
+
+    # For Stella laptop
+  - NAME: stellagframe
+    PORT: 51982
+    PEER_PUBLIC_KEY: zB3CmKQjYH4YBi/WTnih0r+CgNaXYeEzwIFDbK1TF2Q=
+    INTERFACE_ADDRESS: "10.70.250.122/31"
