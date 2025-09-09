@@ -71,6 +71,15 @@ wireguard_configs:
     BFD_INTERVAL: 500ms
     BFD_MULTIPLIER: 10
 
+    # For SN3 (site-to-site)
+  - NAME: sn3
+    PORT: 51838
+    PEER_PUBLIC_KEY: HCYsMu1Wztk8ape2WP5HYiFZnNpn07guRNvKZw/e0mk=
+    INTERFACE_ADDRESS: "10.70.250.182/30"
+    NEIGHBORS: "10.70.250.181"
+    TX_LENGTH: 1420
+    COST: 200
+
 ### Road Warriors
 
     # For James
