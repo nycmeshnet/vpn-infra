@@ -1,12 +1,12 @@
 - name: Cleanup interfaces that no longer exist
   when: item.NAME not in (wireguard_configs | map(attribute='NAME') | list | unique)
   block:
-    - name: Stat wireguard config for wg{{ item.NAME }}
+    - name: Stat wireguard config
       ansible.builtin.stat:
         path: "/etc/wireguard/wg{{ item.NAME }}.conf"
       register: c_vpn_config
 
-    - name: Stat interface definition for wg{{ item.NAME }}
+    - name: Stat interface definition
       ansible.builtin.stat:
         path: "/etc/wireguard/wg{{ item.NAME }}.conf"
       register: c_vpn_interface_def
