@@ -44,6 +44,10 @@
 - name: System interfaces
   ansible.builtin.include_tasks: system_interfaces.yaml
 
+- name: Remove old interfaces
+  ansible.builtin.include_tasks: cleanup_interfaces.yaml
+  loop: "{{ wireguard_configs }}"
+
 - name: Setup Interfaces + Wireguard
   ansible.builtin.include_tasks: wg_config.yaml
   loop: "{{ wireguard_configs }}"

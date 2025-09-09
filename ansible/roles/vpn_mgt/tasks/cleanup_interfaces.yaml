@@ -1,0 +1,27 @@
+- name: Cleanup interfaces that no longer exist
+  when: item.NAME not in (wireguard_configs | map(attribute='NAME') | list | unique)
+  block:
+    - name: Stat of wireguard config - before - wg{{ item.NAME }}
+      ansible.builtin.stat:
+        path: "/etc/wireguard/wg{{ item.NAME }}.conf"
+      register: vpn_wg_config
+
+    - name: Stat of wireguard config - before - wg{{ item.NAME }}
+      ansible.builtin.stat:
+        path: "/etc/wireguard/wg{{ item.NAME }}.conf"
+      register: vpn_interface_def
+
+    - name: Down interface
+      ansible.builtin.command:
+        cmd: "bash -c 'ifdown --force wg{{ item.NAME }}'"
+      when: vpn_wg_config.stat.exists or vpn_interface_def.stat.exists
+
+    - name: Remove interface config
+      ansible.builtin.file:
+        path: "/etc/wireguard/wg{{ item.NAME }}.conf"
+        state: absent
+
+    - name: Remove interface definition
+      ansible.builtin.file:
+        path: "/etc/network/interfaces.d/wg{{ item.NAME }}"
+        state: absent
