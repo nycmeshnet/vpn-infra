@@ -4,17 +4,17 @@
     - name: Stat wireguard config for wg{{ item.NAME }}
       ansible.builtin.stat:
         path: "/etc/wireguard/wg{{ item.NAME }}.conf"
-      register: vpn_wg_config
+      register: c_vpn_wg_config
 
     - name: Stat interface definition for wg{{ item.NAME }}
       ansible.builtin.stat:
         path: "/etc/wireguard/wg{{ item.NAME }}.conf"
-      register: vpn_interface_def
+      register: c_vpn_interface_def
 
     - name: Down interface
       ansible.builtin.command:
         cmd: "bash -c 'ifdown --force wg{{ item.NAME }}'"
-      when: vpn_wg_config.stat.exists or vpn_interface_def.stat.exists
+      when: c_vpn_wg_config.stat.exists or c_vpn_interface_def.stat.exists
 
     - name: Remove interface config
       ansible.builtin.file:
