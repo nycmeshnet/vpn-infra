@@ -8,7 +8,7 @@
 
     - name: Stat interface definition
       ansible.builtin.stat:
-        path: "/etc/wireguard/wg{{ item.NAME }}.conf"
+        path: "/etc/network/interfaces.d/wg{{ item.NAME }}"
       register: ifdef
 
     - name: Down interface
