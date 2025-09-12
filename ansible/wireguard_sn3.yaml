@@ -539,3 +539,10 @@ wireguard_configs:
   #   PORT: 51981
   #   PEER_PUBLIC_KEY: nL4DXVexwxnqLxg0Ivwi4HuQctlGuP72l4XTGmzyqEE=
   #   INTERFACE_ADDRESS: "10.70.250.120/31"
+
+    # Alex phone
+  - NAME: alexphone
+    PORT: 51982
+    PEER_PUBLIC_KEY: kZFgF7b7+JAAt/0w0zUOTRAWq+JZT8g/tRT2e1xrZHQ=
+    INTERFACE_ADDRESS: "10.70.250.123/31"
+    
