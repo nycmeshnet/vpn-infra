@@ -139,10 +139,10 @@ wireguard_configs:
     BFD_INTERVAL: 500ms
     BFD_MULTIPLIER: 10
 
-    # For hEX LTE Hotspot 8201 (SN3 migration)
-  - NAME: nn8201
+    # For SN10 (site-to-site)
+  - NAME: sn10
     PORT: 51914
-    PEER_PUBLIC_KEY: v84VGCperE/HYZY3b4DANIMSSeZaC81rNH+1rqerBi8=
+    PEER_PUBLIC_KEY: wFQXW68D0ePLU39A1yfuIRH7oyH3ZIfb424OczjI7Ak=
     INTERFACE_ADDRESS: "10.70.250.181/30"
     NEIGHBORS: "10.70.250.182"
     TX_LENGTH: 1420
