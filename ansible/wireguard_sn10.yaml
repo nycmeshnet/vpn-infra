@@ -71,6 +71,18 @@ wireguard_configs:
     BFD_INTERVAL: 500ms
     BFD_MULTIPLIER: 10
 
+    # NN835 Monroe
+  - NAME: nn835
+    PORT: 51838
+    PEER_PUBLIC_KEY: jnq9yE8dbFDaM23lLPZJp4+9tbNYwvPGPD8KT3+f60w=
+    INTERFACE_ADDRESS: "10.70.247.149/30"
+    NEIGHBORS: "10.70.247.150"
+    TX_LENGTH: 1420
+    COST: 100
+    BFD_ENABLE: true
+    BFD_INTERVAL: 500ms
+    BFD_MULTIPLIER: 10
+
 ### Road Warriors
 
     # For James
