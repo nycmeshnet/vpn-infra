@@ -83,6 +83,18 @@ wireguard_configs:
     BFD_INTERVAL: 500ms
     BFD_MULTIPLIER: 10
 
+    # NN162 South Slope
+  - NAME: nn162
+    PORT: 51839
+    PEER_PUBLIC_KEY: jnq9yE8dbFDaM23lLPZJp4+9tbNYwvPGPD8KT3+f60w=
+    INTERFACE_ADDRESS: "10.70.247.153/30"
+    NEIGHBORS: "10.70.247.154"
+    TX_LENGTH: 1420
+    COST: 50
+    BFD_ENABLE: true
+    BFD_INTERVAL: 500ms
+    BFD_MULTIPLIER: 10
+
 ### Road Warriors
 
     # For James
