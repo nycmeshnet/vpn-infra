@@ -28,7 +28,7 @@
       ansible.builtin.fail:
         msg: Unexpected property in config - {{ item.keys() | difference(valid_property_names) }}
       with_list: "{{ wireguard_configs | list }}"
-      when: item.keys() | difference(valid_property_names)
+      when: item.keys() | difference(valid_property_names) | length > 0
 
     - name: NAME property
       block:
