@@ -46,13 +46,13 @@
       block:
         - name: Confirm port numbers are unique
           ansible.builtin.fail:
-            msg: The PORT numbers in ansible/wireguard.yaml are not unique - {{ wireguard_configs | map(attribute='PORT') }}
-          when: (wireguard_configs | map(attribute='PORT') | list | unique | length | string) != wg_config_len.msg
+            msg: The {{ wireguard_configs | list | length }} PORT numbers in ansible/wireguard.yaml are not unique - {{ wireguard_configs | map(attribute='PORT') }}
+          when: (wireguard_configs | map(attribute='PORT') | list | unique | length) > (wg_config_len | int)
 
         - name: Confirm port numbers are valid
           ansible.builtin.fail:
-            msg: "Some port numbers are invalid"
-          when: (wireguard_configs | map(attribute='PORT') | map('int') | select('>', 1024) | length | string) != wg_config_len.msg
+            msg: "One or more of the {{ wireguard_configs | list | length }} configs' PORT numbers are invalid"
+          when: (wireguard_configs | map(attribute='PORT') | map('int') | select('>', 1024) | length) > (wg_config_len | int)
 
     - name: PEER_PUBLIC_KEY property
       block:
