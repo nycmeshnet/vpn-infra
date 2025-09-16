@@ -34,13 +34,13 @@
       block:
         - name: Confirm names are unique
           ansible.builtin.fail:
-            msg: The NAMEs in ansible/wireguard.yaml are not unique - {{ wireguard_configs | map(attribute='NAME') }}
-          when: (wireguard_configs | map(attribute='NAME') | list | unique | length | string) != wg_config_len.msg
+            msg: The {{ wireguard_configs | list | length }} NAMEs in ansible/wireguard.yaml are not unique - {{ wireguard_configs | map(attribute='NAME') }}
+          when: (wireguard_configs | map(attribute='NAME') | list | unique | length) < wg_config_len
 
         - name: Confirm names are valid
           ansible.builtin.fail:
-            msg: NAMEs in ansible/wireguard.yaml are not valid - {{ wireguard_configs | map(attribute='NAME') | select('match', '^[a-zA-Z0-9]{2,13}$') | list }}
-          when: (wireguard_configs | map(attribute='NAME') | select('match', '^[a-zA-Z0-9]{2,13}$') | list | length | string) != wg_config_len.msg
+            msg: One or more of the {{ wireguard_configs | list | length }} NAMEs in ansible/wireguard.yaml are not valid - {{ wireguard_configs | map(attribute='NAME') | select('match', '^[a-zA-Z0-9]{2,13}$') | list }}
+          when: (wireguard_configs | map(attribute='NAME') | select('match', '^[a-zA-Z0-9]{2,13}$') | list | length) < wg_config_len
 
     - name: PORT property
       block:
