@@ -28,7 +28,7 @@ jobs:
 
       - name: Run Checkov action
         id: checkov
-        uses: bridgecrewio/checkov-action@7e3930d7acb8482fd506c495250290b269e2e640
+        uses: bridgecrewio/checkov-action@68260132005eaae0e6f84c7a73cc3b1532f678bf
         with:
           skip_check: CKV_DOCKER_2,CKV_DOCKER_3,CKV_SECRET_6,CKV2_ANSIBLE_3
           quiet: true
@@ -38,7 +38,7 @@ jobs:
         if: github.event_name == 'pull_request'
 
       - name: Upload SARIF file
-        uses: github/codeql-action/upload-sarif@3c3833e0f8c1c83d449a7478aa59c036a9165498 # v3
+        uses: github/codeql-action/upload-sarif@192325c86100d080feab897ff886c34abd4c83a3 # v3
         if: github.event_name == 'pull_request' && (success() || failure())
         with:
           sarif_file: results.sarif

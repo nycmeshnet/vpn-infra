@@ -5,3 +5,4 @@ roles/vpn_mgt/tasks/wg_config.yaml yaml[line-length]
 tests.yaml yaml[line-length]
 bounce_interfaces.yaml no-changed-when
 bounce_interfaces.yaml yaml[line-length]
+roles/vpn_mgt/tasks/cleanup_interfaces.yaml no-changed-when
