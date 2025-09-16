@@ -95,6 +95,15 @@ wireguard_configs:
     BFD_INTERVAL: 500ms
     BFD_MULTIPLIER: 10
 
+    # For NN890 Astoria Food Pantry VPN
+  - NAME: nn890
+    PORT: 51840
+    PEER_PUBLIC_KEY: food/3hBRJaV1qA9abdZph9UoIV8fnKUVrzMyBGVv0o=
+    INTERFACE_ADDRESS: "10.70.247.157/30"
+    NEIGHBORS: "10.70.247.158"
+    TX_LENGTH: 1420
+    COST: 99
+
 ### Road Warriors
 
     # For James
