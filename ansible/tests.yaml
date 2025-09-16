@@ -47,36 +47,36 @@
         - name: Confirm port numbers are unique
           ansible.builtin.fail:
             msg: The {{ wireguard_configs | list | length }} PORT numbers in ansible/wireguard.yaml are not unique - {{ wireguard_configs | map(attribute='PORT') }}
-          when: (wireguard_configs | map(attribute='PORT') | list | unique | length) > (wg_config_len | int)
+          when: (wireguard_configs | map(attribute='PORT') | list | unique | length) < (wg_config_len | int)
 
         - name: Confirm port numbers are valid
           ansible.builtin.fail:
             msg: "One or more of the {{ wireguard_configs | list | length }} configs' PORT numbers are invalid"
-          when: (wireguard_configs | map(attribute='PORT') | map('int') | select('>', 1024) | length) > (wg_config_len | int)
+          when: (wireguard_configs | map(attribute='PORT') | map('int') | select('>', 1024) | length) < (wg_config_len | int)
 
     - name: PEER_PUBLIC_KEY property
       block:
         - name: Confirm PEER_PUBLIC_KEY are unique
           ansible.builtin.fail:
             msg: The PEER_PUBLIC_KEY values in ansible/wireguard.yaml are not unique - {{ wireguard_configs | map(attribute='PEER_PUBLIC_KEY') }}
-          when: (wireguard_configs | map(attribute='PEER_PUBLIC_KEY') | list | unique | length | string) != wg_config_len.msg
+          when: (wireguard_configs | map(attribute='PEER_PUBLIC_KEY') | list | unique | length) < (wg_config_len | int)
 
         - name: Confirm PEER_PUBLIC_KEY are valid
           ansible.builtin.fail:
             msg: The PEER_PUBLIC_KEY values in ansible/wireguard.yaml are not valid - {{ wireguard_configs | map(attribute='PEER_PUBLIC_KEY') | reject('match', '^[A-Za-z0-9+/]{42}[AEIMQUYcgkosw480]=$') | list | string }}
-          when: (wireguard_configs | map(attribute='PEER_PUBLIC_KEY') | select('match', '^[A-Za-z0-9+/]{42}[AEIMQUYcgkosw480]=$') | list | length | string) != wg_config_len.msg
+          when: (wireguard_configs | map(attribute='PEER_PUBLIC_KEY') | select('match', '^[A-Za-z0-9+/]{42}[AEIMQUYcgkosw480]=$') | list | length) < (wg_config_len | int)
 
     - name: INTERFACE_ADDRESS property
       block:
         - name: INTERFACE_ADDRESS should be host/prefix
           ansible.builtin.fail:
-            msg: "INTERFACE_ADDRESS should be an host/prefix"
-          when: (wireguard_configs | map(attribute='INTERFACE_ADDRESS', default='127.0.0.1') | ansible.utils.ipaddr('host/prefix') | list | length | string) != wg_config_len.msg
+            msg: "INTERFACE_ADDRESS should be in host/prefix format"
+          when: (wireguard_configs | map(attribute='INTERFACE_ADDRESS', default='127.0.0.1') | ansible.utils.ipaddr('host/prefix') | list | length) < (wg_config_len | int)
 
         - name: INTERFACE_ADDRESS should be within the allocated space
           ansible.builtin.fail:
             msg: "INTERFACE_ADDRESS should be in the allocated space"
-          when: (wireguard_configs | map(attribute='INTERFACE_ADDRESS', default=expected_default) | ansible.utils.reduce_on_network(expected_range) | list | length | string) != wg_config_len.msg
+          when: (wireguard_configs | map(attribute='INTERFACE_ADDRESS', default=expected_default) | ansible.utils.reduce_on_network(expected_range) | list | length) < (wg_config_len | int)
 
         - name: INTERFACE_ADDRESS ranges should not overlap
           ansible.builtin.fail:
@@ -90,13 +90,13 @@
       block:
         - name: NEIGHBORS should be an IP
           ansible.builtin.fail:
-            msg: "When set for remote hubs NEIGHBORS should be an IP address"
-          when: (wireguard_configs | map(attribute='NEIGHBORS', default='127.0.0.1') | ansible.utils.ipv4 | list | length | string) != wg_config_len.msg
+            msg: "The NEIGHBORS variable needs to be set when configuring a remote OSPF hub. One or more configs are using the default."
+          when: (wireguard_configs | map(attribute='NEIGHBORS', default='127.0.0.1') | ansible.utils.ipv4 | list | length) < (wg_config_len | int)
 
         - name: NEIGHBORS should be within the allocated space
           ansible.builtin.fail:
-            msg: "When set for remote hubs NEIGHBORS should be in the allocated space"
-          when: (wireguard_configs | map(attribute='NEIGHBORS', default=expected_default) | ansible.utils.reduce_on_network(expected_range) | list | length | string) != wg_config_len.msg
+            msg: "The NEIGHBORS IP needs to be in the correct range when configuring a remote OSPF hub. One or more configs are out of range"
+          when: (wireguard_configs | map(attribute='NEIGHBORS', default=expected_default) | ansible.utils.reduce_on_network(expected_range) | list | length) < (wg_config_len | int)
 
     - name: TX_LENGTH property
       block:
