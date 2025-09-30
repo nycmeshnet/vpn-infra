@@ -78,7 +78,7 @@
         #    msg: "INTERFACE_ADDRESS should be in the allocated space"
         #  when: (wireguard_configs | map(attribute='INTERFACE_ADDRESS', default=expected_default) | ansible.utils.reduce_on_network(expected_range) | list | length | string) != wg_config_len.msg
 
-# INTERFACE_ADDRESS in any CIDR
+        # INTERFACE_ADDRESS in any CIDR
         - name: Build list of INTERFACE_ADDRESS values
           ansible.builtin.set_fact:
             _wg_iface_addrs: "{{ wireguard_configs | map(attribute='INTERFACE_ADDRESS', default=expected_default) | list }}"
