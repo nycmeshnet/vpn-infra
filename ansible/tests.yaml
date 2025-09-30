@@ -73,13 +73,31 @@
             msg: "INTERFACE_ADDRESS should be an host/prefix"
           when: (wireguard_configs | map(attribute='INTERFACE_ADDRESS', default='127.0.0.1') | ansible.utils.ipaddr('host/prefix') | list | length | string) != wg_config_len.msg
 
+        # - name: INTERFACE_ADDRESS should be within the allocated space
+        #  ansible.builtin.fail:
+        #    msg: "INTERFACE_ADDRESS should be in the allocated space"
+        #  when: (wireguard_configs | map(attribute='INTERFACE_ADDRESS', default=expected_default) | ansible.utils.reduce_on_network(expected_range) | list | length | string) != wg_config_len.msg
+
+        # normalize once
+        - name: Normalize expected_range to a list
+          ansible.builtin.set_fact:
+          expected_ranges_list: "{{ expected_range if (expected_range is sequence and expected_range is not string) else [expected_range] }}"
+          
+        # INTERFACE_ADDRESS in any CIDR
+        - name: Build list of INTERFACE_ADDRESS values
+          ansible.builtin.set_fact:
+            _wg_iface_addrs: "{{ wireguard_configs | map(attribute='INTERFACE_ADDRESS', default=expected_default) | list }}"
+          
+        - name: Compute INTERFACE_ADDRESS values present in any expected_range
+          ansible.builtin.set_fact:
+            _wg_iface_in_any: "{{ (_wg_iface_in_any | default([])) | union(_wg_iface_addrs | ansible.utils.reduce_on_network(item)) }}"
+          loop: "{{ expected_ranges_list }}"
+          
         - name: INTERFACE_ADDRESS should be within the allocated space
           ansible.builtin.fail:
-            msg: "INTERFACE_ADDRESS should be in the allocated space"
-          when: (wireguard_configs | map(attribute='INTERFACE_ADDRESS', default=expected_default) | difference(wireguard_configs | map(attribute='INTERFACE_ADDRESS', default=expected_default) | ansible.utils.reduce_on_network(item))) | length > 0
-          loop: "{{ expected_range | flatten | list }}"
-          # when: (wireguard_configs | map(attribute='INTERFACE_ADDRESS', default=expected_default) | ansible.utils.reduce_on_network(expected_range) | list | length | string) != wg_config_len.msg
-
+            msg: "INTERFACE_ADDRESS should be in the allocated space. Offenders: {{ _wg_iface_addrs | difference(_wg_iface_in_any) }}"
+          when: (_wg_iface_addrs | difference(_wg_iface_in_any) | length) > 0
+          
         - name: INTERFACE_ADDRESS ranges should not overlap
           ansible.builtin.fail:
             msg: "Overlap in INTERFACE_ADDRESS: {{ item.0 }},{{ item.1 }} - {{ (wireguard_configs | map(attribute='INTERFACE_ADDRESS', default=expected_default) | list)[item[0] | int],(wireguard_configs | map(attribute='INTERFACE_ADDRESS', default=expected_default) | list)[item[1] | int] }}"
