@@ -80,8 +80,8 @@
 
         # normalize once
         - name: Normalize expected_range to a list
-          ansible.builtin.set_fact:
-          expected_ranges_list: "{{ expected_range if (expected_range is sequence and expected_range is not string) else [expected_range] }}"
+          set_fact:
+             expected_ranges_list: {{ expected_range if (expected_range is sequence and expected_range is not string) else [expected_range] }}
           
         # INTERFACE_ADDRESS in any CIDR
         - name: Build list of INTERFACE_ADDRESS values
