@@ -76,7 +76,13 @@
         - name: INTERFACE_ADDRESS should be within the allocated space
           ansible.builtin.fail:
             msg: "INTERFACE_ADDRESS should be in the allocated space"
-          when: (wireguard_configs | map(attribute='INTERFACE_ADDRESS', default=expected_default) | ansible.utils.ipaddr('host') | selectattr('address', 'defined') | map('ansible.utils.reduce_on_network', expected_range | flatten | list) | list | length | string) != wg_config_len.msg
+          when: >
+          (wireguard_configs
+            | map(attribute='INTERFACE_ADDRESS', default=expected_default)
+            | ansible.utils.ipaddr('host')
+            | selectattr('address', 'defined')
+            | map('ansible.utils.reduce_on_network', expected_range | flatten | list)
+            | list | length | string) != wg_config_len.msg
           # when: (wireguard_configs | map(attribute='INTERFACE_ADDRESS', default=expected_default) | ansible.utils.reduce_on_network(expected_range) | list | length | string) != wg_config_len.msg
 
         - name: INTERFACE_ADDRESS ranges should not overlap
