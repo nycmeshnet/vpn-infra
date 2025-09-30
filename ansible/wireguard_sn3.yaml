@@ -168,7 +168,19 @@ wireguard_configs:
     BFD_ENABLE: true
     BFD_INTERVAL: 500ms
     BFD_MULTIPLIER: 10
-    # NOTE: the next available IP is "10.70.250.193/30" :)
+
+    # For NN835 Monroe
+  - NAME: nn835
+    PORT: 51917
+    PEER_PUBLIC_KEY: wqq0bzKjsMAfRWEBdqAu/AG9IqNyvBziElz/AbsVzh4=
+    INTERFACE_ADDRESS: "10.70.249.121/30"
+    NEIGHBORS: "10.70.249.122"
+    TX_LENGTH: 1420
+    COST: 200
+    BFD_ENABLE: true
+    BFD_INTERVAL: 500ms
+    BFD_MULTIPLIER: 10
+    # NOTE: the next available IP is "10.70.249.125/30" :)
 
     ### Road Warriors
 
