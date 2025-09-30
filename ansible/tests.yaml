@@ -108,7 +108,7 @@
             msg: "When set for remote hubs NEIGHBORS should be an IP address"
           when: (wireguard_configs | map(attribute='NEIGHBORS', default='127.0.0.1') | ansible.utils.ipv4 | list | length | string) != wg_config_len.msg
 
-        #- name: NEIGHBORS should be within the allocated space
+        # - name: NEIGHBORS should be within the allocated space
         #  ansible.builtin.fail:
         #    msg: "When set for remote hubs NEIGHBORS should be in the allocated space"
         #  when: (wireguard_configs | map(attribute='NEIGHBORS', default=expected_default) | ansible.utils.reduce_on_network(expected_range) | list | length | string) != wg_config_len.msg
