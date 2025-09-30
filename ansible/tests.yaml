@@ -77,14 +77,6 @@
         #  ansible.builtin.fail:
         #    msg: "INTERFACE_ADDRESS should be in the allocated space"
         #  when: (wireguard_configs | map(attribute='INTERFACE_ADDRESS', default=expected_default) | ansible.utils.reduce_on_network(expected_range) | list | length | string) != wg_config_len.msg
-
-        # normalize once
-        - name: Normalize expected_range to a list
-          set_fact:
-             expected_ranges_list: >-
-             {{ expected_range 
-                if (expected_range is sequence and expected_range is not string) 
-                else [expected_range] }}
           
         # INTERFACE_ADDRESS in any CIDR
         - name: Build list of INTERFACE_ADDRESS values
@@ -94,7 +86,7 @@
         - name: Compute INTERFACE_ADDRESS values present in any expected_range
           ansible.builtin.set_fact:
             _wg_iface_in_any: "{{ (_wg_iface_in_any | default([])) | union(_wg_iface_addrs | ansible.utils.reduce_on_network(item)) }}"
-          loop: "{{ expected_ranges_list }}"
+          loop: "{{ expected_range }}"
           
         - name: INTERFACE_ADDRESS should be within the allocated space
           ansible.builtin.fail:
