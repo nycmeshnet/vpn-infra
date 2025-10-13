@@ -86,7 +86,7 @@
         - name: Compute INTERFACE_ADDRESS values present in any expected_range
           ansible.builtin.set_fact:
             _wg_iface_in_any: "{{ (_wg_iface_in_any | default([])) | union(_wg_iface_addrs | ansible.utils.reduce_on_network(item)) }}"
-          loop: {{ expected_range | split(',') }}
+          loop: "{{ expected_range | split(',') }}"
 
         - name: INTERFACE_ADDRESS should be within the allocated space
           ansible.builtin.fail:
@@ -120,7 +120,7 @@
         - name: Compute NEIGHBORS values present in any expected_range
           ansible.builtin.set_fact:
             _wg_neighbors_in_any: "{{ (_wg_neighbors_in_any | default([])) | union(_wg_neighbors_addrs | ansible.utils.reduce_on_network(item)) }}"
-          loop: {{ expected_range | split(',') }}
+          loop: "{{ expected_range | split(',') }}"
 
         - name: NEIGHBORS should be within the allocated space
           ansible.builtin.fail:
