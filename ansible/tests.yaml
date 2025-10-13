@@ -73,10 +73,25 @@
             msg: "INTERFACE_ADDRESS should be in host/prefix format"
           when: (wireguard_configs | map(attribute='INTERFACE_ADDRESS', default='127.0.0.1') | ansible.utils.ipaddr('host/prefix') | list | length) < (wg_config_len | int)
 
+        # - name: INTERFACE_ADDRESS should be within the allocated space
+        #  ansible.builtin.fail:
+        #    msg: "INTERFACE_ADDRESS should be in the allocated space"
+        #  when: (wireguard_configs | map(attribute='INTERFACE_ADDRESS', default=expected_default) | ansible.utils.reduce_on_network(expected_range) | list | length | string) != wg_config_len.msg
+
+        # INTERFACE_ADDRESS in any CIDR
+        - name: Build list of INTERFACE_ADDRESS values
+          ansible.builtin.set_fact:
+            _wg_iface_addrs: "{{ wireguard_configs | map(attribute='INTERFACE_ADDRESS', default=expected_default) | list }}"
+
+        - name: Compute INTERFACE_ADDRESS values present in any expected_range
+          ansible.builtin.set_fact:
+            _wg_iface_in_any: "{{ (_wg_iface_in_any | default([])) | union(_wg_iface_addrs | ansible.utils.reduce_on_network(item)) }}"
+          loop: "{{ expected_range }}"
+
         - name: INTERFACE_ADDRESS should be within the allocated space
           ansible.builtin.fail:
-            msg: "INTERFACE_ADDRESS should be in the allocated space"
-          when: (wireguard_configs | map(attribute='INTERFACE_ADDRESS', default=expected_default) | ansible.utils.reduce_on_network(expected_range) | list | length) < (wg_config_len | int)
+            msg: "INTERFACE_ADDRESS should be in the allocated space. Offenders: {{ _wg_iface_addrs | difference(_wg_iface_in_any) }}"
+          when: (_wg_iface_addrs | difference(_wg_iface_in_any) | length) > 0
 
         - name: INTERFACE_ADDRESS ranges should not overlap
           ansible.builtin.fail:
@@ -93,10 +108,25 @@
             msg: "The NEIGHBORS variable needs to be set when configuring a remote OSPF hub. One or more configs are using the default."
           when: (wireguard_configs | map(attribute='NEIGHBORS', default='127.0.0.1') | ansible.utils.ipv4 | list | length) < (wg_config_len | int)
 
+        # - name: NEIGHBORS should be within the allocated space
+        #  ansible.builtin.fail:
+        #    msg: "When set for remote hubs NEIGHBORS should be in the allocated space"
+        #  when: (wireguard_configs | map(attribute='NEIGHBORS', default=expected_default) | ansible.utils.reduce_on_network(expected_range) | list | length | string) != wg_config_len.msg
+
+        - name: Build list of NEIGHBORS values
+          ansible.builtin.set_fact:
+            _wg_neighbors_addrs: "{{ wireguard_configs | map(attribute='NEIGHBORS', default=expected_default) | list }}"
+
+        - name: Compute NEIGHBORS values present in any expected_range
+          ansible.builtin.set_fact:
+            _wg_neighbors_in_any: "{{ (_wg_neighbors_in_any | default([])) | union(_wg_neighbors_addrs | ansible.utils.reduce_on_network(item)) }}"
+          loop: "{{ expected_range }}"
+
         - name: NEIGHBORS should be within the allocated space
           ansible.builtin.fail:
-            msg: "The NEIGHBORS IP needs to be in the correct range when configuring a remote OSPF hub. One or more configs are out of range"
-          when: (wireguard_configs | map(attribute='NEIGHBORS', default=expected_default) | ansible.utils.reduce_on_network(expected_range) | list | length) < (wg_config_len | int)
+            msg: "NEIGHBORS should be in the allocated space. Offenders: {{ _wg_neighbors_addrs | difference(_wg_neighbors_in_any) }}"
+          when: (_wg_neighbors_addrs | difference(_wg_neighbors_in_any) | length) > 0
+
 
     - name: TX_LENGTH property
       block:

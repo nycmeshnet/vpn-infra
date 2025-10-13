@@ -168,7 +168,43 @@ wireguard_configs:
     BFD_ENABLE: true
     BFD_INTERVAL: 500ms
     BFD_MULTIPLIER: 10
-    # NOTE: the next available IP is "10.70.250.193/30" :)
+
+    # For NN835 Monroe hub
+  - NAME: nn835
+    PORT: 51917
+    PEER_PUBLIC_KEY: shCM3iPmTFYr3XKMAZ4KZ77Hw4EO5rrGHX3sfY12vyU=
+    INTERFACE_ADDRESS: "10.70.249.121/30"
+    NEIGHBORS: "10.70.249.122"
+    TX_LENGTH: 1420
+    COST: 20
+    BFD_ENABLE: true
+    BFD_INTERVAL: 500ms
+    BFD_MULTIPLIER: 10
+
+    # For NN162 South Slope hub
+  - NAME: nn162
+    PORT: 51918
+    PEER_PUBLIC_KEY: fpiIwCRFnhIr+MaV3WBtQ9RrwxBRQcMoxLam9G9pjBo=
+    INTERFACE_ADDRESS: "10.70.249.125/30"
+    NEIGHBORS: "10.70.249.126"
+    TX_LENGTH: 1420
+    COST: 90
+    BFD_ENABLE: true
+    BFD_INTERVAL: 500ms
+    BFD_MULTIPLIER: 10
+
+    # For NN245 Sunset Park Backup
+  - NAME: nn245
+    PORT: 51919
+    PEER_PUBLIC_KEY: TxZN47+Za43gT5XN6PfTgITRuReUV2YnemiI7gfbMFA=
+    INTERFACE_ADDRESS: "10.70.249.129/30"
+    NEIGHBORS: "10.70.249.130"
+    TX_LENGTH: 1420
+    COST: 90
+    BFD_ENABLE: true
+    BFD_INTERVAL: 500ms
+    BFD_MULTIPLIER: 10
+    # NOTE: the next available IP is "10.70.249.133/30" :)
 
     ### Road Warriors
 

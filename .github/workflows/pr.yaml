@@ -44,7 +44,7 @@ jobs:
           sarif_file: results.sarif
 
       - name: Run ansible-lint
-        uses: ansible/ansible-lint@50373efb440dd3b524956c075af715cd00eaf20b # v25
+        uses: ansible/ansible-lint@8861a737a10e4bea5f5875d55d2f664908e7425c # v25
         with:
           args: ""
           setup_python: "true"
@@ -55,13 +55,17 @@ jobs:
         run: pip install --require-hashes -r requirements.txt
 
       - name: Run tests dev3
-        run: ansible-playbook tests.yaml --extra-vars "env_file=dev.yaml expected_range=10.70.248.0/24 expected_default=10.70.248.1"
+        run: ansible-playbook tests.yaml --extra-vars 'env_file=dev.yaml expected_range=["10.70.248.0/24"] expected_default=10.70.248.1'
+        # run: ansible-playbook tests.yaml --extra-vars "env_file=dev.yaml expected_range=10.70.248.0/24 expected_default=10.70.248.1"
         working-directory: ./ansible/
 
       - name: Run tests prod2
-        run: ansible-playbook tests.yaml --extra-vars "env_file=wireguard_sn10.yaml expected_range=10.70.247.0/24 expected_default=10.70.247.1"
+        run: ansible-playbook tests.yaml --extra-vars 'env_file=wireguard_sn10.yaml expected_range=["10.70.247.0/24"] expected_default=10.70.247.1'
+        # run: ansible-playbook tests.yaml --extra-vars "env_file=wireguard_sn10.yaml expected_range=10.70.247.0/24 expected_default=10.70.247.1"
         working-directory: ./ansible/
 
       - name: Run tests prod1
-        run: ansible-playbook tests.yaml --extra-vars "env_file=wireguard_sn3.yaml expected_range=10.70.250.0/24 expected_default=10.70.250.1"
+        run: ansible-playbook tests.yaml --extra-vars 'env_file=wireguard_sn3.yaml expected_range=["10.70.249.0/24","10.70.250.0/24"] expected_default=10.70.250.1'
+        # run: ansible-playbook tests.yaml --extra-vars "env_file=wireguard_sn3.yaml expected_range=10.70.248.0/22 expected_default=10.70.250.1"
+        # run: ansible-playbook tests.yaml --extra-vars "env_file=wireguard_sn3.yaml expected_range=10.70.250.0/24 expected_default=10.70.250.1"
         working-directory: ./ansible/
