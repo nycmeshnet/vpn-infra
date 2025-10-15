@@ -1,0 +1,19 @@
+[project]
+name = "vpn-infra"
+version = "0.1.0"
+description = "NYC Mesh VPN Infrastructure as Code"
+readme = "README.md"
+requires-python = ">=3.11"
+dependencies = [
+    "ansible>=11.6.0",
+    "ansible-core>=2.18.6",
+    "cffi==1.17.1",
+    "cryptography>=45.0.6",
+    "jinja2>=3.1.6",
+    "markupsafe>=3.0.2",
+    "netaddr>=1.3.0",
+    "packaging>=25.0",
+    "pycparser>=2.22",
+    "pyyaml>=6.0.2",
+    "resolvelib>=1.0.1",
+]
