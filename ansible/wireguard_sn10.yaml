@@ -165,3 +165,14 @@ wireguard_configs:
     PORT: 51836
     PEER_PUBLIC_KEY: NVIUhbigtj//GpYbcbkMM/XsdpKsbpW2tJwBYU8WEEw=
     INTERFACE_ADDRESS: "10.70.247.18/31"
+
+    ### Site-to-site
+
+    # SN10 -> SN3
+  - NAME: sn3
+    PORT: 51803
+    PEER_PUBLIC_KEY: HCYsMu1Wztk8ape2WP5HYiFZnNpn07guRNvKZw/e0mk=
+    INTERFACE_ADDRESS: "10.70.183.2/30"
+    NEIGHBORS: "10.70.183.1"
+    TX_LENGTH: 1420
+    COST: 200
