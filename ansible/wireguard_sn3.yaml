@@ -576,6 +576,12 @@ wireguard_configs:
   #   PEER_PUBLIC_KEY: nL4DXVexwxnqLxg0Ivwi4HuQctlGuP72l4XTGmzyqEE=
   #   INTERFACE_ADDRESS: "10.70.250.120/31"
 
+    # For deploying https://github.com/nycmeshnet/new-install-notifier/
+  - NAME: ghnin
+    PORT: 51982
+    PEER_PUBLIC_KEY: Vc/4iobQDVUzcLiP3roPoSPW7ZKdwwcyJtpoHV5ZNj0=
+    INTERFACE_ADDRESS: "10.70.249.0/31"
+    
     ### Site-to-site
 
     # SN3->SN10

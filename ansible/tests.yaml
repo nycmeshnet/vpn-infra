@@ -28,50 +28,50 @@
       ansible.builtin.fail:
         msg: Unexpected property in config - {{ item.keys() | difference(valid_property_names) }}
       with_list: "{{ wireguard_configs | list }}"
-      when: item.keys() | difference(valid_property_names)
+      when: item.keys() | difference(valid_property_names) | length > 0
 
     - name: NAME property
       block:
         - name: Confirm names are unique
           ansible.builtin.fail:
-            msg: The NAMEs in ansible/wireguard.yaml are not unique - {{ wireguard_configs | map(attribute='NAME') }}
-          when: (wireguard_configs | map(attribute='NAME') | list | unique | length | string) != wg_config_len.msg
+            msg: The {{ wireguard_configs | list | length }} NAMEs in ansible/wireguard.yaml are not unique - {{ wireguard_configs | map(attribute='NAME') }}
+          when: (wireguard_configs | map(attribute='NAME') | list | unique | length) < (wg_config_len | int)
 
         - name: Confirm names are valid
           ansible.builtin.fail:
-            msg: NAMEs in ansible/wireguard.yaml are not valid - {{ wireguard_configs | map(attribute='NAME') | select('match', '^[a-zA-Z0-9]{2,13}$') | list }}
-          when: (wireguard_configs | map(attribute='NAME') | select('match', '^[a-zA-Z0-9]{2,13}$') | list | length | string) != wg_config_len.msg
+            msg: One or more of the {{ wireguard_configs | list | length }} NAMEs in ansible/wireguard.yaml are not valid - {{ wireguard_configs | map(attribute='NAME') | select('match', '^[a-zA-Z0-9]{2,13}$') | list }}
+          when: (wireguard_configs | map(attribute='NAME') | select('match', '^[a-zA-Z0-9]{2,13}$') | list | length) < (wg_config_len | int)
 
     - name: PORT property
       block:
         - name: Confirm port numbers are unique
           ansible.builtin.fail:
-            msg: The PORT numbers in ansible/wireguard.yaml are not unique - {{ wireguard_configs | map(attribute='PORT') }}
-          when: (wireguard_configs | map(attribute='PORT') | list | unique | length | string) != wg_config_len.msg
+            msg: The {{ wireguard_configs | list | length }} PORT numbers in ansible/wireguard.yaml are not unique - {{ wireguard_configs | map(attribute='PORT') }}
+          when: (wireguard_configs | map(attribute='PORT') | list | unique | length) < (wg_config_len | int)
 
         - name: Confirm port numbers are valid
           ansible.builtin.fail:
-            msg: "Some port numbers are invalid"
-          when: (wireguard_configs | map(attribute='PORT') | map('int') | select('>', 1024) | length | string) != wg_config_len.msg
+            msg: "One or more of the {{ wireguard_configs | list | length }} configs' PORT numbers are invalid"
+          when: (wireguard_configs | map(attribute='PORT') | map('int') | select('>', 1024) | length) < (wg_config_len | int)
 
     - name: PEER_PUBLIC_KEY property
       block:
         - name: Confirm PEER_PUBLIC_KEY are unique
           ansible.builtin.fail:
             msg: The PEER_PUBLIC_KEY values in ansible/wireguard.yaml are not unique - {{ wireguard_configs | map(attribute='PEER_PUBLIC_KEY') }}
-          when: (wireguard_configs | map(attribute='PEER_PUBLIC_KEY') | list | unique | length | string) != wg_config_len.msg
+          when: (wireguard_configs | map(attribute='PEER_PUBLIC_KEY') | list | unique | length) < (wg_config_len | int)
 
         - name: Confirm PEER_PUBLIC_KEY are valid
           ansible.builtin.fail:
             msg: The PEER_PUBLIC_KEY values in ansible/wireguard.yaml are not valid - {{ wireguard_configs | map(attribute='PEER_PUBLIC_KEY') | reject('match', '^[A-Za-z0-9+/]{42}[AEIMQUYcgkosw480]=$') | list | string }}
-          when: (wireguard_configs | map(attribute='PEER_PUBLIC_KEY') | select('match', '^[A-Za-z0-9+/]{42}[AEIMQUYcgkosw480]=$') | list | length | string) != wg_config_len.msg
+          when: (wireguard_configs | map(attribute='PEER_PUBLIC_KEY') | select('match', '^[A-Za-z0-9+/]{42}[AEIMQUYcgkosw480]=$') | list | length) < (wg_config_len | int)
 
     - name: INTERFACE_ADDRESS property
       block:
         - name: INTERFACE_ADDRESS should be host/prefix
           ansible.builtin.fail:
-            msg: "INTERFACE_ADDRESS should be an host/prefix"
-          when: (wireguard_configs | map(attribute='INTERFACE_ADDRESS', default='127.0.0.1') | ansible.utils.ipaddr('host/prefix') | list | length | string) != wg_config_len.msg
+            msg: "INTERFACE_ADDRESS should be in host/prefix format"
+          when: (wireguard_configs | map(attribute='INTERFACE_ADDRESS', default='127.0.0.1') | ansible.utils.ipaddr('host/prefix') | list | length) < (wg_config_len | int)
 
         # - name: INTERFACE_ADDRESS should be within the allocated space
         #  ansible.builtin.fail:
@@ -86,7 +86,7 @@
         - name: Compute INTERFACE_ADDRESS values present in any expected_range
           ansible.builtin.set_fact:
             _wg_iface_in_any: "{{ (_wg_iface_in_any | default([])) | union(_wg_iface_addrs | ansible.utils.reduce_on_network(item)) }}"
-          loop: "{{ expected_range }}"
+          loop: "{{ expected_range | split(',') }}"
 
         - name: INTERFACE_ADDRESS should be within the allocated space
           ansible.builtin.fail:
@@ -105,8 +105,8 @@
       block:
         - name: NEIGHBORS should be an IP
           ansible.builtin.fail:
-            msg: "When set for remote hubs NEIGHBORS should be an IP address"
-          when: (wireguard_configs | map(attribute='NEIGHBORS', default='127.0.0.1') | ansible.utils.ipv4 | list | length | string) != wg_config_len.msg
+            msg: "The NEIGHBORS variable needs to be set when configuring a remote OSPF hub. One or more configs are using the default."
+          when: (wireguard_configs | map(attribute='NEIGHBORS', default='127.0.0.1') | ansible.utils.ipv4 | list | length) < (wg_config_len | int)
 
         # - name: NEIGHBORS should be within the allocated space
         #  ansible.builtin.fail:
@@ -120,7 +120,7 @@
         - name: Compute NEIGHBORS values present in any expected_range
           ansible.builtin.set_fact:
             _wg_neighbors_in_any: "{{ (_wg_neighbors_in_any | default([])) | union(_wg_neighbors_addrs | ansible.utils.reduce_on_network(item)) }}"
-          loop: "{{ expected_range }}"
+          loop: "{{ expected_range | split(',') }}"
 
         - name: NEIGHBORS should be within the allocated space
           ansible.builtin.fail:
