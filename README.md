@@ -49,6 +49,7 @@ _NOTE: Site-to-site configurations should use allocated IP range `10.70.183.0/24
 | `COST` | The OSPF cost of the link from the VPN server to your remote hub. The default is `100`.  | Should be a unique number |
 | `PEER_ALLOWED_IPS` | IPs allowed to connect. Default `0.0.0.0/0`. | IP range |
 | `PEER_PERSISTENT_KEEPALIVE` | Persistent keepalive. Default `25`. | Integer |
+| `PEER_ENDPOINT` | Optional - adds Endpoint for use as a client. | String (e.g. `199.170.132.43:51820`) |
 | `BFD_ENABLE` | Optional - enables BFD for interface. Default `false` | Bool (`true`/`false`) |
 | `BFD_INTERVAL` | Optional - sets BFD interval. Default `200ms` | String (e.g. 200ms) |
 | `BFD_MULTIPLIER` | Optional - sets BFD multiplier. Default `5` | Integer |
