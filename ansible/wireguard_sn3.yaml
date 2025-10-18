@@ -584,10 +584,11 @@ wireguard_configs:
 
     ### Site-to-site
 
-    # SN3->SN10
+    # SN3 -> SN10
   - NAME: sn10
     PORT: 51810
     PEER_PUBLIC_KEY: wFQXW68D0ePLU39A1yfuIRH7oyH3ZIfb424OczjI7Ak=
+    PEER_ENDPOINT: "199.170.132.43:51803"
     INTERFACE_ADDRESS: "10.70.183.1/30"
     NEIGHBORS: "10.70.183.2"
     TX_LENGTH: 1420

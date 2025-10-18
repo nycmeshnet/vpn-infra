@@ -8,3 +8,6 @@ ListenPort = {{ item.PORT }}
 PublicKey = {{ item.PEER_PUBLIC_KEY }}
 AllowedIPs = {{ item.PEER_ALLOWED_IPS | default("0.0.0.0/0") }}
 PersistentKeepalive = {{ item.PEER_PERSISTENT_KEEPALIVE | default(25) }}
+{% if item.PEER_ENDPOINT is defined %}
+Endpoint = {{ item.PEER_ENDPOINT }}
+{% endif %}
