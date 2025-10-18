@@ -7,6 +7,8 @@
 | `SN3` | `199.170.132.43` | `10.70.249.0/24 & 10.70.250.0/24` | `HCYsMu1Wztk8ape2WP5HYiFZnNpn07guRNvKZw/e0mk=` |
 | `SN10` | `23.158.16.28` | `10.70.247.0/24` | `wFQXW68D0ePLU39A1yfuIRH7oyH3ZIfb424OczjI7Ak=` |
 
+_NOTE: Site-to-site configurations should use allocated IP range `10.70.183.0/24` on both sides of the link._
+
 ### Add a road warrior config
 
 1. Generate a public private keypair. `wg genkey | tee yourname_privatekey | wg pubkey > yourname_publickey`
@@ -20,8 +22,9 @@
 | `INTERFACE_ADDRESS` | Address for the wireguard interface | Should be a unique `/31` in the assigned range (`10.70.250.0/24`). |
 | `PEER_ALLOWED_IPS` | IPs allowed to connect. Default `0.0.0.0/0`. | IP range |
 | `PEER_PERSISTENT_KEEPALIVE` | Persistent keepalive. Default `25`. | Integer |
+| `PEER_ENDPOINT` | Optional - adds Endpoint for use as a client. | String (e.g. `199.170.132.43:51820`) |
 | `BFD_ENABLE` | Optional - enables BFD for interface. Default `false` | Bool (`true`/`false`) |
-| `BFD_INTERVAL` | Optional - sets BFD interval. Default `200ms` | String (e.g. 200ms) |
+| `BFD_INTERVAL` | Optional - sets BFD interval. Default `200ms` | String (e.g. `200ms`) |
 | `BFD_MULTIPLIER` | Optional - sets BFD multiplier. Default `5` | Integer |
 
 3. Open a pull request in this repository with your changes.
