@@ -67,5 +67,5 @@ jobs:
         working-directory: ./ansible/
 
       - name: Run tests prod11
-        run: ansible-playbook tests.yaml --extra-vars "env_file=wireguard_sn11.yaml expected_range=10.70.246.0/24 expected_default=10.70.246.1"
+        run: ansible-playbook tests.yaml --extra-vars "env_file=wireguard_sn11.yaml expected_range=10.70.183.0/24,10.70.246.0/24 expected_default=10.70.246.1"
         working-directory: ./ansible/
