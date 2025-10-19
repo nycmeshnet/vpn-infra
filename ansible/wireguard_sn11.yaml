@@ -30,3 +30,9 @@ wireguard_configs:
     PORT: 51824
     PEER_PUBLIC_KEY: JOHNBcSeEXKV7l6KEi9ktxoKiFh6CymdfZ3ItDZCxRk=
     INTERFACE_ADDRESS: "10.70.246.4/31"
+
+    # For Daniel
+  - NAME: daniel
+    PORT: 51825
+    PEER_PUBLIC_KEY: czvx7yuWaT7qISYLd+gwcbW8AQUDMI6/gYOj7gz4Jl4=
+    INTERFACE_ADDRESS: "10.70.246.6/31"
