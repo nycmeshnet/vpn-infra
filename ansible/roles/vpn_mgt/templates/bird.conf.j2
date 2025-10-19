@@ -18,7 +18,11 @@ protocol kernel {
     scan time 10;
     ipv4 {                  # Connect protocol to IPv4 table by channel
         import all;   # Import to table, default is import all
-        export all;   # Export to protocol. default is export none
+        export filter {    # Export to protocol but exclude VPN endpoints, default is none
+            if net = 23.158.16.28/32 then reject;
+            if net = 199.170.132.43/32 then reject;
+            accept;
+        };
     };
 }
 
