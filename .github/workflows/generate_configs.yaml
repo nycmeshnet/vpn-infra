@@ -35,7 +35,7 @@ jobs:
           ansible-playbook generate_config_templates.yaml --extra-vars "SERVER_NAME='sn10' SERVER_IP='23.158.16.28' PUBLIC_KEY='wFQXW68D0ePLU39A1yfuIRH7oyH3ZIfb424OczjI7Ak='"
 
           mv wireguard_sn11.yaml wireguard.yaml
-          ansible-playbook generate_config_templates.yaml --extra-vars "SERVER_NAME='sn11' SERVER_IP='208.68.5.101' PUBLIC_KEY='5wOBTSB3kH7CdZfBZAw8iomGQbS0POlmOLx2MFmzhFg='"
+          ansible-playbook generate_config_templates.yaml --extra-vars "SERVER_NAME='sn11' SERVER_IP='208.68.5.2' PUBLIC_KEY='5wOBTSB3kH7CdZfBZAw8iomGQbS0POlmOLx2MFmzhFg='"
         working-directory: ./ansible/
       
       - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4.6.2
