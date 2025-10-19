@@ -46,7 +46,7 @@ jobs:
       environment: prod2
       varfile: wireguard_sn10.yaml
     secrets: inherit
-    needs: deploy_dev3
+    needs: deploy_prod1
     if: github.ref == 'refs/heads/main'
 
   deploy_prod11:
@@ -56,5 +56,5 @@ jobs:
       environment: prod11
       varfile: wireguard_sn11.yaml
     secrets: inherit
-    needs: deploy_dev3
+    needs: deploy_prod2
     if: github.ref == 'refs/heads/main'
