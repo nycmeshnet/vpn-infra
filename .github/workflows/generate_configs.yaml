@@ -38,7 +38,7 @@ jobs:
           ansible-playbook generate_config_templates.yaml --extra-vars "SERVER_NAME='sn11' SERVER_IP='208.68.5.2' PUBLIC_KEY='5wOBTSB3kH7CdZfBZAw8iomGQbS0POlmOLx2MFmzhFg='"
         working-directory: ./ansible/
       
-      - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4.6.2
+      - uses: actions/upload-artifact@330a01c490aca151604b8cf639adc76d48f6c5d4 # v5.0.0
         with:
           path: ./ansible/*_wg*.conf
           retention-days: 1
