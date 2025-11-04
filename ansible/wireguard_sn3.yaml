@@ -603,3 +603,9 @@ wireguard_configs:
     NEIGHBORS: "10.70.183.6"
     TX_LENGTH: 1420
     COST: 200
+    
+    # Ash Laptop
+  - NAME: ashlaptop
+    PORT: 51811
+    PEER_PUBLIC_KEY: kBCfjYYLFtn9aJIOVdvnVfWb272jePngid8a4Q4eJCw=
+    INTERFACE_ADDRESS: "10.70.183.7/31"
