@@ -603,7 +603,7 @@ wireguard_configs:
     NEIGHBORS: "10.70.183.6"
     TX_LENGTH: 1420
     COST: 200
-    
+
     # Ash Laptop
   - NAME: ashlaptop
     PORT: 51812
