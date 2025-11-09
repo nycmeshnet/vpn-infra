@@ -39,7 +39,10 @@ wireguard_configs:
     INTERFACE_ADDRESS: "10.70.247.133/30"
     NEIGHBORS: "10.70.247.134"
     TX_LENGTH: 1420
-    COST: 26
+    COST: 55
+    BFD_ENABLE: true
+    BFD_INTERVAL: 500ms
+    BFD_MULTIPLIER: 10
 
     # For nn7800 CCNY
   - NAME: nn7800
@@ -78,7 +81,7 @@ wireguard_configs:
     INTERFACE_ADDRESS: "10.70.247.149/30"
     NEIGHBORS: "10.70.247.150"
     TX_LENGTH: 1420
-    COST: 20
+    COST: 55
     BFD_ENABLE: true
     BFD_INTERVAL: 500ms
     BFD_MULTIPLIER: 10
@@ -90,7 +93,7 @@ wireguard_configs:
     INTERFACE_ADDRESS: "10.70.247.153/30"
     NEIGHBORS: "10.70.247.154"
     TX_LENGTH: 1420
-    COST: 100
+    COST: 55
     BFD_ENABLE: true
     BFD_INTERVAL: 500ms
     BFD_MULTIPLIER: 10

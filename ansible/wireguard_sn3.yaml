@@ -35,7 +35,10 @@ wireguard_configs:
     INTERFACE_ADDRESS: "10.70.250.133/30"
     NEIGHBORS: "10.70.250.134"
     TX_LENGTH: 1420
-    COST: 28
+    COST: 20
+    BFD_ENABLE: true
+    BFD_INTERVAL: 500ms
+    BFD_MULTIPLIER: 10
 
     # For NN148 Harlem Kiosk (SN3 migration)
   - NAME: nn148
@@ -176,7 +179,7 @@ wireguard_configs:
     INTERFACE_ADDRESS: "10.70.249.121/30"
     NEIGHBORS: "10.70.249.122"
     TX_LENGTH: 1420
-    COST: 22
+    COST: 20
     BFD_ENABLE: true
     BFD_INTERVAL: 500ms
     BFD_MULTIPLIER: 10
@@ -188,7 +191,7 @@ wireguard_configs:
     INTERFACE_ADDRESS: "10.70.249.125/30"
     NEIGHBORS: "10.70.249.126"
     TX_LENGTH: 1420
-    COST: 90
+    COST: 30
     BFD_ENABLE: true
     BFD_INTERVAL: 500ms
     BFD_MULTIPLIER: 10
