@@ -595,7 +595,7 @@ wireguard_configs:
     INTERFACE_ADDRESS: "10.70.183.1/30"
     NEIGHBORS: "10.70.183.2"
     TX_LENGTH: 1420
-    COST: 200
+    COST: 70
 
     # SN3 -> SN11
   - NAME: sn11
@@ -605,7 +605,7 @@ wireguard_configs:
     INTERFACE_ADDRESS: "10.70.183.5/30"
     NEIGHBORS: "10.70.183.6"
     TX_LENGTH: 1420
-    COST: 200
+    COST: 149
 
     # Ash Laptop
   - NAME: ashlaptop
