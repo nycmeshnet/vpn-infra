@@ -617,4 +617,4 @@ wireguard_configs:
     Name: natelaptop
     PORT: 51813
     PEER_PUBLIC_KEY: 3gA4C/eJogyMiFtVSBchtIm0B4DlPLA8WHl/PA2NcTo=
-    INTERFACE_ADDRESS: "10.70.250.120/31"
+    INTERFACE_ADDRESS: "10.70.183.10/31"
