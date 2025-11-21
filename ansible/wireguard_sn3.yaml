@@ -585,7 +585,21 @@ wireguard_configs:
     PEER_PUBLIC_KEY: Vc/4iobQDVUzcLiP3roPoSPW7ZKdwwcyJtpoHV5ZNj0=
     INTERFACE_ADDRESS: "10.70.249.0/31"
 
-    ### Site-to-site
+    # Ash Laptop
+  - NAME: ashlaptop
+    PORT: 51983
+    PEER_PUBLIC_KEY: kBCfjYYLFtn9aJIOVdvnVfWb272jePngid8a4Q4eJCw=
+    INTERFACE_ADDRESS: "10.70.249.2/31"
+
+    # Nate Laptop
+  - NAME: natelaptop
+    PORT: 51984
+    PEER_PUBLIC_KEY: 3gA4C/eJogyMiFtVSBchtIm0B4DlPLA8WHl/PA2NcTo=
+    INTERFACE_ADDRESS: "10.70.249.4/31"
+
+    # ADD NEW ROAD WARRIORS ABOVE THIS LINE
+
+    ### Site-to-site only
 
     # SN3 -> SN10
   - NAME: sn10
@@ -607,8 +621,4 @@ wireguard_configs:
     TX_LENGTH: 1420
     COST: 200
 
-    # Ash Laptop
-  - NAME: ashlaptop
-    PORT: 51812
-    PEER_PUBLIC_KEY: kBCfjYYLFtn9aJIOVdvnVfWb272jePngid8a4Q4eJCw=
-    INTERFACE_ADDRESS: "10.70.183.8/31"
+    # DO NOT ADD ROAD WARRIORS HERE, THIS IS THE WRONG ADDRESS SPACE. ENTER THEM ABOVE THE SITE-TO-SITE LINE
