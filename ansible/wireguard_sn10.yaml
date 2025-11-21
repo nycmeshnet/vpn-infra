@@ -39,7 +39,7 @@ wireguard_configs:
     INTERFACE_ADDRESS: "10.70.247.133/30"
     NEIGHBORS: "10.70.247.134"
     TX_LENGTH: 1420
-    COST: 55
+    COST: 76
     BFD_ENABLE: true
     BFD_INTERVAL: 500ms
     BFD_MULTIPLIER: 10
@@ -81,7 +81,7 @@ wireguard_configs:
     INTERFACE_ADDRESS: "10.70.247.149/30"
     NEIGHBORS: "10.70.247.150"
     TX_LENGTH: 1420
-    COST: 55
+    COST: 77
     BFD_ENABLE: true
     BFD_INTERVAL: 500ms
     BFD_MULTIPLIER: 10
@@ -93,7 +93,7 @@ wireguard_configs:
     INTERFACE_ADDRESS: "10.70.247.153/30"
     NEIGHBORS: "10.70.247.154"
     TX_LENGTH: 1420
-    COST: 55
+    COST: 65
     BFD_ENABLE: true
     BFD_INTERVAL: 500ms
     BFD_MULTIPLIER: 10
@@ -179,7 +179,7 @@ wireguard_configs:
     INTERFACE_ADDRESS: "10.70.183.2/30"
     NEIGHBORS: "10.70.183.1"
     TX_LENGTH: 1420
-    COST: 200
+    COST: 70
 
     # SN10 -> SN11
   - NAME: sn11
@@ -189,4 +189,4 @@ wireguard_configs:
     INTERFACE_ADDRESS: "10.70.183.9/30"
     NEIGHBORS: "10.70.183.10"
     TX_LENGTH: 1420
-    COST: 200
+    COST: 80
