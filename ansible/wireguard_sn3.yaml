@@ -592,13 +592,13 @@ wireguard_configs:
     INTERFACE_ADDRESS: "10.70.249.2/31"
 
     # Nate Laptop
-    Name: natelaptop
+  - NAME: natelaptop
     PORT: 51984
     PEER_PUBLIC_KEY: 3gA4C/eJogyMiFtVSBchtIm0B4DlPLA8WHl/PA2NcTo=
     INTERFACE_ADDRESS: "10.70.249.4/31"
 
     # ADD NEW ROAD WARRIORS ABOVE THIS LINE
-    
+
     ### Site-to-site only
 
     # SN3 -> SN10
