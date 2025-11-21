@@ -35,6 +35,9 @@ _NOTE: Site-to-site configurations should use allocated IP range `10.70.183.0/24
 5. A volunteer will merge your pull request, you can then [set up your device](https://wiki.nycmesh.net/books/5-networking/page/wireguard-vpn-setup-guide) and start using it.
 
 ## Add a remote hub config
+IMPORTANT COSTING NOTES: 
+- If this is a fully remote node/hub (no OTA mesh connectivity), please use a cost of 100 or more to not cause bridging issues, especially if configuring your node/hub for multiple SNs
+- If this is a VPN backup for an OTA-connected hub, please consult in the #architecture channel or applicable hub channel before setting costs and merging.
 
 1. Generate a public private keypair. `wg genkey | tee nn000_privatekey | wg pubkey > nn000_publickey`
 2. Add a new entry to [ansible/wireguard_sn3.yaml](./ansible/wireguard_sn3.yaml) for SN3, or [ansible/wireguard_sn10.yaml](./ansible/wireguard_sn10.yaml) for SN10
