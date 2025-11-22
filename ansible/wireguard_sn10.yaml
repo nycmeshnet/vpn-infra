@@ -179,7 +179,7 @@ wireguard_configs:
     INTERFACE_ADDRESS: "10.70.183.2/30"
     NEIGHBORS: "10.70.183.1"
     TX_LENGTH: 1420
-    COST: 70
+    COST: 80
 
     # SN10 -> SN11
   - NAME: sn11
@@ -189,4 +189,4 @@ wireguard_configs:
     INTERFACE_ADDRESS: "10.70.183.9/30"
     NEIGHBORS: "10.70.183.10"
     TX_LENGTH: 1420
-    COST: 80
+    COST: 92
