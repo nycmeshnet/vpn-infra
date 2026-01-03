@@ -593,7 +593,7 @@ wireguard_configs:
     # For Dan phone
   - NAME: drjphone
     PORT: 51981
-    PEER_PUBLIC_KEY: nL4DXVexwxnqLxg0Ivwi4HuQctlGuP72l4XTGmzyqEE=
+    PEER_PUBLIC_KEY: 2aCc8dhMCL5njdYCWiofCLV6dZ7eHBwAMOFutNRW9lk=
     INTERFACE_ADDRESS: "10.70.249.6/31"
 
     # ADD NEW ROAD WARRIORS ABOVE THIS LINE
