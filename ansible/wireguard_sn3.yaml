@@ -572,13 +572,6 @@ wireguard_configs:
     PEER_PUBLIC_KEY: g1TfEPYgnkCsw8U68fZYasGVZCB2ixYDeIMzx6VtIhU=
     INTERFACE_ADDRESS: "10.70.250.118/31"
 
-    # For Dan phone -- actually this conflicts with other IPs already on the mesh.
-    # gotta find a free IP before setting this up.
-  # - NAME: drjphone
-  #   PORT: 51981
-  #   PEER_PUBLIC_KEY: nL4DXVexwxnqLxg0Ivwi4HuQctlGuP72l4XTGmzyqEE=
-  #   INTERFACE_ADDRESS: "10.70.250.120/31"
-
     # For deploying https://github.com/nycmeshnet/new-install-notifier/
   - NAME: ghnin
     PORT: 51982
@@ -596,6 +589,12 @@ wireguard_configs:
     PORT: 51984
     PEER_PUBLIC_KEY: 3gA4C/eJogyMiFtVSBchtIm0B4DlPLA8WHl/PA2NcTo=
     INTERFACE_ADDRESS: "10.70.249.4/31"
+
+    # For Dan phone
+  - NAME: drjphone
+    PORT: 51981
+    PEER_PUBLIC_KEY: nL4DXVexwxnqLxg0Ivwi4HuQctlGuP72l4XTGmzyqEE=
+    INTERFACE_ADDRESS: "10.70.249.6/31"
 
     # ADD NEW ROAD WARRIORS ABOVE THIS LINE
 
