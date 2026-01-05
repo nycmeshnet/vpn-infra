@@ -107,6 +107,18 @@ wireguard_configs:
     TX_LENGTH: 1420
     COST: 99
 
+    # NN999 Matt B
+  - NAME: nn999
+    PORT: 51841
+    PEER_PUBLIC_KEY: uwQ4Sdy5MFue2wx1f72Ru/HIrlXfV01/e7drrqCvFzY=
+    INTERFACE_ADDRESS: "10.70.247.161/30"
+    NEIGHBORS: "10.70.247.162"
+    TX_LENGTH: 1420
+    COST: 200
+    BFD_ENABLE: true
+    BFD_INTERVAL: 500ms
+    BFD_MULTIPLIER: 10
+
 ### Road Warriors
 
     # For James

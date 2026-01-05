@@ -207,7 +207,19 @@ wireguard_configs:
     BFD_ENABLE: true
     BFD_INTERVAL: 500ms
     BFD_MULTIPLIER: 10
-    # NOTE: the next available IP is "10.70.249.133/30" :)
+
+    # For NN999 Matt B
+  - NAME: nn999
+    PORT: 51920
+    PEER_PUBLIC_KEY: XdUlCDmscZneII3CoLuv+ZKLc5JRTpo5HuanuW9UmXk=
+    INTERFACE_ADDRESS: "10.70.249.133/30"
+    NEIGHBORS: "10.70.249.134"
+    TX_LENGTH: 1420
+    COST: 202
+    BFD_ENABLE: true
+    BFD_INTERVAL: 500ms
+    BFD_MULTIPLIER: 10
+    # NOTE: the next available IP is "10.70.249.137/30" :)
 
     ### Road Warriors
 
