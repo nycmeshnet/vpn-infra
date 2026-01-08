@@ -44,7 +44,7 @@ jobs:
           sarif_file: results.sarif
 
       - name: Run ansible-lint
-        uses: ansible/ansible-lint@36075fad72d67ca74facfb2e5436a2428a4b5d5d # v25
+        uses: ansible/ansible-lint@a2bc8b8b13a80802215856c56823d85007d3baf5 # v25
         with:
           args: ""
           setup_python: "true"
