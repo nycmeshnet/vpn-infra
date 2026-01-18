@@ -181,6 +181,19 @@ wireguard_configs:
     PEER_PUBLIC_KEY: NVIUhbigtj//GpYbcbkMM/XsdpKsbpW2tJwBYU8WEEw=
     INTERFACE_ADDRESS: "10.70.247.18/31"
 
+    # Scott145 Desktop
+  - NAME: scottdesktop
+    PORT: 51837
+    PEER_PUBLIC_KEY: x8xwBczZZCeT1pATaEy4Menv4QuV2xXTnpJb8yt4TU8=
+    INTERFACE_ADDRESS: "10.70.247.20/31"
+
+    # Scott145 Laptop
+  - NAME: scottlaptop
+    PORT: 51838
+    PEER_PUBLIC_KEY: IILzKvhJ6DJjRZlbk7fg0sAepeebs9fHgYZpge391Fg=
+    INTERFACE_ADDRESS: "10.70.247.22/31"
+
+
     ### Site-to-site
 
     # SN10 -> SN3
