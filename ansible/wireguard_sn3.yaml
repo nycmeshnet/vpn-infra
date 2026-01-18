@@ -608,6 +608,12 @@ wireguard_configs:
     PEER_PUBLIC_KEY: 2aCc8dhMCL5njdYCWiofCLV6dZ7eHBwAMOFutNRW9lk=
     INTERFACE_ADDRESS: "10.70.249.6/31"
 
+    # For https://github.com/willnilges/pano
+  - NAME: ghelement
+    PORT: 51985
+    PEER_PUBLIC_KEY: L3O53sQV3y2hdoyVxsAh6WYezdOl+4kCiABUMnNLcGw=
+    INTERFACE_ADDRESS: "10.70.249.8/31"
+
     # ADD NEW ROAD WARRIORS ABOVE THIS LINE
 
     ### Site-to-site only
