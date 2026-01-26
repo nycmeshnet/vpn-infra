@@ -181,6 +181,12 @@ wireguard_configs:
     PEER_PUBLIC_KEY: NVIUhbigtj//GpYbcbkMM/XsdpKsbpW2tJwBYU8WEEw=
     INTERFACE_ADDRESS: "10.70.247.18/31"
 
+    # For Brian nn3
+  - NAME: brian
+    PORT: 51837
+    PEER_PUBLIC_KEY: +9qtbCUYiGeVuDCXhVpLJ6JLhL8WY8eUmVQ193dAw24=
+    INTERFACE_ADDRESS: "10.70.247.20/31"
+
     ### Site-to-site
 
     # SN10 -> SN3
