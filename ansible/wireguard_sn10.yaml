@@ -183,7 +183,7 @@ wireguard_configs:
 
     # For Brian nn3
   - NAME: brian
-    PORT: 51837
+    PORT: 51842
     PEER_PUBLIC_KEY: +9qtbCUYiGeVuDCXhVpLJ6JLhL8WY8eUmVQ193dAw24=
     INTERFACE_ADDRESS: "10.70.247.20/31"
 
