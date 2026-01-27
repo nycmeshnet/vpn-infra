@@ -37,6 +37,12 @@ wireguard_configs:
     PEER_PUBLIC_KEY: czvx7yuWaT7qISYLd+gwcbW8AQUDMI6/gYOj7gz4Jl4=
     INTERFACE_ADDRESS: "10.70.246.6/31"
 
+    # For nycmeshnet/nycmesh-pastebin
+  - NAME: ghpastebin
+    PORT: 51826
+    PEER_PUBLIC_KEY: ML1XpgrNTFcpA0SK1tUqDtVc3qfVsUCcGrdF/3Oyjlk=
+    INTERFACE_ADDRESS: "10.70.246.8/31"
+
     ### Site-to-site
 
     # SN11 -> SN3
