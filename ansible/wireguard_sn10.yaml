@@ -187,6 +187,12 @@ wireguard_configs:
     PEER_PUBLIC_KEY: +9qtbCUYiGeVuDCXhVpLJ6JLhL8WY8eUmVQ193dAw24=
     INTERFACE_ADDRESS: "10.70.247.20/31"
 
+    # For Daniel briarwood node
+  - NAME: danielqnsnode
+    PORT: 51843
+    PEER_PUBLIC_KEY: O/YD3ETyyb1r6JZrDPb9TTxYuPIwM2IBoJEdBbUCnyw=
+    INTERFACE_ADDRESS: "10.70.247.22/31"
+
     ### Site-to-site
 
     # SN10 -> SN3
