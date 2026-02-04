@@ -25,6 +25,13 @@ jobs:
         id: fmt
         run: terraform fmt -check
         working-directory: ./terraform/
+      
+      - uses: actions/setup-python@a309ff8b426b58ec0e2a45f0f869d46889d02405 # @v5
+        with:
+          python-version: '3.11'
+
+      - name: Setup ansible
+        run: pip install --require-hashes -r requirements.txt && export PATH="$HOME/.local/bin:$PATH" && ansible-galaxy collection install -r ansible/roles/requirements.yml
 
       - name: Run Checkov action
         id: checkov
@@ -50,9 +57,6 @@ jobs:
           setup_python: "true"
           working_directory: "./ansible/"
           requirements_file: ""
-
-      - name: Python dependencies
-        run: pip install --require-hashes -r requirements.txt
 
       - name: Run tests dev3
         run: ansible-playbook tests.yaml --extra-vars 'env_file=dev.yaml expected_range=10.70.248.0/24 expected_default=10.70.248.1'
