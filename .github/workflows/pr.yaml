@@ -25,6 +25,13 @@ jobs:
         id: fmt
         run: terraform fmt -check
         working-directory: ./terraform/
+      
+      - uses: actions/setup-python@a309ff8b426b58ec0e2a45f0f869d46889d02405 # @v5
+        with:
+          python-version: '3.11'
+
+      - name: Setup ansible
+        run: pip install --require-hashes -r requirements.txt && export PATH="$HOME/.local/bin:$PATH" && ansible-galaxy collection install -r ansible/roles/requirements.yml
 
       - name: Run Checkov action
         id: checkov
@@ -44,15 +51,12 @@ jobs:
           sarif_file: results.sarif
 
       - name: Run ansible-lint
-        uses: ansible/ansible-lint@a2bc8b8b13a80802215856c56823d85007d3baf5 # v25
+        uses: ansible/ansible-lint@7f6abc5ef97d0fb043a0f3d416dfbc74399fbda0 # v25
         with:
           args: ""
           setup_python: "true"
           working_directory: "./ansible/"
           requirements_file: ""
-
-      - name: Python dependencies
-        run: pip install --require-hashes -r requirements.txt
 
       - name: Run tests dev3
         run: ansible-playbook tests.yaml --extra-vars 'env_file=dev.yaml expected_range=10.70.248.0/24 expected_default=10.70.248.1'
