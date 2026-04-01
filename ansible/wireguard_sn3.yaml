@@ -614,6 +614,24 @@ wireguard_configs:
     PEER_PUBLIC_KEY: L3O53sQV3y2hdoyVxsAh6WYezdOl+4kCiABUMnNLcGw=
     INTERFACE_ADDRESS: "10.70.249.8/31"
 
+    # For lcgerke home site (NN1397, ar subnet router)
+  - NAME: lcgerkehome
+    PORT: 51986
+    PEER_PUBLIC_KEY: rmO8n2Qqlm9pJ/9tzRJtTJu/fy4NJDW5JFNcFO64+hU=
+    INTERFACE_ADDRESS: "10.70.249.10/31"
+
+    # For lcgerke 4u (NN1397)
+  - NAME: lcgerke4u
+    PORT: 51987
+    PEER_PUBLIC_KEY: 4Vx6pCPnsbBEF+12jk0+2CeYzLJ5XjK5WqwkasAHECU=
+    INTERFACE_ADDRESS: "10.70.249.12/31"
+
+    # For lcgerke laptop (NN1397, x13 mobile)
+  - NAME: lcgerkelap
+    PORT: 51988
+    PEER_PUBLIC_KEY: fSGoBn56Diu6hyFTIfHeWSFA2JHSYeyX+0BxvP02tDM=
+    INTERFACE_ADDRESS: "10.70.249.14/31"
+
     # ADD NEW ROAD WARRIORS ABOVE THIS LINE
 
     ### Site-to-site only
