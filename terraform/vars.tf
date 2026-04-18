@@ -80,6 +80,12 @@ variable "wg_public_ip" {
   description = "public IP for incoming wireguard connections"
 }
 
+variable "wg_all_public_ips" {
+  type:       = list
+  description = "all wg public IPs, to be used for setting static routes"
+  default     = ["199.170.132.43","23.158.16.28","208.68.5.2"]
+}
+
 variable "wg_private_range" {
   type        = string
   description = "private IP range used for wireguard interfaces"

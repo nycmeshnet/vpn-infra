@@ -41,6 +41,12 @@
 - name: Setup netfilter
   ansible.builtin.include_tasks: netfilter.yaml
 
+- name: Add static routes for inter-SN links
+  ansible.builtin.shell:
+    cmd: "ip route add {{ item }} via {{ DEFAULT_GATEWAY }} src {{ WG_PUBLIC_IP }}"
+  when: item != WG_PUBLIC_IP
+  loop: "{{ wg_all_public_ips }}"
+
 - name: System interfaces
   ansible.builtin.include_tasks: system_interfaces.yaml
 
