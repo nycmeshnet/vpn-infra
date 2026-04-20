@@ -43,6 +43,12 @@ wireguard_configs:
     PEER_PUBLIC_KEY: ML1XpgrNTFcpA0SK1tUqDtVc3qfVsUCcGrdF/3Oyjlk=
     INTERFACE_ADDRESS: "10.70.246.8/31"
 
+    # For Federico Martinez laptop
+  - NAME: fmartilap
+    PORT: 51827
+    PEER_PUBLIC_KEY: IE52hfLtSHxEU6QuxKVaiAJiJnYc8OsPMyxoYmqv60A=
+    INTERFACE_ADDRESS: "10.70.246.10/31"
+
     ### Site-to-site
 
     # SN11 -> SN3
