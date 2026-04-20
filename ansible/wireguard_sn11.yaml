@@ -47,7 +47,7 @@ wireguard_configs:
   - NAME: fmartilap
     PORT: 51827
     PEER_PUBLIC_KEY: IE52hfLtSHxEU6QuxKVaiAJiJnYc8OsPMyxoYmqv60A=
-    INTERFACE_ADDRESS: 10.70.246.10/31"
+    INTERFACE_ADDRESS: "10.70.246.10/31"
 
     ### Site-to-site
 
