@@ -632,6 +632,12 @@ wireguard_configs:
     PEER_PUBLIC_KEY: fSGoBn56Diu6hyFTIfHeWSFA2JHSYeyX+0BxvP02tDM=
     INTERFACE_ADDRESS: "10.70.249.14/31"
 
+    # For Nate PC
+  - NAME: NatePC
+    PORT: 51989
+    PEER_PUBLIC_KEY: qKzMjdf5nGymX46F55kc34MkStM8fm9qorCO8FnQO20=
+    INTERFACE_ADDRESS: "10.70.249.16/31"
+
     # For Federico Martinez laptop
   - NAME: fmartilap
     PORT: 51990
