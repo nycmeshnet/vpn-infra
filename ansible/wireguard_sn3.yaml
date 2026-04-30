@@ -644,6 +644,12 @@ wireguard_configs:
     PEER_PUBLIC_KEY: DBF9PnCyS5OByNwGVwnn9NZJkJnR0g7HWV8x0bNsEHA=
     INTERFACE_ADDRESS: "10.70.249.18/31"
 
+    # For Jakob
+  - NAME: Jake
+    PORT: 51991
+    PEER_PUBLIC_KEY: rVaiRSz9/+1sHMKZyWKw1fBVH+CklkmE8Gq4MZhX2A8=
+    INTERFACE_ADDRESS: "10.70.249.20/31"
+
     # ADD NEW ROAD WARRIORS ABOVE THIS LINE
 
     ### Site-to-site only
