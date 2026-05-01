@@ -17,6 +17,7 @@ resource "ansible_host" "vpn_host" {
     BIRD_NEIGHBORS           = var.bird_neighbors
     DEFAULT_GATEWAY          = var.vm_mgt_default_gateway
     WG_PUBLIC_IP             = var.wg_public_ip
+    WG_ALL_PUBLIC_IPS        = var.wg_all_public_ips
     WG_PRIVATE_RANGE         = var.wg_private_range
     PRIVATE_KEY              = var.wg_private_key
     PUBLIC_KEY               = var.wg_public_key
