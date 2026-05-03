@@ -650,6 +650,12 @@ wireguard_configs:
     PEER_PUBLIC_KEY: rVaiRSz9/+1sHMKZyWKw1fBVH+CklkmE8Gq4MZhX2A8=
     INTERFACE_ADDRESS: "10.70.249.20/31"
 
+    # For neel's laptop
+  - NAME: neellaptop
+    PORT: 51992
+    PEER_PUBLIC_KEY: d+5wB8kH2bu+h15uo+HWlB74/HP+zN/KG47AWNI+cTM=
+    INTERFACE_ADDRESS: "10.70.249.22/31"
+
     # ADD NEW ROAD WARRIORS ABOVE THIS LINE
 
     ### Site-to-site only
