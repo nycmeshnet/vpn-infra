@@ -49,6 +49,19 @@ wireguard_configs:
     PEER_PUBLIC_KEY: IE52hfLtSHxEU6QuxKVaiAJiJnYc8OsPMyxoYmqv60A=
     INTERFACE_ADDRESS: "10.70.246.10/31"
 
+    # scott145
+  - NAME: scott145
+    PORT: 51828
+    PEER_PUBLIC_KEY: IE52hfLtSHxEU6QuxKVaiAJiJnYc8OsPMyxoYmqv60A=
+    INTERFACE_ADDRESS: "10.70.246.12/31"
+
+    # scott145lap
+  - NAME: scott145lap
+    PORT: 51829
+    PEER_PUBLIC_KEY: IILzKvhJ6DJjRZlbk7fg0sAepeebs9fHgYZpge391Fg=
+    INTERFACE_ADDRESS: "10.70.246.14/31"
+
+
     ### Site-to-site
 
     # SN11 -> SN3
