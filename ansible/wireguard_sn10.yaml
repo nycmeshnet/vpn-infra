@@ -196,7 +196,7 @@ wireguard_configs:
     # scott145
   - NAME: scott145
     PORT: 51844
-    PEER_PUBLIC_KEY: /aSyHv5nzzOoWNyvAFT4ds9So042DaJhjtsccs2ldAc=
+    PEER_PUBLIC_KEY: IioNFRl3XaeQJKjKqqWT4BD1HSAygzvuF6W7v7ClaEk=
     INTERFACE_ADDRESS: "10.70.247.24/31"
 
     # scott145lap
