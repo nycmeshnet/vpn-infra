@@ -4,9 +4,9 @@ ansible==12.3.0 \
     --hash=sha256:02721f6fb432ddd47f1044ac49b04b5e9ae08890bd427def8df3db1607aeec51 \
     --hash=sha256:cd156f82fa87f7a899212b0efa9f7ca3a24d609212de9f78428a572eb01e5414
     # via vpn-infra
-ansible-core==2.19.9 \
-    --hash=sha256:18de80e3ea5a89d2ea84e4d4a3c6d7c121ea62fc3af2877ba083784e3d90b419 \
-    --hash=sha256:74107de13d188ff579fb215bc3eb875c9198803215d6378ed588c7f35aba12f5
+ansible-core==2.19.10 \
+    --hash=sha256:afe0438d3acb402319baeb12a52465e69642e7497889a3a979cf390c6061a138 \
+    --hash=sha256:ed6399e42384f55886ba1c9947496beb81f6e6b9f15cd90b3013a78baf6649ab
     # via
     #   ansible
     #   vpn-infra
