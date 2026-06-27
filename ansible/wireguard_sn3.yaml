@@ -656,9 +656,9 @@ wireguard_configs:
     PEER_PUBLIC_KEY: d+5wB8kH2bu+h15uo+HWlB74/HP+zN/KG47AWNI+cTM=
     INTERFACE_ADDRESS: "10.70.249.22/31"
 
-    # For Tony Perz laptop
+    # For Tony Perez laptop
   - NAME: ynotperez
-    PORT: 51820
+    PORT: 51993
     PEER_PUBLIC_KEY: IHAthJq00MwuJogGxtxkF0hNHjmiv7Qt4Md21+JK/B8=
     INTERFACE_ADDRESS: "10.70.249.24/31"
 
