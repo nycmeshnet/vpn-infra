@@ -662,6 +662,12 @@ wireguard_configs:
     PEER_PUBLIC_KEY: IHAthJq00MwuJogGxtxkF0hNHjmiv7Qt4Md21+JK/B8=
     INTERFACE_ADDRESS: "10.70.249.24/31"
 
+    # For Steve G
+  - NAME: stevenleeg
+    PORT: 51994
+    PEER_PUBLIC_KEY: kIG7IugVPpVR0A7DNolUOPpy9Hz5fbc5le5+OPFBO1I=
+    INTERFACE_ADDRESS: "10.70.249.26/31"
+
     # ADD NEW ROAD WARRIORS ABOVE THIS LINE
 
     ### Site-to-site only
