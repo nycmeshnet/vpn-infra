@@ -219,7 +219,20 @@ wireguard_configs:
     BFD_ENABLE: true
     BFD_INTERVAL: 500ms
     BFD_MULTIPLIER: 10
-    # NOTE: the next available IP is "10.70.249.137/30" :)
+    
+    # For NN310 NYC Resistor
+  - NAME: nn310
+    PORT: 51921
+    PEER_PUBLIC_KEY: FAhbxelybegcYEn43pBKnarxP/bmE/pTqINVtox/vHk=
+    INTERFACE_ADDRESS: "10.70.249.136/30
+    NEIGHBORS: 10.70.249.137
+    TX_LENGTH: 1420
+    COST: 100
+    BFD_ENABLE: true
+    BFD_INTERVAL: 500ms
+    BFD_MULTIPLIER: 10
+    
+    # NOTE: the next available IP is "10.70.249.140/30" :)
 
     ### Road Warriors
 
