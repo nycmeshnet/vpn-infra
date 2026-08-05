@@ -205,6 +205,12 @@ wireguard_configs:
     PEER_PUBLIC_KEY: IILzKvhJ6DJjRZlbk7fg0sAepeebs9fHgYZpge391Fg=
     INTERFACE_ADDRESS: "10.70.247.26/31"
 
+    # Leon (pi1 home server road warrior)
+  - NAME: leonpi1
+    PORT: 51993
+    PEER_PUBLIC_KEY: y1dVHGnhsH17Gd93iNGw55RdgVIRHrjwSqnRf2ilvDQ=
+    INTERFACE_ADDRESS: "10.70.247.28/31"
+
 
     ### Site-to-site
 
