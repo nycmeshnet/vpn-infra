@@ -8,7 +8,7 @@ updates:
   assignees:
    - "james-otten"
 - package-ecosystem: "terraform"
-  directory: "/"
+  directory: "/terraform"
   schedule:
     interval: "cron"
     cronjob: "4 7 * * *"
