@@ -11,6 +11,15 @@ wireguard_configs:
     TX_LENGTH: 1420
     COST: 99
 
+    # For MattB NN999
+  - NAME: nn999
+    PORT: 51830
+    PEER_PUBLIC_KEY: GD3E+/oa4ZBfqFr5q9F8jq0PI93iAF44RuRGrN56DDY=
+    INTERFACE_ADDRESS: "10.70.246.125/30"
+    NEIGHBORS: "10.70.246.126"
+    TX_LENGTH: 1420
+    COST: 210
+
 ### Road Warriors
 
     # For James
