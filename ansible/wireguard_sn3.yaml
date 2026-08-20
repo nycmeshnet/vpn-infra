@@ -1,7 +1,7 @@
 wireguard_configs:
-    ### Remote Hubs
+  ### Remote Hubs
 
-    # For the super awesome remote hub NN592
+  # For the super awesome remote hub NN592
   - NAME: nn592
     PORT: 51821
     PEER_PUBLIC_KEY: sD3bVQglZfq2j82or48q+i0R0KdszUPZRkcz4rVqAk8=
@@ -680,6 +680,12 @@ wireguard_configs:
     PORT: 51994
     PEER_PUBLIC_KEY: kIG7IugVPpVR0A7DNolUOPpy9Hz5fbc5le5+OPFBO1I=
     INTERFACE_ADDRESS: "10.70.249.26/31"
+
+    # For Ali Asad Lotia (@aalotia) - Linux laptop
+  - NAME: aalotia
+    PORT: 51995
+    PEER_PUBLIC_KEY: ENYCMvXcgCkZZohc044cOEiG9fyoEoBWNYWKcF34ADI=
+    INTERFACE_ADDRESS: "10.70.249.28/31"
 
     # ADD NEW ROAD WARRIORS ABOVE THIS LINE
 
