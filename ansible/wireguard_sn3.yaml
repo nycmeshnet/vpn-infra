@@ -232,7 +232,7 @@ wireguard_configs:
     BFD_INTERVAL: 500ms
     BFD_MULTIPLIER: 10
 
-    # For NN1037 
+    # For NN1037
   - NAME: nn1037
     PORT: 51922
     PEER_PUBLIC_KEY: GfmhUUvfdKgnqraU7ZGKqkjwZs4FuUyVK1BPas7+QAI=
