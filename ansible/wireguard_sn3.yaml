@@ -700,7 +700,7 @@ wireguard_configs:
     INTERFACE_ADDRESS: "10.70.249.28/31"
 
     # For Henry H road warrior
-    NAME: henryh
+  - NAME: henryh
     PORT: 51996
     PEER_PUBLIC_KEY: Aa2Eh60coIwBZBimo+f0Gf9Hq4pBgdlN+iWwTn9Wows=
     INTERFACE_ADDRESS: "10.70.249.30/31"
