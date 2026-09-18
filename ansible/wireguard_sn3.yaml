@@ -699,6 +699,12 @@ wireguard_configs:
     PEER_PUBLIC_KEY: ENYCMvXcgCkZZohc044cOEiG9fyoEoBWNYWKcF34ADI=
     INTERFACE_ADDRESS: "10.70.249.28/31"
 
+    # For Henry H road warrior
+    NAME: henryh
+    PORT: 51996
+    PEER_PUBLIC_KEY: Aa2Eh60coIwBZBimo+f0Gf9Hq4pBgdlN+iWwTn9Wows=
+    INTERFACE_ADDRESS: "10.70.249.30/31"
+
     # ADD NEW ROAD WARRIORS ABOVE THIS LINE
 
   #   ### Site-to-site only
