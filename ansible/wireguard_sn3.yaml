@@ -705,6 +705,18 @@ wireguard_configs:
     PEER_PUBLIC_KEY: Aa2Eh60coIwBZBimo+f0Gf9Hq4pBgdlN+iWwTn9Wows=
     INTERFACE_ADDRESS: "10.70.249.30/31"
 
+    # For jeremyb - laptop
+  - NAME: jeremyblaptop
+    PORT: 51997
+    PEER_PUBLIC_KEY: stDN47aonhYD9HoAOd4rNKIFQKSTenRJZ6Ot5w/1KRQ=
+    INTERFACE_ADDRESS: "10.70.249.32/31"
+
+    # For jeremyb - phone
+  - NAME: jeremybphone
+    PORT: 51998
+    PEER_PUBLIC_KEY: Pi4oAodM9X+iyUMGBdSbE896Y52FotfoELme8iQ5qT0=
+    INTERFACE_ADDRESS: "10.70.249.34/31"
+
     # ADD NEW ROAD WARRIORS ABOVE THIS LINE
 
   #   ### Site-to-site only
