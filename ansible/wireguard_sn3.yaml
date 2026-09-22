@@ -717,6 +717,12 @@ wireguard_configs:
     PEER_PUBLIC_KEY: Pi4oAodM9X+iyUMGBdSbE896Y52FotfoELme8iQ5qT0=
     INTERFACE_ADDRESS: "10.70.249.34/31"
 
+    # For Jim Martinez from NYIT - Laptop
+  - NAME: jimmartinezlaptop
+    PORT: 51999
+    PEER_PUBLIC_KEY: yVY94DEMFIVsPgjodhpZOnMnH7HqEFo3Kd91T4+B6E4=
+    INTERFACE_ADDRESS: "10.70.249.36/31"
+
     # ADD NEW ROAD WARRIORS ABOVE THIS LINE
 
   #   ### Site-to-site only
