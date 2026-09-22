@@ -702,7 +702,7 @@ wireguard_configs:
     # For Henry H road warrior
   - NAME: henryh
     PORT: 51996
-    PEER_PUBLIC_KEY: Aa2Eh60coIwBZBimo+f0Gf9Hq4pBgdlN+iWwTn9Wows=
+    PEER_PUBLIC_KEY: i4kj8KRqNheGOQD8gNIGdR4R5atAD6fjhBF1GhqwUAI=
     INTERFACE_ADDRESS: "10.70.249.30/31"
 
     # For jeremyb - laptop
