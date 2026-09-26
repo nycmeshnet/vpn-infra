@@ -718,9 +718,9 @@ wireguard_configs:
     INTERFACE_ADDRESS: "10.70.249.34/31"
 
     # For Jim Martinez from NYIT - Laptop
-  - NAME: jimmartinezlaptop
+  - NAME: jmartlaptop
     PORT: 51999
-    PEER_PUBLIC_KEY: yVY94DEMFIVsPgjodhpZOnMnH7HqEFo3Kd91T4+B6E4=
+    PEER_PUBLIC_KEY: /EhCVl0Vd2hNhxG51rK1FvPLakSCsw7cPeg1iwJjZ0I=
     INTERFACE_ADDRESS: "10.70.249.36/31"
 
     # ADD NEW ROAD WARRIORS ABOVE THIS LINE
