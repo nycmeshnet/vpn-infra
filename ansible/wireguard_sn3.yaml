@@ -723,6 +723,11 @@ wireguard_configs:
     PEER_PUBLIC_KEY: /EhCVl0Vd2hNhxG51rK1FvPLakSCsw7cPeg1iwJjZ0I=
     INTERFACE_ADDRESS: "10.70.249.36/31"
 
+    # For Nick - Mac
+  - NAME: nickkmac
+    PORT: 52000
+    PEER_PUBLIC_KEY: u709QFI5XMMuLQCMLHsncYO97vXiJmUtIS8xUIDYPGs=
+    INTERFACE_ADDRESS: "10.70.249.38/31"
     # ADD NEW ROAD WARRIORS ABOVE THIS LINE
 
   #   ### Site-to-site only
