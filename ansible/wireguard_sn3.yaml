@@ -728,6 +728,12 @@ wireguard_configs:
     PORT: 52000
     PEER_PUBLIC_KEY: u709QFI5XMMuLQCMLHsncYO97vXiJmUtIS8xUIDYPGs=
     INTERFACE_ADDRESS: "10.70.249.38/31"
+
+    # For Nick - Router
+  - NAME: nickkmac
+    PORT: 52001
+    PEER_PUBLIC_KEY: WB/wi5+ri2KyzaHG7v83mjMXENuEIJHmmA0/zxYsSk4=
+    INTERFACE_ADDRESS: "10.70.249.40/31"
     # ADD NEW ROAD WARRIORS ABOVE THIS LINE
 
   #   ### Site-to-site only
