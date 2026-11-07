@@ -213,6 +213,12 @@ wireguard_configs:
     PEER_PUBLIC_KEY: EHPyG3iZDUxxdbsmktWTM4KTrpuWRNwd/51rs/c3lDY=
     INTERFACE_ADDRESS: "10.70.247.28/31"
 
+    # Art Bodega #20291 (Monique)
+  - NAME: artbodega
+    PORT: 51848
+    PEER_PUBLIC_KEY: a0grFovXYZP8XixC5Kjnl6pXut7YZcONI1prT4EXUXk=
+    INTERFACE_ADDRESS: "10.70.247.30/31"
+
   #   ### Site-to-site
 
   #   # SN10 -> SN3
